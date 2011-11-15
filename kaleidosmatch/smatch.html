@@ -1,0 +1,926 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Smatch</title>
+    <link rel="stylesheet" href="../static/css/vj12.css" type="text/css" media="screen" charset="utf-8" />
+    <style type="text/css" media="screen">
+        h3,
+        div + div {
+           margin-top: 2em;
+        }
+        p + p {
+            text-indent: 2em;
+        }
+        p:first-child {
+            text-indent: 0;
+        }
+        img {
+            max-width: 100%;
+        }
+        .extracts {
+            font-style: italic;
+        }
+        iframe {
+            -moz-transform: scale(0.25, 0.25);
+            width: 1024px;
+            height: 768px;
+            margin: -290px -380px;
+        }
+    </style>
+    <script src="../static/js/jquery-1.6.4.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function(){
+            $("a").click(function(e){
+                e.preventDefault();
+                src = $(this).attr("href");
+                if ($(this).next().attr("id") != src) {
+                    $(this).after("<iframe src='" + src + "' id='" + src + "'></iframe")
+                } else {
+                    $(this).next().remove();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+
+    <h2>Smatch (1), a genesis</h2>
+
+
+    <blockquote>“Si je me suis intéressée aux animaux, C'est d'abord
+    parce que j'ai été très attirée par le caractère de leurs
+    spécialistes: ce sont des gens passionnés, joyeux et extrêmement
+    inventifs.” (Vinciane Despret)</blockquote>
+<div>
+    <img src="smatch/smatch.jpg" />
+</div>
+<div>
+     <p>
+     <em><a href="http://www.lecorridor.be/Sp-smatch.php">Smatch</a></em> was born from the carte
+    blanche I received from <a href="http://performingarts.jp/E/pre_interview/0802/1.html">Cristophe Slagmuylder</a>,
+    <a href="http://www.kfda.be/">KFDA</a>’s director. I could do
+    whatever I wanted: a show, a performance, an exhibition … quite an
+    open offer.
+        </p>
+    <p>After thinking about it for a couple
+    of days (I had nothing going on at the time), I proposed a form
+    which I would call<em>Smatch</em>.</p>
+</div>
+<div>
+    <p><em>Smatch</em> is a contraction of two
+    conflicting verbs: <a href=
+    "http://www.thefreedictionary.com/smash">to
+    smash</a> (break, wreck) and
+    <a href="http://www.thefreedictionary.com/match">to match</a> (correspond, go
+    together).</p>
+
+    <p><em>Smatch</em> sounds like good English, and it also sounds like bad English;
+    in that way, it is a knowing wink at our poor knowledge of
+    languages in <a href=
+    "http://www.belgiumtheplaceto.be/wallonia.php">Wallonia</a>.</p>
+
+    <p>I had been dreaming for a while of finding a space, a
+    place where one could stop and think joyously with the audience and
+    with the actors.</p>
+
+    <p>The theme of the <em>Smatch (1)</em> – there will be others –
+    bears the following title: <em>Drive a monkey
+    crazy and you bring a crazy monkey into being</em>.</p>
+
+    <p>It’s a reaction to the sense [sensation might work
+    better] that over the past several years we have been plunged
+    deeper and deeper and faster and faster into a catastrophism (I’ve
+    been fighting that against for years) that ultimately smashes us
+    under the weight of impotence.</p>
+</div>
+<div>
+    <p>The
+    title, <a href=
+    "http://culture.ulg.ac.be/jcms/prod_198088/ethologie-philosophie-dramaturgie?part=2">
+    Drive a monkey crazy and you’ll bring a crazy
+    monkey into being</a>, is inspired by an
+    experiment conducted by <a href=
+    "http://www.muskingum.edu/~psych/psycweb/history/harlow.htm">
+    Harry Harlow</a>, a famous American
+    psychologist who wanted to show his peers the psychological damage
+    that might afflict a child deprived of a bond to his or her mother.
+    To do that, he bust up hundreds of baby
+    rhesus monkeys (he separated from their mothers at birth to put
+    them in cages) solely for the purposes of giving statistic proof
+    for something that everyone had known already for quite some time …
+    The study was conducted right after WWII, and people had already
+    started to notice that children in many orphanages were suffering
+    enormous trauma.</p>
+
+    <p>I had also been wanting to work
+    with animals for a while. The title, taken from a sentence in a
+    book by <a href=
+    "http://vincianedespret.blogspot.com/">Vinciane Despret</a>
+    (<a href=
+    "http://www.betesethommes.fr/"><em>Bêtes et
+    Hommes</em></a>), sent me back to my
+    ‘pre-Conservatory’ days – I started at the Conservatory when I was
+    thirty; before that, I had worked for eight years as an social
+    assistant in a psycho-medical-social centre.</p>
+</div>
+
+
+    <h3>Expectations&hellip;</h3>
+
+<div>
+    <p>That period
+    of my life – I am telling you about this because that period and my
+    stage work intersect in places – allowed me to meet early on people
+    who prompted me to think about the foundations that would continue
+    to guide my life. The phenomenon of expectation, for example.
+    During a university summer course (these exist in France), I got to
+    work with Odette and Henri Bassis, the founders of the
+    <a href="http://www.gfen.asso.fr/fr/historique">Groupe Français d’Éducation Nouvelle</a>, a militant pedagogical movement very much engaged with the
+    problem of how to guarantee that all children pass while
+    maintaining a very high standard. A day of the conference was
+    devoted to discussing the question of expectation in the learning
+    process.</p>
+
+    <p>And there came the shock … Suddenly, I felt I
+    understood deep down to which extent when one expects
+    something from a person or situation (something that is not there
+    at the outset), one arranges everything (more often than not
+    unconsciously) to ensure the realization of the expectation.</p>
+</div>
+<div>
+    <p>Secondly, it
+    didn’t take long for my first job to give me the impression that
+    things had already been decided and settled, and this before they
+    had happened and regardless of the desires of individuals. My role
+    was in fact determined by the institution: contact the parents of
+    children who were having problems at school, study the source of
+    the problem with them, and help the family find
+    solutions.</p>
+
+    <p>My role was predetermined. What the institution
+    wanted – that is what I want to get to – was one thing, and what I
+    wanted was another. Invariably, there was conflict between what I
+    wanted to do, and what the institution asked me to do. Teachers
+    wanted to distance themselves from the failures of one or another
+    child, and my mission was to meet the families of the kids in
+    question and basically tell them that they had to find a different
+    way to take care of their kids; and psychologists from the PMS, on
+    their side, clung to their functions a examiners/councilors, and
+    they rarely did anything other than what the teacher wanted them to
+    do, viz.: say that the student had psychological or family problems
+    and thus had to be directed towards schools for special learning,
+    unless the family shaped up. The responsibility for solving school
+    problems was always extrinsic to the school itself.</p>
+
+    <p>I actually spent a great deal of
+    time turning down the requests of teachers after having analyzed
+    them. To make them assume their responsibilities, to make them
+    committee to working in the classroom (inventing new organizations) to make sure that all the children
+    in the class – especially the ones for whom studying at home was
+    impossible – passed. I also quickly abandoned the idea of meeting
+    families whose failing track record at school could sometimes stretch across three generations and who were
+    beset by social problems to tell them that they had to change their
+    attitude at home for their kid to be able to thrive at
+    school.</p>
+
+    <p>The second enduring lesson I learned while working in
+    the fields of institutional analysis and institutional psychology
+    is that the institution, and hence the organization that
+    underwrites it, makes the person, so that by changing institutions,
+    the person is – almost naturally – transformed.</p>
+
+    <p>These reflections prompted two institutional changes
+    in the PMS centre I used to work at. One is that psychologists
+    stopped giving teachers the results of the IQ tests administered to
+    the students; the second is that a bad record did not follow the
+    student from one school to another.</p>
+
+    <p>I continued to cope with those contradictions until
+    the incident with Simon, another story of humans and animals. A
+    teacher wanted Simon, who was five, to do the third year of
+    kindergarten over again. According to her, Simon was already having
+    enormous problems at school, even though he hadn’t even learn to
+    read and write yet.</p>
+
+    <p>She read the story of the little prince to the class
+    and asked all the children – all of them – to draw a flock of
+    sheep. And Simon drew only one goat.</p>
+
+    <p>To her eyes, this was proof that the kid had all
+    manner of problems: ‘Look at that. I asked all the kids to draw a
+    flock of sheep, and Simon drew a single goat instead!’ He didn’t
+    know how to count — that was the first problem. ‘And when I asked
+    him where the other sheep were, Simon answered: “They are hiding
+    behind the goat”’. And there was the second problem: he was lazy
+    and rebellious.</p>
+
+    <p>This child embodied all the qualities I hold dear: he
+    managed to evade a normative response and, what is more, he did so
+    with a poetic gesture that I found marvelous.</p>
+
+    <p>And so I told myself that it was time to go, to
+    change scenes in order to be able to invent new ones, where I would
+    try to be more in sync with my own ideas. I chose the stage, a
+    neutral place, a black box where everything must be reinvented with
+    each new project.</p>
+</div>
+
+
+
+    <h3>… and resistance</h3>
+
+<div>
+    <p>Besides the
+    phenomenon of expectation, institutional analysis, and the
+    organization of power (whether liberating or not), my professional
+    engagement is guided by the question of resistance.</p>
+
+    <p>I come from <a href=
+    "http://maps.google.com/maps?client=ubuntu&amp;channel=fs&amp;q=Li%C3%A8ge&amp;oe=utf-8&amp;um=1&amp;ie=UTF-8&amp;hl=en&amp;sa=N&amp;tab=wl">
+    Liège</a>, a city where
+    the culture of change is channeled through the idea that, to get
+    what one wants, one must seek out the enemy, face him, penetrate
+    the institutions of power, unseat the existing power and replace
+    it.</p>
+
+    <p>On that front, I have always been
+    partisan to the idea that <em>things happen on
+    the periphery and not in the centre</em>,
+    as <a href=
+    "http://muller-kluge.library.cornell.edu/en/video_exp.php?f=109">
+    Heiner Müller</a> says. And we know
+    nowadays what happened to revolutions when revolutionaries took
+    power.</p>
+
+    <p>The major split in the history of
+    resistance is rather recent. It dates from the movement of the
+    Indians in <a href=
+    "http://books.google.be/books?id=0Rw8x4dZsf4C&amp;printsec=frontcover&amp;dq=chiapas&amp;hl=nl&amp;ei=cpOdTvegIPOK4gSSlM3CCQ&amp;sa=X&amp;oi=book_result&amp;ct=result&amp;resnum=4&amp;ved=0CEQQ6AEwAw#v=onepage&amp;q&amp;f=false">
+    Chiapas</a> who, with <a href=
+    "http://www.youtube.com/watch?v=5OTy3aLBSMw">Subcommander
+    Marcos</a>, led a revolution whose goal was not to
+    take power, but to reclaim their land, to be able to work it and to
+    live on it as they wished. He is the first revolutionary not interested in power. <a href=
+    "http://1libertaire.free.fr/miguel.html">Miguel
+    Benasayag</a> analyzes this phenomenon very
+    well: one becomes powerless when one seizes power. Currently, a
+    number of resistance movements – and I think Constant is one as
+    well – are working to create networks and situations in which
+    people can reinvent worlds without taking power and without
+    imposing their view on everyone else.</p>
+</div>
+
+
+
+
+    <h3>Les pas perdus</h3>
+
+<div>
+    <p>So, coming
+    back to my second job: I enrolled in <a href=
+    "http://www.crlg.be/template-narrow.asp?id=accueil">Liège’s Conservatory of Dramatic Arts</a> when I was thirty, to learn the craft of acting. I wanted to
+    be able to start working on my own collective projects – rather
+    than acting for others – as soon as possible. The bulk of my work
+    tells stories about social development, but always on the poetic
+    more than on a militant realistic register.</p>
+
+    <p>With <em>Smatch</em>, I want to continue showing
+    that the poetic register and that working against the grain does
+    not prevent politics in the least.</p>
+
+    <p>When I received the invitation to
+    the <a href="http://www.constantvzw.org/vj12/">Jonctions Festival</a>, I reviewed my
+    previous projects and noticed that, in each of them, I went against
+    the grain of common sense in one way or another.</p>
+
+    <p>The dramaturgic idea for my first
+    piece, <a href=
+    "http://www.lecorridor.be/Sp-pasperdus.php">les
+    pas perdus</a>, was to talk about fear,
+    without being overly fastidious about how. Fear is everywhere: it
+    blocks us, it is paralyzing. But it is also the first survival
+    mechanism. An enlarged creativity and a boundless imagination are,
+    most probably, a product of fear. A person in fear imagines to him
+    or herself the most beautiful scenarios in the world.</p>
+
+    <p>It was an ambulatory performance in Liège’s abandoned
+    train station. There, the audience met a number of characters who
+    had lost their jobs. They had stayed at the train station after it
+    was closed, and developed certain problems linked to solitude …</p>
+</div>
+<div>
+    <img src="smatch/pasPerdus03.jpg" />
+    <img src="smatch/pasPerdus04.jpg" />
+</div>
+<div class="extracts">
+    <p>Il y a quelques années, il y
+    avait un type qui travaillait ici, dans la gare. Il était au
+    guichet. C'est lui qui remplissait les billets, qui réservait les
+    places des voyageurs. Il vivait seul. La gare était devenue toute
+    sa vie. Il n'imaginait pas qu'il puisse y avoir autre chose dans la
+    vie en dehors du train. Il essayait de faire de son mieux pour
+    qu'ils passent un bon voyage . Mais il faisait le bonheur des gens
+    un peu malgré eux. Quand un couple lui demandait un billet pour
+    Vienne, il voulait tellement les savoir seuls dans un tunnel qu'il
+    les envoyaient à Vienne par le Mont-Blanc. Quand un gars qui avait
+    des cernes sous les yeux lui demandait un billet pour Lyon, il
+    l'envoyait en couchette par Marseille pour qu'il est le temps de se
+    reposer.
+    </p><p>
+    Au bout du compte, la direction a commencé à recevoir tellement de
+    lettres de réclamation à son sujet, qu'ils ont été obligés de le
+    virer. Ça a été une catastrophe pour lui. Il n'avait rien d'autre
+    que la gare. Alors même s'il n'y avait plus rien à y faire,
+    il revenait ici tous les jours. Il
+    traînait dans la gare avec cette petite valise. Il ne parlait
+    plus à personne, il ne semblait pas nous
+    reconnaître. Au début, il paraissait tellement perdu, qu'il
+    choisissait des voyageurs à la descente du train, et il se mettait
+    à les suivre. Il savait tellement peu où aller qu'il préférait que
+    les autres choisissent à sa place, peu importe où.
+    </p><p>
+    Il suivait les gens. Mais personne ne voulait se laisser suivre par
+    lui, il avait l'air tellement perdu. Personne ne voulait de lui,
+    alors en désespoir de cause, il revenait à la gare dans l'espoir de
+    suivre quelqu'un de plus compréhensif; Mais ça n'a jamais marché,
+    alors il n'a plus quitté la gare. Il tournait en rond dans le hall.
+    Il marchait bizarrement, l'air penché (il montre), il se déplaçait lentement, lentement; Parfois il essayait
+    de grimper au mur, ou de rentrer dans une plaque
+    d'égout.</p>
+    <p>Puis un jour, il y exactement un an, il est venu à la
+    consigne. Son état semblait s'être aggravé, il marchait pieds nu.
+    On aurait dit qu'il avait capitulé. Il m'a tendu sa valise. Il m'a
+    dit "Garde moi bien ça, c'est ce que j'ai de plus précieux au
+    monde". Et puis il est parti, et on ne l'a plus jamais revu…</p>
+</div>
+
+
+
+
+    <h3>Le paradis des chiens</h3>
+
+<div>
+    <p>In the
+    second piece, <a href=
+    "http://www.lecorridor.be/Sp-paradisdeschiens.php">le paradis des chiens</a>, there were
+    seventeen old actors on the stage; eight of them were over eighty
+    years-old. Six were professionals, the others were
+    amateurs.</p>
+
+    <p>While in New York for a six-month stay, I met an old
+    homeless man, and I asked myself the question: what keeps him alive
+    in spite of all the hardship? That led me to ask myself about how
+    we might be able to speak about old age, not nostalgically, but in
+    the present.</p>
+
+    <p>I asked several old people if they would be willing
+    to talk to me about their condition today and about how they could
+    say that they were still alive, still able to do projects, to
+    resist, fight, create … in sum, still engaged with life. </p>
+
+    <p>We had a very small budget for a group of twenty-five
+    people. Of the seventeen actors, most had never set foot on a
+    stage. My expectation at the start of this adventure was the
+    following: to create the possibility for people who have nothing in
+    common to be able – at a particular moment and for a specific
+    reason – to organize and create something as a group, in common (be
+    it a theatrical piece or something else). The group consisted of
+    academics, trash collectors, Walloons, Flemings, and people with
+    different cultural and social backgrounds.</p>
+
+    <p>We approached the subject through
+    the metaphor, substituting a poetic discourse for the language of
+    the militant. The cast had built their circus and each number
+    represented, metaphorically, a social reality. (For example:
+    the <em>réveil des fauves</em> sequence was a choreography in which old bodies wrapped in
+    sheets swayed to the infernal cadences generated by collective
+    organizations).</p>
+</div>
+<div class="extracts">
+    <p>Ladies and gentlemen, Meine damen und heren Mesdames, mesdemoiselles et
+    messieurs, Cher public, Merci et bonsoir. Heureux et fier des
+    triomphes récoltés à Pouilly sur Meuse à Vissy-les-Sarts et à
+    Flémoule, Le Paradis des Chiens pose ses papattes dans votre grande
+    cité. Ne dis rien, public adoré, je le vois à tes yeux humides je
+    le sens au frémissement de l’air, vous attendez tous l’Attraction
+    du Siècle, le cirque de tous les défis, de toutes les audaces&hellip;des
+    fauves aux griffes acérées&hellip;des acrobates, des voltigeurs, des
+    magiciens et des hypnotiseurs&hellip; des feux d’artifice, des
+    chansons,
+    des rires et des larmes&hellip; Eh bien, nous allons vous l’offrir,
+    l’attraction tant attendue,
+    le Cirque du Siècle, le Paradis des Chiens. Et pour commencer en
+    beauté, public adoré,
+    voici “Le réveil des fauves”&hellip;la ménagerie sauvage que le monde
+    entier nous envie, des animaux d’une
+    férocité sans pareille&hellip;imprévisibles,impénétrables, presque
+    aveugles et presque sourds, indomptables à cause de cette
+    mystérieuse maladie qui les guette,
+    les pourchasse, les rattrape, et s’abat sur eux sans pitié. Cent
+    fois plus terrible que la peste, redoutablement contagieuse,
+    irrémédiablement fatale, cette maladie laissait espérer une
+    hécatombe naturelle&hellip;Tremblez citoyens car les spécialistes
+    chargés de découvrir leur utilité dans l’éco-système affirment
+    qu’une mutation extraordinaire
+    leur assure aujourd’hui une résistance et une prolifération
+    effrayantes.
+    C’est par hordes entières qu’ils s’immiscent maintenant dans toutes
+    les cités et mettent à sac nos réserves précieuses. Quand on
+    sait, mesdames et messieurs, qu’il suffit de croiser un seul de
+    leurs regards pour être contaminé, on mesurera le courage et la
+    témérité de notre dompteur. Rien que pour vos yeux, public adulé,
+    notre ami Wilfried,
+    le grand, l’immense Wilfried, va encore une fois ce soir exposer sa
+    vie aux regards foudroyants des fauves. Applaudissons-le tout de
+    suite comme il le mérite la tête de Wilfried apparaît par la
+    fente du rideau pendant que le bonimenteur incite le public à
+    applaudir puis Wilfried disparaît rapidement)
+    et, pour ceux qui craignent le pire,
+    (j’en vois déjà qui se cachent derrière ses enfants), un seul
+    conseil:
+    évitez de les fixer droit dans les yeux. (long silence et regard
+    public) And now, ladies and
+    gentlemen, public vénéré, le spectacle peut commencer&hellip;</p>
+</div>
+<div>
+    <img src="smatch/paradis11.jpg" />
+</div>
+
+
+
+
+    <h3>Le dernier chant d'Ophélie</h3>
+
+<div>
+    Another
+    commission, another project: a carte blanche for a street theatre
+    festival. Invent a new<em>entresort</em>, an extremely brief form:
+    you walk in, see something, you walk out.<a title=
+    "Footnote: An entresort is a fair or carnival attraction in which one pays to walk through and see a display. – Trans." href="#ftn1"
+    id="body_ftn1" name="body_ftn1">1</a> Like
+    the headless woman, Spiderman, the beard man or the trunk man. I wanted to question the audience’s
+    voyeurism. I went against the grain of the form. That is to say: I
+    created an <em>entresort</em> (<a href=
+    "http://www.lecorridor.be/Sp-chantophelie.php">le
+    dernier chant d’Ophélie</a>) that contained
+    all the codes of <a href=
+    "http://www.rapidintellect.com/AEQweb/cho3108j5.htm">Walt Disney</a> – the beautiful
+    little mermaid, with perfect red hair … but, in the dry shade of a
+    barge, what the audience was a mermaid drowning in its own tears (a
+    mermaid can only drown in tears). 
+</div>
+<div>
+    <img src="smatch/ophelie05.jpg" />
+</div>
+<div>
+    <p>The public listened to the sailors awestruck. We had
+    cut out a window on a large vat, and when the sailors opened the
+    lid the audience could see the beautiful mermaid and admire a scene
+    worthy of Walt Disney.</p>
+</div>
+<div>
+    <img src="smatch/ophelie01.jpg" />
+</div>
+<div>
+    She
+    sang, cried, and called out to her prince (there were references
+    to <a href=
+    "http://books.google.com/books?id=zLzvKHaeP2kC&amp;printsec=frontcover&amp;dq=Hamlet&amp;hl=en&amp;ei=TLWmTsbLAomg-AbI9oncDw&amp;sa=X&amp;oi=book_result&amp;ct=result&amp;resnum=1&amp;ved=0CC0Q6AEwAA#v=onepage&amp;q=ophelia&amp;f=false">
+    Shakespeare’s Ophelia</a> 
+    and to <a href=
+    "http://books.google.com/books?id=Y7sOAAAAIAAJ&amp;printsec=frontcover&amp;dq=alice+in+wonderland&amp;hl=en&amp;ei=qLWmTsWFH9Dm-gbtu-zcDw&amp;sa=X&amp;oi=book_result&amp;ct=result&amp;resnum=2&amp;ved=0CDIQ6AEwAQ#v=onepage&amp;q=caterpillar&amp;f=false">
+    Lewis Carroll</a>).
+    Meanwhile, the water rose slowly until it finally drowned her. The
+    last image of this beautiful scene was the corpse of the mermaid
+    floating in the vat. The sailors closed the lid, and the play
+    ended. The adult members of the audience were left alone with their
+    problems of conscience. And the kids flooded their parents with
+    questions about death and love.
+</div>
+<blockquote>
+	“La peine de l'eau est infinie” Gaston Bachelard
+</blockquote>
+
+
+
+
+    <h3>Sur les traces d'Oskar Serti</h3>
+
+<div>
+    <p>Another project that went against
+    the grain: a bus ride <a href=
+     "http://www.lecorridor.be/Sp-oscarserti.php"><em>sur
+     les traces d’Oskar Serti</a></em>. This was a
+    guided visit in which a bus followed the traces of the imaginary
+    hero of plastic artist <a href=
+    "http://www.corillon.org/menuPrincipal.html">Patrick Corillon</a>. The most
+    pertinent place was Paris, as part of the <a href=
+    "http://www.quartierdete.com/le-festival/histoire/">
+    festival Paris quartier d’été</a>.</p>
+
+    <p>The public, in the company of a driver and conductor,
+    both from Eastern Europe (the actor had learned to drive the bus
+    for the occasion), were taken by bus to places that ‘cannot be
+    visited’ – ugly, sordid, desolate places, a no man’s land where
+    everything was demolished, or where everything still had to be
+    constructed. Places, in sum, where a new world could be constructed
+    simply by dint of the stories narrated by the two guides.</p>
+
+    <p>It was amusing to go against the grain of the
+    expectations conjured up by a guided visit to Paris: expecting to
+    visit the City of Lights, you suddenly find yourself going to all
+    sort of ‘uninteresting’ places, like Aubervilliers, Saint-Denis,
+    …</p>
+</div>
+<div>
+    <img src="smatch/sertiBus.jpg" />
+</div>
+<div class="extracts">
+    <p><strong>Tatiana:</strong>
+    Chers visiteurs, nous arrivons à la fin de la
+    visite. Après la rupture avec sa pianiste, nous savons
+    qu’Oskar quitta&hellip;&hellip;&hellip; en 1921</p>
+    <p><strong>Hermanus</strong>:
+   &hellip;!!!</p>
+
+    <p><strong>Tatiana: </strong> 
+    (elle coupe Hermanus avant qu’il ne la
+    corrige) ou 1922 suivant les
+    versions et il voyage à nouveau&hellip;il continue sa vie d’exilé
+    dans d’autres pays, dans le monde entier. Mais à la fin de sa vie,
+    il revient ici, rappelé par la 
+    (TV de la région où l’on effectue la
+    visite). qui lui commande un
+    film sur sa vie,&hellip; un film autobiographique. Après trois années de
+    travail acharné, Serti acheva enfin son film, qui retraçait dans
+    les moindres détails sa vie mouvementée d’exilé hongrois. Mais,
+    lors de l’avant première, les producteurs refusèrent de distribuer
+    un film qui durait plus de sept heures et sommèrent Oskar Serti de
+    le réduire à un maximum de deux heures dix minutes. Oskar Serti ne
+    pouvait voir ainsi son œuvre amputée pour une simple question
+    de minutage. Après le départ des producteurs, il resta seul en
+    salle de projection pour visionner une dernière fois son film dans
+    l’état où il l’avait conçu. Il en profita au passage pour
+    photographier l’écran avec un appareil dont le temps de pose
+    correspondait exactement à la durée de son film. Après quoi, il
+    détruisit toutes les copies existantes de son film. Le lendemain,
+    il laissa sur le bureau des producteurs un exemplaire de cette
+    photographie , leur disant que pour lui, cette trace était le
+    seul résumé valable de son œuvre.</p>
+
+    <p>Mesdames, messieurs, veuillez
+    ouvrir votre Kit Serti Tour pour admirer cette oeuvre
+    photographique&hellip;
+    (les spectateurs ouvrent une enveloppe dans laquelle ils
+    découvrent un carton blanc&hellip;vide pendant que Tatiana va annoncer
+    discrètement au rom que c’est ici qu’ils s’arrêtent. Le rom et son
+    gamin descendent pendant qu’Hermanus se dirige vers l’arrière du
+    car. On entend le rom qui remercie Hermanus)</p>
+
+    <p><strong>Tatiana:</strong> 
+    Mesdames et Messieurs, c’est ici que s’achève notre visite.
+    Veuillez remettre la photo dans son enveloppe car ce qui appartient
+    à Serti Tour appartient à Serti Tour. Si vous désirez acheter un
+    petit souvenir de votre visite, veuillez nous retrouver à l’arrière
+    du car)</p>
+</div>
+
+
+
+
+
+    <h3>Modest proposals</h3>
+
+<blockquote>
+    “J'admets qu'il s'agit d'un comestible assez cher, <br />
+    Et c'est pour quoi je le destine aux propriétaires terriens:<br />
+    Ayant déjà sucé la moelle des pères,<br />
+    Ils semblent les mieux qualifiés pour manger la chair des fils.”<br /> 
+    Jonathan Swift
+</blockquote>
+<div>
+    <p>The
+    overarching question is always the same: how to put the audience on
+    its guard, how to nudge it into a joyful questioning?</p>
+
+    <p>I had also once been asked to
+    conceive a show for teenagers, and the question at the centre
+    of <em>Smatch</em> 
+    crystallized for me then. What I proposed was a conference
+    with three panels, as it were. For that performance, we
+    staged <a href=
+    "http://www.victorianweb.org/previctorian/swift/swiftov.html">
+    Jonathan Swift</a>’s <a href=
+    "http://books.google.com/books?id=jmM4AAAAIAAJ&amp;pg=PA287&amp;dq=Jonathan+Swift%E2%80%99s+A+modest+proposal+for+preventing+the+children+of+the+poor+in+Ireland,+from+being+a+burden+on+their+parents+or+country,+and+for+making+them+beneficial+to+the+public&amp;hl=en&amp;ei=nbmmTojnB8Tu-ga9gYXLDw&amp;sa=X&amp;oi=book_result&amp;ct=result&amp;resnum=1&amp;ved=0CCwQ6AEwAA#v=onepage&amp;q&amp;f=false">
+    A modest proposal for preventing the children of the poor in
+    Ireland, from being a burden on their parents or country, and for
+    making them beneficial to the public</a>.
+    The essay was written in 1729, and in it Swift
+    suggests the following, radical solution to the problem of poverty:
+    the poor could sell their one year-old babies to the rich, who
+    could use them for food. This would reduce poverty, and stimulate
+    the economy.</p>
+
+    <p>I added a second panel to that: the
+    biography of Nicoletta, a young Hungarian woman who had come to
+    Liège and who narrated the story of her life. It bore the
+    title <a href=
+    "http://www.lecorridor.be/Sp-modestespropositions.php"><em>A modest testimony to prevent children from being in charge
+    of all the World’s sadness and to make them in spite of everything
+    aware of life’s many possibilities</em></a>.</p>
+
+    The third panel was an initiative
+    for the auto-social construction (a practice of the
+    GFEN) <a title=
+    "Footnote: A démarche d’auto-socio-construction is an approach practiced by the Groupe français d’education nouvelle." href="#ftn2"
+    id="body_ftn2" name="body_ftn2">2</a> of a
+    common knowledge around a place where it was still possible to
+    resist.
+</div>
+
+
+
+
+    <h3>L'opéra bègue</h3>
+
+<div>
+    <p>There was
+    also <a href=
+     "http://www.lecorridor.be/Sp-operabegue.php"><em>>L’opéra bègue</em> (The
+    stuttering opera)</a>, where one work of the title
+    goes against the grain of the other. Indeed, the two words cancel
+    each other out.</p>
+
+    <p>It’s a musical piece made in
+    collaboration with the philosopher <a href=
+    "http://www.pieterdebuysser.com/">Pieter de
+    Buysser</a> and with composer
+    <a href="http://www.tienstiens.org/node/852">Dick
+    Van der Harst</a>, from LOD. We used
+    <a href=
+    "http://books.google.com/books?id=2xAum1r8y5MC&amp;printsec=frontcover&amp;dq=Kafka%E2%80%99s+%E2%80%98Metamorphosis&amp;hl=en&amp;ei=_bqmTqb-AtGN-wa785G0Dw&amp;sa=X&amp;oi=book_result&amp;ct=result&amp;resnum=2&amp;ved=0CDIQ6AEwAQ#v=onepage&amp;q&amp;f=false">
+    Kafka’s ‘Metamorphosis</a>' as our starting point, but we
+    changed the ideas.</p>
+
+    <p>The text of Kafka’s ‘Metamorphosis’ is extremely
+    powerful as well as absolutely sordid. And so we tilted the piece
+    towards delirium, to allow it rouse the family (itself adrift in
+    petit-bourgeois values), and to allow delirium (a young bride wakes
+    up the day before her wedding with a tree growing from her mouth)
+    to spark a joyful and poetic chaos. I asked Pieter to keep the
+    following image in mind as he was writing the play: the members of
+    the audience, as soon as they had been seated on their comfortable
+    seats, had to be immediately destabilized and pushed towards a new
+    discomfort, a new questioning. </p>
+
+    <p>The set was made of mattresses, and the characters,
+    caught in their comfort and their mediocre petit-bourgeois
+    mentality, moved awkwardly across the soft stage.</p>
+</div>
+<div>
+    <p>And then came <em>Smatch</em>.</p>
+</div>
+
+
+
+
+
+    <h3></a>Smatch</h3>
+
+<div>
+    <p><em>Smatch</em>: a <em>soirée composée</em>/performance presented
+    as a laboratory for ideas. We tried to find a form in which
+    different points of view could intersect, clash. Something like a
+    stroll inside philosophy, art, poetry, politics, life, a stroll
+    that would give the spectator the freedom to choose the path he or
+    she wanted tread. Starting from an anecdote or current event, we
+    tried to find an approach that would allow people (ludically, if
+    possible) to construct an idea or thought together by using the
+    strategy of going against the grain. The formula we used for the
+    performance was one that could subsequently be varied with new
+    guests and new themes. </p>
+</div>
+<div>
+    <img src="smatch/smatch08.jpg" />
+</div>
+<div>
+    The
+    prophecy with the most traction today is that the world will come
+    to end. In the shadow of that prophecy human finitude becomes the
+    only possible truth. But this at the price of overlooking or
+    forgetting the thousands of examples that
+    attest to the human capacity for thinking, imagining, cooperating.
+    It is no surprise that our societies should find themselves plunged
+    into a sense of impotence and retreat that favors stasis and the
+    ethos of ‘every man for himself’. We want to continue living with
+    the idea that it is not over for human being and thus give humanity
+    a chance to continue its construction. The starting point for this
+    first <em>Smatch</em> was a
+    strange map of Belgium I found in a guide to cultural institutions
+    in Flanders. The northern side of the map, the Flemish side, shows
+    Flanders’ various provinces, each of them illustrated with warm
+    colors, and the names of various places. The southern half,
+    Wallonia, conversely, is depicted in a uniform pale blue, and is
+    deserted. There are only three place names: Hornu, Charleroi, and
+    Eupen. Liège, Mons, Namur, and so on have all disappeared! This
+    strange cartography attests to the peculiar gaze through which one
+    region of the country sees the other. It is a perfect illustration
+    of how the process of expectations ends up creating a new reality.
+    As an answer to this rather reductive representation, I thought:
+    why not populate this deserted Wallonia with intelligent animals
+    and make the desert dunes sing? Given that the desert
+    …
+
+    <p>It was a nice, amusing starting point to talk about
+    our concerns.</p>
+
+    <p>How can we talk about the problem of expectations
+    without incurring conflict, without wading into an extremely
+    complex and long situation, as Belgian history certainly is,
+    without falling into the trap of stating the obvious and taking
+    recourse in clichés? We wanted to give an answer that allowed us to
+    be elsewhere, an answer that would come at the question indirectly.
+    We wanted to think, not against, but with difference – using the
+    strategy of going against the grain. </p>
+
+    <p>The piece opens with a projection of
+    the map of Belgium and with a naïve conversation about this
+    representation. We’ve put Wallonia into a sort of sea that is
+    perhaps a desert, as it is not populated. And, since we were at it,
+    we populated it with animals. While we discuss the issue,
+    <a href=
+    "http://www.lecorridor.be/videos/videosSmatch1.html">Mr. Delmotte</a>, performer</span>
+    and artist, is drawing. He redraws Wallonia’s
+    outline, making it look a pig, and he populates our blue part, this
+    desert, with pigs … </p>
+</div>
+<div>
+    <p>The space is
+    bifrontal (in echo of the two communities), but it also brings the
+    audience into a lab (the public examines the issue with the
+    actors). The actors are always visible and
+    always very close to the audience: we are in a research space, and
+    we are trying to construct meaning together throughout the length
+    of the piece. Two screens are mounted on rails; they are
+    mobile.</p>
+
+    <p>We imposed a very rigid constraint
+    on our starting point: an alphabet composed of the letters that
+    make up the word <em>smatch</em>. It is through this alphabet that the piece articulates its
+    journey through thought. We wanted to end with the word
+    <em>possibilities</em>, and we
+    chose to project that last word of the evening in Ducth:
+    <em>mogelijkheden</em>. The word
+    only appears in Dutch. </p>
+
+    <p>Two paths intersect.</p>
+
+    <p>The path travelled by
+    <a href="http://reflexions.ulg.ac.be/cms/c_25500/we-are-made-like-rats">
+    Vinciane Despret</a>, a
+    philosopher who has spent more than ten years studying not only
+    animals but also, and above all, scientists, trainers, animal
+    lovers, and others who have strong bonds with their animals. Her
+    work is about all those who have transformed the way we look at
+    animals, and who have been transformed in their turn by animals.</p>
+
+    <p>The example of the great British
+    primatologist <a href=
+    "http://vincianedespret.blogspot.com/2010/04/sheep-do-have-opinions.html">
+    Thelma Rowell</a> is
+    eloquent: after studying monkeys for fifty years, she decided,
+    after having retired, to study sheep. She wanted to ask more
+    intelligent questions of them then how their meat can become a
+    tasty morsel on our plates. She settled on a farm in England’s wild
+    countryside with a flock of sheep. She had decided to take the time
+    necessary to observe them, to put them into a situation comprised
+    of all the conditions that allowed the animal to be in another
+    condition and to discover the capacities and the forms of
+    intelligence of sheep. </p>
+
+    <p>We read Vinciane’s books, we recorded her, we spoke
+    to her at length before choosing the words we thought suitable to
+    articulate the piece’s journey through thought.</p>
+
+    <p>The first word we chose was
+    <em>syntax</em>. <a href=
+    "http://vincianedespret.blogspot.com/">Vinciane Despret</a>
+    discusses the notion of <em>agency</em>, by which we are to understand
+    the faculty of acting, of investing other worlds and other modes of
+    being than the human with intentional power. She is, incidentally,
+    working on the notion of <em>agency</em>
+    in the dead: how to attribute intention to the
+    dead?</p>
+
+    <p>Another word, <em>contrary</em>, addressed the question of
+    thinking with and not against. I recommend reading <a href=
+    "http://vincianedespret.blogspot.com/">Vinciane
+    Despret</a>’s <a href=
+    "http://reflexions.ulg.ac.be/cms/c_12743/etre-bete"><em>Être bête</em></a>, based on her research
+    on breeders and on their answers to her questions about the
+    difference between being human and being animal. All breeders had
+    some sort of link to the animal, and all spoke of resemblances…</p>
+
+    <p>The show could be read on two levels. The first level
+    is that of learning to know the animal better. The second is that
+    of a reflection on how we can import the manner in which
+    ethnologists address and study all that is foreign to us …</p>
+</div>
+<div>
+    <p>We combined
+    and crisscrossed Vinciane’s path with the path of someone who
+    studies the song, the music of sand dunes (since there is desert on
+    the map). </p>
+</div>
+<div>
+    <p>We knew from
+    the start that we wanted to talk about those two things, but we had
+    no idea how we would interweave them. We pondered this on the stage
+    and we found the answer together. There is a moment, for example,
+    when we play with sand. This is followed by
+    a short performance with layers of superimposed colours (the
+    colours are those of the Belgian flag), after which
+    we blow the sand, giving the illusion of the
+    Belgian flag (the three colours), which appears, disappears,
+    blends.</p>
+</div>
+<div>
+    <p>We speak
+    about animals, we speak about sand, and then we return to the human
+    with the word <em>mogelijkheden</em>. Vinciane Despret
+    and <a href=
+    "http://www.shaviro.com/Blog/?p=401">Isabelle
+    Stengers</a> talk and weave the whole thing
+    together. In particular, they return to the metaphor of the desert.
+    When a region becomes desert, what does one do to keep the sand
+    from swallowing up a village? Building a wall is useless,
+    certainly, as the sand will just go over it.</p>
+
+    <p>Conversely, if one becomes well acquainted with the
+    desert and with the village’s architecture, if one studies the wind
+    and observes how the sand moves, then one can build paths that
+    channel the sand in such a way that it bypasses the village without
+    covering it over. A new position of resistance, a path towards new
+    possibilities.</p>
+</div>
+<div>
+    <p>The play
+    ends with an extract from a film in which researchers – like
+    children, but with the seriousness of scholars – disperse sand
+    dunes by making them sing. The very last image is of the living
+    fish that performing artist Mr. Delmotte has been putting into
+    vials all through the play.</p>
+
+    <p>This final image stages the clash between thought and
+    sentiment: the admiration of a beautiful image is there disturbed
+    by a cruel, possibly dangerous, situation. We had to open all the
+    vials immediately after the end of the performance to make sure the
+    fish didn’t suffocate and die. It was the occasion to continue the
+    debate with a new contradiction … </p>
+</div>
+
+
+
+
+    <h3>Questions</h3>
+
+<div>
+    <p>A question
+    from a member of the audience:</p>
+
+    <p>I would like to know if you involve the spectator in
+    the performance.</p>
+</div>
+<div>
+    <p>Dominique replies:</p>
+
+    <p>In this performance, the involvement is solely at the
+    level of thought.</p>
+
+    <p>Everything has been constructed, even though it looks
+    like a big mess – quite against the grain of what we usually find
+    in the performing arts: a magnificently clean and sleek stage at
+    the beginning, a huge chaotic mess at the end (we are rubbing
+    shoulders with deconstruction).</p>
+
+    <p>Our last strategy for going against the grain: give
+    the impression of an enormous mess only to arrive, little by
+    little, as things fall into place and thought moves along its
+    rails, at the construction of a new knowledge … and, perhaps, at
+    the beginning of a new story? </p>
+</div>
+<div>
+    <p class="footnote">An
+    <em>entresort</em> is a fair or carnival attraction
+    in which one pays to walk through and see a display. –
+    Trans.</p>
+
+    <p class="footnote">A
+     <em>démarche d’auto-socio-construction</em> is an
+    approach practiced by the Groupe français d’education
+    nouvelle.</p>
+</div>
+
+</body>
+</html>

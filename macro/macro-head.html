@@ -1,0 +1,168 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>VJ12 Documents</title>
+
+    <style>
+        @font-face {
+            font-family: "Linux Libertine";
+            src: url("./LinLibertine_Re-4.7.5.ttf");
+        }
+        html.noScroll {
+            overflow: auto !important;
+        }
+        body {
+            font-family: "Linux Libertine", "Liberation Serif", "Hoefler Text", Georgia, Serif;
+            margin: 2em;
+        }
+        li {
+            list-style: none;
+            margin: 0;
+            position: absolute;
+            width: 100px;
+        }
+        img { 
+            width: 100%;
+        }
+        img:hover {
+            outline: 1px solid grey;
+        }
+        .infos {
+            visibility: hidden;
+            font-size: 4px;
+        }
+    </style>
+    <script type="text/javascript" src="../static/js/zoomooz/lib/jquery-1.4.4.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../static/js/jquery.easing.1.3.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../static/js/jquery.quicksand.js" charset="utf-8"></script>
+
+    <!--ZOOMOOZ-->
+    <link rel="stylesheet" href="../static/js/zoomooz/style/zoomooz.css" type="text/css" />
+    <script type="text/javascript" src="../static/js/zoomooz/lib/sylvester.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../static/js/zoomooz/js/purecssmatrix.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../static/js/zoomooz/js/jquery.animtrans.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../static/js/zoomooz/js/jquery.zoomooz.js" charset="utf-8"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        // Custom sorting plugin
+        (function($) {
+          $.fn.sorted = function(customOptions) {
+            var options = {
+              reversed: false,
+              by: function(a) { return a.text(); }
+            };
+            $.extend(options, customOptions);
+            $data = $(this);
+            arr = $data.get();
+            arr.sort(function(a, b) {
+              var valA = options.by($(a));
+              var valB = options.by($(b));
+              if (options.reversed) {
+                return (valA < valB) ? 1 : (valA > valB) ? -1 : 0;              
+              } else {      
+                return (valA < valB) ? -1 : (valA > valB) ? 1 : 0;  
+              }
+            });
+            return $(arr);
+          };
+        })(jQuery);
+
+        // DOMContentLoaded
+        $(function() {
+
+          // bind radiobuttons in the form
+          var $filterType = $('#filter input[name="type"]');
+          var $filterSort = $('#filter input[name="sort"]');
+
+          // get the first collection
+          var $applications = $('#documents');
+
+          // clone applications to get a second collection
+          var $data = $applications.clone();
+
+          // attempt to call Quicksand on every form change
+          $filterType.add($filterSort).change(function(e) {
+            if ($($filterType+':checked').val() == 'all') {
+              var $filteredData = $data.find('li');
+            } else {
+              var $filteredData = $data.find('li[data-keywords=' + $($filterType+":checked").val() + ']');
+            }
+
+            // if sorted by size
+            if ($('#filter input[name="sort"]:checked').val() == "date") {
+              var $sortedData = $filteredData.sorted({
+                by: function(v) {
+                  if ($(v).attr('data-datetime')){ 
+                      return $(v).attr('data-datetime');
+                  } else {
+                    return "0";
+                  }
+                }
+              });
+            } else {
+              // if sorted by default
+              var $sortedData = $filteredData.sorted({
+                by: function(v) {
+                  return $(v).attr('data-id');
+                }
+              });
+            }   
+
+            // finally, call quicksand
+            $applications.quicksand($sortedData, {
+              duration: 800,
+              easing: 'easeInOutQuad',
+              enhancement: function(){
+                  // CALL BACK ZOOMOOZ WHEN FINISHED
+                    zoom();
+              },
+            });
+
+          });
+
+        });
+        
+        function zoom(){
+            $("li").click(function(e){
+                e.stopPropagation();
+                $(this).zoomTo();
+                $("li").not(this).css("z-index", 1);
+                  $(".infos").css("visibility", "hidden");
+                $(this).css("z-index", 2);
+                  $(".infos", $(this)).css("visibility", "visible");
+            });
+            $("body").click(function(e){
+                e.stopPropagation();
+                $(this).zoomTo({targetsize: 1.0});
+            });
+        }
+
+        $(document).ready(function(){
+            // ZOOMOOZ
+            zoom();
+        });
+    </script>
+
+    <link rel="stylesheet" type="text/css" href="colorbox/example2/colorbox.css" media="screen" />
+</head>
+
+<body>
+
+    <div id="menu">
+        <form id="filter">
+          <fieldset>
+            <legend>Filter by type</legend>
+            <label><input type="radio" name="type" value="all" checked="checked">Everything</label>
+            <label><input type="radio" name="type" value="liste">Lists</label>
+            <label><input type="radio" name="type" value="notes">Notes</label>
+            <label><input type="radio" name="type" value="schéma">Schemas</label>
+            <label><input type="radio" name="type" value="facture">Bills</label>
+          </fieldset>
+          <fieldset>
+            <legend>Sort by</legend>
+            <label><input type="radio" name="sort" value="default" checked="checked">default</label>      
+            <label><input type="radio" name="sort" value="date">date</label>
+          </fieldset>
+        </form>
+    </div>
+    <div id="documents">

@@ -1,0 +1,172 @@
+
+h1,h2,img,br,p, div{padding:0;margin:0;}
+html, body { 
+  font-size: 12pt;  
+  height: 100%;
+} 
+
+
+@font-face {
+    font-family: "Linux Libertine";
+    src: url("fonts/LinLibertine_Re-4.7.5.ttf") format("truetype"); 
+ }
+@font-face {
+    font-family: "Linux Biolinum";
+    src: url("fonts/LinBiolinum_Re-0.6.4.otf") format("opentype"); 
+ }
+@font-face { 
+    font-family: "NotCourierSans";
+    src: url("fonts/NotCourierSans.otf") format("opentype"); 
+}
+
+
+body {
+margin: 30px; 
+font-family: "Linux Libertine", "Liberation Serif", "Hoefler Text", Georgia, serif; 
+font-size: .92em; 
+}
+
+.blocspicture {
+font-size:0.6em;
+}
+
+.sans {
+font-family: NotCourierSans, Courier; 
+font-size:0.8em;
+}
+
+#page {
+width: 850px;
+}
+
+.text {
+color: #d9d9d9;
+}
+.nav ul {
+list-style: none; 
+padding: 0; 
+margin: 0 0 2em 0;
+}
+
+.nav li {
+display: inline; 
+padding: 0 1em 0 0; 
+margin: 0;}
+
+a {
+text-decoration: none; 
+color: #666666; 
+border-bottom: 2px solid #666666;
+}
+a:hover {
+border-bottom: 1px solid #d9d9d9; 
+color: #d9d9d9;
+}
+a.bydata:hover{
+color:#262626; 
+}
+
+h1 {
+font-family : "Linux Libertine", "Liberation Serif", Georgia, serif; 
+font-weight: normal;
+letter-spacing : -0.02em; 
+font-size: 5em;
+}
+
+h2 {
+font-family : "Linux Libertine", "Liberation Serif", Georgia, serif; 
+font-size: 2em;}
+
+h3 {
+font-family : "Linux Libertine", "Liberation Serif", Georgia, serif; 
+font-size: 1.3em;
+color :#f27455;
+margin-top:6px;
+margin-bottom:0px;
+}
+
+#page {
+padding: 10px; 
+background: #0d0d0d; 
+color: white;
+}
+#content h3 {
+margin-top: 0;
+color:#e5e5e5;
+}
+
+#header {
+margin: 1em 0 3em 0; 
+border-bottom: none
+}
+
+#menu {
+float: left; 
+width: 180px; 
+margin: 0 2em 0 0;
+}
+
+
+#menu ul, #sidebar ul {
+list-style: none; 
+padding: 0; 
+margin: 0 0 1em 0; 
+font-weight: bold;
+}
+#menu li, #sidebar li {
+padding-bottom: 0.5em;
+}
+
+.practical {
+margin-top: 2em;
+}
+
+#content {
+float: left; 
+width: 400px; 
+margin: 0 4em 0 0;
+}
+
+#sidebar {
+float: left; 
+width: 180px;
+}
+
+#footer {
+margin-top: 2em;
+}
+
+#blocspicture {
+background: white;
+position: absolute; 
+top: 0px; 
+left: 0px; 
+width: 3000px; 
+z-index: -1; 
+font-size: 0.4em;
+color:#0d0d0d;
+line-height: 0.8em;
+}
+
+.thread, .location, .participant {
+margin-bottom: 1em;
+}
+
+.clear {
+clear: left;
+}
+
+.menu_link_left_on {
+background: #666666; 
+color: white !important; 
+border: none !important;
+padding : 0px 4px 0px 3px;
+}
+.menu_link_right_on {
+background: #666666; 
+color: white !important; 
+border: none !important;
+padding : 0px 4px 0px 3px;
+}
+
+.spip_documents, .spip_documents a, dl a, dt a, .spip_doc_titre {border: 0; width: 100%;}
