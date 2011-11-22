@@ -9,11 +9,16 @@
                 background: #efefef;
             }
 
+            body {
+                padding: 20px;
+            }
+
             div.text {
                 background: white;
                 display: block;
                 float: left;
                 padding: 15px;
+                margin: 0 20px 20px 0px;
             }
 
             div pre {
@@ -72,83 +77,58 @@
 
             var ZOOM_IN = 1.25;
             var ZOOM_OUT = 0.8
-            var SCALE_PROPS = new Array ('font-size', 'line-height', 'margin-top', 'margin-right', 'margin-bottom', 'margin-left', 'padding-top', 'padding-right', 'padding-bottom', 'padding-left', 'left', 'top');
-            var SCALE_SELECTORS = new Array ('div.text', 'h2', 'pre');
             var CUR_ZOOM = 1;
 
-            props = {
-               'div.text': {
-                    'padding': 15px;
-               }
+            var SCALE_PROPS = {
+               'html': {
+                    'width': 'inherit',
+                    'height': 'inherit'
+                },
+               
+                'body': {
+                    'width': 'inherit',
+                    'height': 'inherit'
+                },
 
-               'h2': {
-                    'margin': new Array (-5, 5, 5, -5),
+               'div.text': {
+                    'padding': 20,
+                    'left': 'inherit',
+                    'top': 'inherit'
+                },
+
+                'h2': {
+                    'margin-top': -5,
+                    'margin-right': 5,
+                    'margin-bottom': 5,
+                    'margin-left': -5,
                     'font-size': 8
-                }
+                },
 
                 'div pre': {
-                    'font-size': 6;
-                    'line-height': 10;
+                    'font-size': 6,
+                    'line-height': 10
                 }
             }
 
-            function getBaseSize () {
-                return parseInt ($('body').css('font-size'));
-            }
-
-            function setBaseSize (newBaseSize) {
-                var format = (arguments.length > 1) ? arguments[1] : 'px';
-                $('body').css('font-size', parseFloat (newBaseSize) + format);
-                $('body').css('line-height', parseFloat (newBaseSize * 1.5) + format);
-            }
-
-            function setBodySize (newBodySize) {
-                var format = (arguments.length > 1) ? arguments[1] : 'px';
-                $('html').width(newBodySize[0]);
-                $('html').height(newBodySize[1]);
-            }
-
-            function _scale (input) {
-                if (typeof(input) == object) {
-                    for (i=0;i<input.length;i++) {
-                        input[i] = _scale (input)
-                    }
-                    return input;
-                } else {
-                    return input * CUR_ZOOM;
-                }
-            }
     
             function zoom (grow) {
                 var grow = parseFloat (grow);
-                var selectors = SCALE_SELECTORS;
-                var props = SCALE_PROPS;
-
-                $('html').css ('width', $('html').css ('width').match (/[0-9\.-]+/)[0] * grow)
-                $('html').css ('height', $('html').css ('height').match (/[0-9\.-]+/)[0] * grow)
-
-                for (s=0;s<selectors.length;s++) {
-                    for (p=0;p<props.length;p++) {
-                        $(selectors[s]).each (function () {
-                            var css = $(this).css(props[p]);
-                            if (css.match (/[0-9\.-]+/) != null) {
-                                var value = parseFloat (css.match (/[0-9\.-]+/)[0]);
-                                if (value != 0)
-                                    $(this).css (props[p], value * grow + css.match (/[a-z]+$/i)[0]);
-                            }
-                        });
-                   }
+                
+                CUR_ZOOM = CUR_ZOOM * grow;
+                
+                for (selector in SCALE_PROPS) {
+                    for (property in SCALE_PROPS[selector]) { 
+                        if (SCALE_PROPS[selector][property] == 'inherit') {
+                            $(selector).each (function () {
+                                var val = $(this).css(property).match(/[0-9\.-]+/);
+                                if (val != null)
+                                    $(this).css(property, Math.round (val[0] * grow, 1) + 'px')
+                            });
+                        } else {
+                            $(selector).css(property, (SCALE_PROPS[selector][property] * CUR_ZOOM) + 'px')
+                        }
+                    }
                 }
-
-//                 if (mode == 'factor') {
-//                     setBaseSize (getBaseSize() * grow);
-//                     setBodySize (new Array ($('html').width() * grow, $('html').height() * grow));
-//                     $('.ui-draggable').each (function () {$(this).css('left', parseFloat ($(this).css('left')) * grow + 'px'); $(this).css('top', parseFloat ($(this).css('top')) * grow + 'px')});
-//                 } else {
-//                     setBaseSize (getBaseSize() + grow)
-//                     setBodySize (new Array ($('html').width() + grow, $('html').height() + grow));
-//                     $('.ui-draggable').each (function () { $(this).data('draggable').offset.click.top += grow; $(this).data('draggable').offset.click.left += grow; });
-//                 }
             }
 
             function zoom_out () {
@@ -160,8 +140,6 @@
             }
 
             $(document).ready(function() {
-                setBaseSize (5);
-
                 files = $.parseJSON('{{files}}')
 
                 for (i=0; i < files.length; i++) {
