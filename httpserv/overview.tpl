@@ -13,11 +13,6 @@
                 padding: 20px;
             }
 
-            #texts {
-                zoom: 1;
-                -moz-transform: scale(1);
-            }
-
             div.text {
                 background: white;
                 display: block;
@@ -79,23 +74,61 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript" charset="utf-8">
-            var ZOOM_IN = 1.25
+
+            var ZOOM_IN = 1.25;
             var ZOOM_OUT = 0.8
-            var CURR_ZOOM = 1
+            var CUR_ZOOM = 1;
 
+            var SCALE_PROPS = {
+               'html': {
+                    'width': 'inherit',
+                    'height': 'inherit'
+                },
+               
+                'body': {
+                    'width': 'inherit',
+                    'height': 'inherit'
+                },
+
+               'div.text': {
+                    'padding': 20,
+                    'left': 'inherit',
+                    'top': 'inherit'
+                },
+
+                'h2': {
+                    'margin-top': -5,
+                    'margin-right': 5,
+                    'margin-bottom': 5,
+                    'margin-left': -5,
+                    'font-size': 8
+                },
+
+                'div pre': {
+                    'font-size': 6,
+                    'line-height': 10
+                }
+            }
+
+    
             function zoom (grow) {
-                var newWidth = $(document).width() * grow;
-                if (grow > 1 || (newWidth > $(window).width()))
-                    $('#texts').css('width', newWidth);
-
-                var newHeight = $(document).height() * grow;
-                if (grow > 1 || (newHeight > $(window).height()))
-                    $('#texts').css('height', newHeight);
-
-                CURR_ZOOM = CURR_ZOOM * grow
-
-                $('#texts').css('-moz-transform', 'scale(' + CURR_ZOOM + ')');
-                $('#texts').css('scale', CURR_ZOOM);
+                var grow = parseFloat (grow);
+                
+                CUR_ZOOM = CUR_ZOOM * grow;
+                
+                for (selector in SCALE_PROPS) {
+                    for (property in SCALE_PROPS[selector]) { 
+                        if (SCALE_PROPS[selector][property] == 'inherit') {
+                            $(selector).each (function () {
+                                var val = $(this).css(property).match(/[0-9\.-]+/);
+                                if (val != null)
+                                    $(this).css(property, Math.round (val[0] * grow, 1) + 'px')
+                            });
+                        } else {
+                            $(selector).css(property, (SCALE_PROPS[selector][property] * CUR_ZOOM) + 'px')
+                        }
+                    }
+                }
             }
 
             function zoom_out () {
