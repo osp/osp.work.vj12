@@ -2,28 +2,30 @@
 /* filename 'sheet1.css' */
 /* NO html markup allowed*/
 
-body {font-family: Arial, sans-serif; width: 800px; margin-left: 15px;}
+body {font-family: Arial, sans-serif; width: 800px; margin: 15px;}
 h1 {color: #FFBFFF;}
 h2 {color: #FF7FF3;}
 h3 {color: #FF3FC8;}
 h4 {color: #FF007F;}
 h5 {color: #CD003F;}
 h6 {color: #8B002A;}
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 3em;
+	clear: both;
+}
 /*h1:before, h2:before, h3:before, h4:before, h5:before, h6:before {content:"||"; color: silver;}*/
 a:link, a:active {color: #EE0000; text-decoration: none;}
 a:visited, a:hover {color: #EE0049; text-decoration: none;}
 /*p:first-letter {font-size: 200%}*/
 
 
-blockquote, .quote {font-family: 12 px cursive; color: white; background-color: black;}
+blockquote, .quote {font-family: 12 px cursive; color: white; background-color: black; padding: 1em;}
 *.it {font-style: italic;}
 *.text {
-  margin:5px; 
   font-size: 14px; 
   font-weight: normal;
   width: 800px;
-  padding: 5px;
-  text-align: justify;
+  /*text-align: justify;*/
   line-height: 16px;
   }
 *.h1 {color: #FFBFFF;}
@@ -44,12 +46,11 @@ div.img
   height:auto;
   max-width:100%;
   float:left;
+  padding:3px;
   }
 div.img img
   {
-  max-width:98.5%;
   display:inline;
-  margin:3px;
   border:1px solid #ffffff;
   }
 div.img a:hover img
