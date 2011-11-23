@@ -2,7 +2,7 @@
 /* filename 'sheet1.css' */
 /* NO html markup allowed*/
 
-body {font-family: Arial, sans-serif; width: 800px; margin: 15px;}
+body {font-family: Arial, sans-serif; width: 800px; margin: 15px; background-color: white}
 h1 {color: #FFBFFF;}
 h2 {color: #FF7FF3;}
 h3 {color: #FF3FC8;}
