@@ -1,0 +1,271 @@
+@font-face {
+	font-family: 'Liberation';
+    src: url('../font/LiberationSans-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+@font-face {
+	font-family: 'Ume Mincho';
+	src: url('../font/Ume-Mincho-latin.ttf') format('truetype');
+}
+html, body {
+    font-family: "Ume Mincho";
+    font-size: 18px;
+    line-height: 24px;
+}
+ol {
+    list-style-type: decimal;
+}
+blockquote {
+    margin: 24px 0 24px 54px;
+}
+cite:before {
+    content: "\2014 "
+}
+a { 
+    color: inherit;
+}
+a:hover {
+    text-decoration: none;
+}
+p + p {
+    margin-top: 24px;
+}
+
+/*h1:before {*/
+    /*content: "### ";*/
+/*}*/
+/*h1:after {*/
+    /*content: " ###";*/
+/*}*/
+
+h1 {
+    margin: 48px 0;
+}
+h2 {
+    text-decoration: underline;
+    margin-bottom: 24px;
+    margin-top: 48px;
+}
+h1, h2, .subtitle {
+    text-align: center;
+    font-weight: normal;
+}
+h1, h2 {
+    text-transform: uppercase;
+}
+
+
+div#container {
+    text-align: center;
+    margin: 24px 0;
+}
+
+div#text {
+    /*border-top: 1px solid black;*/
+}
+div#text sup a {
+    font-size: 12px;
+    line-height: 0;
+    vertical-align: 5px;
+    text-decoration: none;
+    margin-left: -6px;
+}
+
+div#intro-wrapper {
+    font-size: 12px;
+    line-height: 17px;
+    font-weight: bold;
+    font-family: "Liberation Sans", "Liberation", Helvetica, Arial, Sans;
+    width: 720px;
+    margin: auto;
+    text-align: left;
+}
+div#intro ul li:before {
+    content:"\2013 ";
+}
+div#intro {
+    padding-bottom: 24px;
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -moz-column-gap: 17px;
+    -webkit-column-gap: 17px;
+    column-gap: 17px;
+}
+div#intro sup {
+    font-size: 11px;
+    line-height: 0;
+    vertical-align: 2px;
+}
+div#intro p + p {
+    margin-top: 17px;
+}
+ol#howto {
+    /*font-family: "Liberation Mono", Monospace;*/
+    font-weight: bold;
+    font-size: 28px;
+    margin-top: 48px;
+    line-height: 24px;
+    list-style-type: decimal;
+    list-style-position: outside;
+    margin-left: 1em;
+}
+ol#howto li {
+    margin-top: 12px;
+}
+p#wrapper-toggle-intro {
+    text-align: right;
+}
+p#comment_count { 
+    float: left;
+}
+
+div#text {
+    margin: auto;
+    text-align: left;
+    width: 40em;
+}
+
+span.active {
+    background-color: Blue;
+    color: white;
+}
+
+div.annotations {
+    margin: 1em 3em;
+}
+
+span.sum { 
+    font-size: 0.5em;
+    font-weight: bold;
+
+}
+
+div.toc {
+    display: none;
+    position: fixed;
+    bottom: 24px;
+    left: 0;
+    margin-top: 72px;
+    margin-left: 17px;
+    width: 230px;
+    font-size: 22px;
+    z-index: 10;
+    font-family: "Liberation Sans", Helvetica, Arial, Sans;
+    font-size: 12px;
+    line-height: 17px;
+    font-weight: bold;
+}
+div.toc li {
+    display: inline;
+}
+
+div.footnote {
+    margin-top: 72px;
+    font-size: 13px;
+}
+div.footnote hr {
+    border: none;
+    border-top: 1px solid black;
+}
+div.footnote ol {
+    margin-top: 72px;
+    padding: 0 72px;
+}
+
+div.comment-list div {
+    margin: 12px 0;
+}
+div.comment-entry {
+    white-space: pre-line;
+    margin-bottom: 24px;
+}
+div.comment-entry p + p {
+    margin-top: 0;
+}
+
+
+/* ANNOTATION BOX */
+
+div#annotate {
+    display: none;
+    margin: 2em 5em;
+    padding: 1em 1em;
+    border: 1px solid black;
+    border-right: none;
+    border-left: none;
+    text-align: center;
+    font-size: 18px;
+    width: 504px;
+}
+div#annotate p.center {
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1.6px;
+}
+
+div#annotate p.right {
+    text-align: right;
+}
+
+div#annotate input[type='url'] {
+    width: 20em; 
+}
+
+textarea, input {
+    /*display: block;*/
+    /*width: 100%;*/
+    border: 1px solid black;
+}
+textarea {
+    height: 264px;
+    width: 460px;
+}
+input[type=submit] {
+    margin-top: 18px;
+    text-transform: uppercase;
+    background-color: white;
+    border: 1px solid black;
+}
+input[type=button] {
+    background-color: white;
+}
+input[type=button]:hover,
+input[type=submit]:hover {
+    cursor: pointer;
+    background-color: #FF6;
+}
+
+
+.tint_1   { cursor: pointer; background-color: #FFC; color: black; }
+.tint_2   { cursor: pointer; background-color: #FF9; color: black; }
+.tint_3   { cursor: pointer; background-color: #FF6; color: black; }
+.tint_4   { cursor: pointer; background-color: #FF3; color: black; }
+.tint_5   { cursor: pointer; background-color: #FD0; color: black; }
+.tint_6   { cursor: pointer; background-color: #FC0; color: black; }
+.tint_7   { cursor: pointer; background-color: #FB0; color: black; }
+.tint_8   { cursor: pointer; background-color: #F90; color: black; }
+.tint_9   { cursor: pointer; background-color: #F70; color: black; }
+.tint_10  { cursor: pointer; background-color: #F50; color: black; }
+
+div.comment-entry p,
+div.annotations p,
+div#annotate {
+    color: black !important;
+}
+
+/*.tint_1:hover, */
+/*.tint_2:hover,*/
+/*.tint_3:hover,*/
+/*.tint_4:hover,*/
+/*.tint_5:hover,*/
+/*.tint_6:hover,*/
+/*.tint_7:hover,*/
+/*.tint_8:hover,*/
+/*.tint_9:hover,*/
+/*.tint_10:hover  { text-decoration: underline; }*/
+
+/* OVERRIDE SELECTION COLOR */
+::-moz-selection { background: SpringGreen; }
+::selection { background: SpringGreen; }
+

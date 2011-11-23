@@ -1,0 +1,521 @@
+<table class="sourcetable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+ 16
+ 17
+ 18
+ 19
+ 20
+ 21
+ 22
+ 23
+ 24
+ 25
+ 26
+ 27
+ 28
+ 29
+ 30
+ 31
+ 32
+ 33
+ 34
+ 35
+ 36
+ 37
+ 38
+ 39
+ 40
+ 41
+ 42
+ 43
+ 44
+ 45
+ 46
+ 47
+ 48
+ 49
+ 50
+ 51
+ 52
+ 53
+ 54
+ 55
+ 56
+ 57
+ 58
+ 59
+ 60
+ 61
+ 62
+ 63
+ 64
+ 65
+ 66
+ 67
+ 68
+ 69
+ 70
+ 71
+ 72
+ 73
+ 74
+ 75
+ 76
+ 77
+ 78
+ 79
+ 80
+ 81
+ 82
+ 83
+ 84
+ 85
+ 86
+ 87
+ 88
+ 89
+ 90
+ 91
+ 92
+ 93
+ 94
+ 95
+ 96
+ 97
+ 98
+ 99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260</pre></div></td><td class="code"><div class="source"><pre><span class="c1">##library à charger</span>
+library<span class="p">(</span>bitops<span class="p">)</span>
+library<span class="p">(</span>gdata<span class="p">)</span>
+library<span class="p">(</span>caTools<span class="p">)</span>
+library<span class="p">(</span>tools<span class="p">)</span>
+library<span class="p">(</span>gplots<span class="p">)</span>
+library<span class="p">(</span>timeSeries<span class="p">)</span>
+library<span class="p">(</span>timeDate<span class="p">)</span>
+library<span class="p">(</span>fBasics<span class="p">)</span>
+library<span class="p">(</span>igraph<span class="p">)</span>
+library<span class="p">(</span>tcltk <span class="p">)</span>
+library<span class="p">(</span>ade4<span class="p">)</span>
+library<span class="p">(</span>Cairo<span class="p">)</span>
+
+
+
+<span class="c1">#netoyage de la base reconstituée</span>
+<span class="c1">##Sur ces mots, selection en CSV</span>
+setwd<span class="p">(</span><span class="s">&#39;C:\\Users\\alaure\\Desktop\\NICO\\Version octobre\\Datas&#39;</span><span class="p">)</span>
+C<span class="o">=</span>read.csv<span class="p">(</span><span class="s">&quot;REST.csv&quot;</span><span class="p">,</span>sep<span class="o">=</span><span class="s">&#39;,&#39;</span><span class="p">,</span>header<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+
+C<span class="o">=</span>subset<span class="p">(</span>C<span class="p">,</span>X.1<span class="o">==</span><span class="m">1</span><span class="p">,</span>select<span class="o">=</span>c<span class="p">(</span><span class="o">-</span>X.1<span class="p">))</span>
+mots<span class="o">=</span>C<span class="p">$</span>X
+C<span class="o">=</span>subset<span class="p">(</span>C<span class="p">,</span>select<span class="o">=</span>c<span class="p">(</span><span class="o">-</span>X<span class="p">))</span>
+vecteurArtistes<span class="o">=</span>colnames<span class="p">(</span>C<span class="p">)</span>
+
+<span class="c1">## de nouveau, ménage pour les lignes ou moins de X personnes</span>
+di<span class="o">=</span>dim<span class="p">(</span>C<span class="p">)</span>
+garder<span class="o">=</span>rep<span class="p">(</span><span class="m">1</span><span class="p">,</span>di<span class="p">[</span><span class="m">1</span><span class="p">])</span>
+<span class="kr">for</span> <span class="p">(</span>i in <span class="m">1</span>:di<span class="p">[</span><span class="m">1</span><span class="p">])</span>           <span class="p">{</span>
+marg<span class="o">=</span>as.data.frame<span class="p">(</span>table<span class="p">(</span>C<span class="p">[</span>i<span class="p">,]))</span>
+margtot<span class="o">=</span><span class="m">0</span>
+  <span class="kr">for</span> <span class="p">(</span>j in <span class="m">2</span>:di<span class="p">[</span><span class="m">2</span><span class="p">])</span>  <span class="p">{</span><span class="kr">if</span> <span class="p">(</span>marg<span class="p">[</span>j<span class="p">]</span><span class="o">==</span><span class="m">0</span><span class="p">)</span> <span class="p">{</span>margtot<span class="o">=</span>margtot<span class="o">+</span><span class="m">1</span><span class="p">}</span> <span class="kr">else</span> <span class="p">{</span>margtot<span class="o">=</span>margtot<span class="p">}</span>  <span class="p">}</span>
+  <span class="kr">if</span> <span class="p">(</span>margtot<span class="o">&gt;</span><span class="p">(</span>di<span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="o">-</span><span class="m">9</span><span class="p">))</span> <span class="p">{</span>garder<span class="p">[</span>i<span class="p">]</span><span class="o">&lt;-</span><span class="m">0</span><span class="p">}</span>     <span class="p">}</span>
+E<span class="o">=</span>subset<span class="p">(</span>C<span class="p">,</span> garder<span class="o">==</span><span class="m">1</span><span class="p">)</span>
+mots2<span class="o">=</span>subset<span class="p">(</span>mots<span class="p">,</span> garder<span class="o">==</span><span class="m">1</span><span class="p">)</span>
+                   di<span class="o">=</span>dim<span class="p">(</span>E<span class="p">)</span>
+NBArtist<span class="o">=</span>rep<span class="p">(</span><span class="m">1</span><span class="p">,</span>di<span class="p">[</span><span class="m">1</span><span class="p">])</span>
+<span class="kr">for</span> <span class="p">(</span>i in <span class="m">1</span>:di<span class="p">[</span><span class="m">1</span><span class="p">])</span>           <span class="p">{</span>
+  marg<span class="o">=</span>as.data.frame<span class="p">(</span>table<span class="p">(</span>E<span class="p">[</span>i<span class="p">,]))</span>
+  NBArtist<span class="p">[</span>i<span class="p">]</span><span class="o">=</span><span class="m">0</span>
+  <span class="kr">for</span> <span class="p">(</span>j in <span class="m">2</span>:di<span class="p">[</span><span class="m">2</span><span class="p">])</span>  <span class="p">{</span><span class="kr">if</span> <span class="p">(</span>marg<span class="p">[</span>j<span class="p">]</span><span class="o">==</span><span class="m">0</span><span class="p">)</span> <span class="p">{</span>NBArtist<span class="p">[</span>i<span class="p">]</span><span class="o">=</span>NBArtist<span class="p">[</span>i<span class="p">]}</span> <span class="kr">else</span> <span class="p">{</span>NBArtist<span class="p">[</span>i<span class="p">]</span><span class="o">=</span>NBArtist<span class="p">[</span>i<span class="p">]</span><span class="o">+</span><span class="m">1</span><span class="p">}</span>  <span class="p">}</span>  <span class="p">}</span>
+  
+  
+
+<span class="c1">## piechart                                         </span>
+u<span class="o">=</span>apply <span class="p">(</span> E<span class="p">,</span><span class="m">1</span><span class="p">,</span>sum<span class="p">)</span>
+u<span class="o">=</span>as.matrix<span class="p">(</span>u<span class="p">)</span>
+pie.u <span class="o">&lt;-</span> u<span class="o">/</span><span class="p">(</span>apply<span class="p">(</span>u<span class="p">,</span><span class="m">2</span><span class="p">,</span>sum<span class="p">))</span>
+names<span class="p">(</span>pie.u<span class="p">)</span> <span class="o">&lt;-</span> mots2
+par<span class="p">(</span>mai<span class="o">=</span>c<span class="p">(</span><span class="m">.3</span><span class="p">,</span><span class="m">0.3</span><span class="p">,</span><span class="m">.3</span><span class="p">,</span><span class="m">.3</span><span class="p">))</span>
+pie<span class="p">(</span>pie.u<span class="p">,</span>main<span class="o">=</span><span class="s">&quot;Piechart&quot;</span><span class="p">,</span> col<span class="o">=</span>c<span class="p">(</span><span class="s">&quot;#00FF00&quot;</span><span class="p">,</span><span class="s">&quot;#FF0080&quot;</span><span class="p">,</span><span class="s">&quot;#4B0082&quot;</span><span class="p">,</span><span class="s">&quot;#FFD700&quot;</span><span class="p">,</span><span class="s">&quot;#4682B4&quot;</span><span class="p">,</span><span class="s">&quot;#FFEEEE&quot;</span><span class="p">,</span><span class="s">&quot;#BC81FF&quot;</span><span class="p">,</span><span class="s">&quot;#F0E68C&quot;</span><span class="p">,</span><span class="s">&quot;#DC143C&quot;</span><span class="p">,</span><span class="s">&quot;#FFFF00&quot;</span><span class="p">,</span><span class="s">&quot;#FF0000&quot;</span><span class="p">,</span><span class="s">&quot;#00BFFF&quot;</span><span class="p">,</span><span class="s">&quot;#DA70D6&quot;</span><span class="p">,</span><span class="s">&quot;#40E0D0&quot;</span><span class="p">,</span><span class="s">&quot;#FF1493&quot;</span><span class="p">,</span><span class="s">&quot;#FFFFFF&quot;</span><span class="p">,</span><span class="s">&quot;#6A5ACD&quot;</span><span class="p">))</span>
+
+
+ <span class="c1">##### barplot</span>
+u<span class="o">=</span>apply <span class="p">(</span> E<span class="p">,</span><span class="m">1</span><span class="p">,</span>sum<span class="p">)</span>
+u<span class="o">=</span>as.matrix<span class="p">(</span>u<span class="p">)</span>
+u<span class="o">=</span>cbind<span class="p">(</span>NBArtist<span class="p">,</span>u<span class="p">)</span>
+rownames<span class="p">(</span>u<span class="p">)</span><span class="o">&lt;-</span>mots2
+colnames<span class="p">(</span>u<span class="p">)</span><span class="o">&lt;-</span>c<span class="p">(</span><span class="s">&quot;Number of artist using each word&quot;</span><span class="p">,</span><span class="s">&quot;Number of occurence of each word&quot;</span><span class="p">)</span>
+par<span class="p">(</span>mai<span class="o">=</span>c<span class="p">(</span><span class="m">.5</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">.4</span><span class="p">,</span><span class="m">.5</span><span class="p">))</span>
+barplot<span class="p">(</span>height<span class="o">=</span>u<span class="p">[,</span><span class="m">2</span><span class="p">],</span>ylab<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span>horiz<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>beside<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>names<span class="o">=</span>mots2<span class="p">,</span>las<span class="o">=</span><span class="m">1</span><span class="p">,</span>main<span class="o">=</span><span class="s">&quot;Nombre de mots par artistes&quot;</span><span class="p">)</span>
+barplot<span class="p">(</span>height<span class="o">=</span>u<span class="p">[,</span><span class="m">1</span><span class="p">],</span>ylab<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span>horiz<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>beside<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>names<span class="o">=</span>mots2<span class="p">,</span>las<span class="o">=</span><span class="m">1</span><span class="p">,</span>main<span class="o">=</span><span class="s">&quot;Nombre d&#39;artistes qui utilisent un mot&quot;</span><span class="p">)</span>
+
+
+barplot2<span class="p">(</span>height<span class="o">=</span>t<span class="p">(</span>u<span class="p">),</span>ylab<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span>horiz<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>beside<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>names<span class="o">=</span>mots2<span class="p">,</span>las<span class="o">=</span><span class="m">1</span><span class="p">,</span>legend<span class="o">=</span>colnames<span class="p">(</span>u<span class="p">))</span>
+
+
+<span class="c1">##Assocplot : words / artists</span>
+<span class="c1">#rownames(E)&lt;-mots2</span>
+<span class="c1">#assoc(E[1:5,1:5])</span>
+
+<span class="c1">## plot with two dimensions : link between two words and the artists</span>
+dim<span class="p">(</span>E <span class="p">)</span>
+apply<span class="p">(</span>E<span class="p">,</span><span class="m">2</span><span class="p">,</span>sum<span class="p">)</span>
+
+Mosa<span class="o">=</span>subset<span class="p">(</span>E<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;work&quot;</span><span class="o">|</span>mots2<span class="o">==</span><span class="s">&quot;Woman-women&quot;</span><span class="o">|</span>mots2<span class="o">==</span><span class="s">&quot;video&quot;</span><span class="o">|</span>mots2<span class="o">==</span><span class="s">&quot;politics&quot;</span><span class="o">|</span>mots2<span class="o">==</span><span class="s">&quot;feminist&quot;</span><span class="p">,</span>
+      select<span class="o">=</span>c<span class="p">(</span>Anne.Mie.Van.Kerckhoven <span class="p">,</span> Jo.Spence<span class="p">,</span> Ewa.Partum <span class="p">,</span> Girls.Who.Like.Porno <span class="p">,</span>   Maria.Ruido <span class="p">)</span>   <span class="p">)</span>
+    mosaicplot<span class="p">(</span>Mosa<span class="p">,</span>main<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span>shade <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+
+ <span class="c1">#Plot with dimension : the way the artist are using two words </span>
+par<span class="p">(</span>mai<span class="o">=</span>c<span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">1</span><span class="p">,</span><span class="m">.4</span><span class="p">,</span><span class="m">.5</span><span class="p">))</span>
+ plot<span class="p">(</span>t<span class="p">(</span>subset<span class="p">(</span>E<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;work&quot;</span><span class="p">)),</span>t<span class="p">(</span>subset<span class="p">(</span>E<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;Woman-women&quot;</span><span class="p">)),</span>xlab<span class="o">=</span><span class="s">&quot;Work&quot;</span><span class="p">,</span>ylab<span class="o">=</span><span class="s">&quot;Woman-Women&quot;</span><span class="p">,</span>ylim<span class="o">=</span>c<span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">75</span><span class="p">),</span>xlim<span class="o">=</span>c<span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">150</span><span class="p">)</span> <span class="p">)</span>
+   text<span class="p">(</span>t<span class="p">(</span>subset<span class="p">(</span>E<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;Woman-women&quot;</span><span class="p">))</span>~t<span class="p">(</span>subset<span class="p">(</span>E<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;work&quot;</span><span class="p">)),</span> labels<span class="o">=</span>colnames<span class="p">(</span>E<span class="p">),</span>pos <span class="o">=</span> <span class="m">4</span><span class="p">,</span> pch<span class="o">=</span><span class="m">3</span><span class="p">,</span>cex<span class="o">=</span><span class="m">0.8</span><span class="p">)</span>
+ cor<span class="p">(</span>t<span class="p">(</span>subset<span class="p">(</span>E<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;work&quot;</span><span class="p">)),</span>t<span class="p">(</span>subset<span class="p">(</span>E<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;Woman-women&quot;</span><span class="p">)))</span>
+
+ plot<span class="p">(</span>t<span class="p">(</span>subset<span class="p">(</span>E<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;work&quot;</span><span class="p">)),</span>t<span class="p">(</span>subset<span class="p">(</span>E<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;politics&quot;</span><span class="p">)),</span>xlab<span class="o">=</span><span class="s">&quot;Work&quot;</span><span class="p">,</span>ylab<span class="o">=</span><span class="s">&quot;politics&quot;</span><span class="p">,</span>ylim<span class="o">=</span>c<span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">75</span><span class="p">),</span>xlim<span class="o">=</span>c<span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">150</span><span class="p">)</span> <span class="p">)</span>
+cor<span class="p">(</span>t<span class="p">(</span>subset<span class="p">(</span>E<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;work&quot;</span><span class="p">)),</span>t<span class="p">(</span>subset<span class="p">(</span>E<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;politics&quot;</span><span class="p">)))</span>
+ cor<span class="p">(</span>t<span class="p">(</span>subset<span class="p">(</span>E<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;Woman-women&quot;</span><span class="p">)),</span>t<span class="p">(</span>subset<span class="p">(</span>E<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;power&quot;</span><span class="p">)))</span>
+ plot<span class="p">(</span>t<span class="p">(</span>subset<span class="p">(</span>E<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;Woman-women&quot;</span><span class="p">)),</span>t<span class="p">(</span>subset<span class="p">(</span>E<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;power&quot;</span><span class="p">)),</span>xlab<span class="o">=</span><span class="s">&quot;Work&quot;</span><span class="p">,</span>ylab<span class="o">=</span><span class="s">&quot;politics&quot;</span><span class="p">,</span>ylim<span class="o">=</span>c<span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">75</span><span class="p">),</span>xlim<span class="o">=</span>c<span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">150</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="c1">###### Working with the proportion represented by each word in place of the number of time###</span>
+
+  a<span class="o">&lt;-</span>dim<span class="p">(</span>E<span class="p">)</span>
+Eprop<span class="o">&lt;-</span>matrix<span class="p">(</span><span class="m">0</span><span class="p">,</span> nrow <span class="o">=</span> a<span class="p">[</span><span class="m">1</span><span class="p">],</span> ncol <span class="o">=</span> a<span class="p">[</span><span class="m">2</span><span class="p">])</span>
+Eprop2<span class="o">=</span>as.data.frame<span class="p">(</span>Eprop<span class="p">)</span>
+totper<span class="o">=</span>rep<span class="p">(</span><span class="m">0</span><span class="p">,</span>a<span class="p">[</span><span class="m">1</span><span class="p">])</span>
+<span class="kr">for</span> <span class="p">(</span>i in <span class="m">1</span>:a<span class="p">[</span><span class="m">1</span><span class="p">])</span>  <span class="p">{</span> <span class="p">(</span>totper<span class="p">[</span>i<span class="p">]</span><span class="o">&lt;-</span>sum<span class="p">(</span>E<span class="p">[</span>i<span class="p">,</span><span class="m">1</span>:a<span class="p">[</span><span class="m">2</span><span class="p">]]))}</span>
+<span class="kr">for</span> <span class="p">(</span>i in <span class="m">1</span>:a<span class="p">[</span><span class="m">1</span><span class="p">])</span> <span class="p">(</span>Eprop2<span class="p">[</span>i<span class="p">,]</span><span class="o">&lt;-</span>E<span class="p">[</span>i<span class="p">,]</span><span class="o">/</span>totper<span class="p">[</span>i<span class="p">])</span>
+colnames<span class="p">(</span>Eprop2<span class="p">)</span><span class="o">&lt;-</span>colnames<span class="p">(</span>E<span class="p">)</span>   
+<span class="c1">## Graphique 3 D</span>
+symbols<span class="p">(</span>x<span class="o">=</span>t<span class="p">(</span>subset<span class="p">(</span>Eprop2<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;work&quot;</span><span class="p">)),</span>y<span class="o">=</span>t<span class="p">(</span>subset<span class="p">(</span>Eprop2<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;Woman-women&quot;</span><span class="p">)),</span>circles<span class="o">=</span>t<span class="p">(</span>subset<span class="p">(</span>Eprop2<span class="p">,</span> mots2<span class="o">==</span><span class="s">&quot;feminist&quot;</span><span class="p">)),</span> 
+inches<span class="o">=</span><span class="m">.3</span><span class="p">,</span>xlab<span class="o">=</span><span class="s">&quot;Work&quot;</span><span class="p">,</span>ylab<span class="o">=</span><span class="s">&quot;Woman-Women&quot;</span><span class="p">,</span>bg <span class="o">=</span> <span class="m">1</span>:<span class="m">10</span><span class="p">,</span>fg<span class="o">=</span><span class="s">&quot;gray30&quot;</span><span class="p">,</span> main <span class="o">=</span> <span class="s">&quot;Circles Plot - Work, Woman-Women, and size = feminist&quot;</span><span class="p">)</span> 
+text<span class="p">(</span>t<span class="p">(</span>subset<span class="p">(</span>Eprop2<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;Woman-women&quot;</span><span class="p">))</span>~t<span class="p">(</span>subset<span class="p">(</span>Eprop2<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;work&quot;</span><span class="p">)),</span> labels<span class="o">=</span>colnames<span class="p">(</span>Eprop2<span class="p">),</span>pos <span class="o">=</span> <span class="m">4</span><span class="p">,</span> pch<span class="o">=</span><span class="m">3</span><span class="p">,</span>cex<span class="o">=</span><span class="m">0.8</span><span class="p">)</span>
+
+
+symbols<span class="p">(</span>x<span class="o">=</span>t<span class="p">(</span>subset<span class="p">(</span>Eprop2<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;politics&quot;</span><span class="p">)),</span>y<span class="o">=</span>t<span class="p">(</span>subset<span class="p">(</span>Eprop2<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;gender&quot;</span><span class="p">)),</span>circles<span class="o">=</span>t<span class="p">(</span>subset<span class="p">(</span>Eprop2<span class="p">,</span> mots2<span class="o">==</span><span class="s">&quot;feminist&quot;</span><span class="p">)),</span> 
+inches<span class="o">=</span><span class="m">.3</span><span class="p">,</span>xlab<span class="o">=</span><span class="s">&quot;Work&quot;</span><span class="p">,</span>ylab<span class="o">=</span><span class="s">&quot;Woman-Women&quot;</span><span class="p">,</span>bg <span class="o">=</span> <span class="m">1</span>:<span class="m">10</span><span class="p">,</span>fg<span class="o">=</span><span class="s">&quot;gray30&quot;</span><span class="p">,</span> main <span class="o">=</span> <span class="s">&quot;Circles Plot - Politics, gender, and size = feminist&quot;</span><span class="p">)</span> 
+   text<span class="p">(</span>t<span class="p">(</span>subset<span class="p">(</span>Eprop2<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;gender&quot;</span><span class="p">))</span>~t<span class="p">(</span>subset<span class="p">(</span>Eprop2<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;politics&quot;</span><span class="p">)),</span> labels<span class="o">=</span>colnames<span class="p">(</span>Eprop2<span class="p">),</span>pos <span class="o">=</span> <span class="m">4</span><span class="p">,</span> pch<span class="o">=</span><span class="m">3</span><span class="p">,</span>cex<span class="o">=</span><span class="m">0.8</span><span class="p">)</span>
+ 
+ symbols<span class="p">(</span>x<span class="o">=</span>t<span class="p">(</span>subset<span class="p">(</span>Eprop2<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;politics&quot;</span><span class="p">)),</span>y<span class="o">=</span>t<span class="p">(</span>subset<span class="p">(</span>Eprop2<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;gender&quot;</span><span class="p">)),</span>circles<span class="o">=</span>t<span class="p">(</span>subset<span class="p">(</span>Eprop2<span class="p">,</span> mots2<span class="o">==</span><span class="s">&quot;feminist&quot;</span><span class="p">)),</span>xlim<span class="o">=</span>c<span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">.1</span><span class="p">),</span>ylim<span class="o">=</span>c<span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">.1</span><span class="p">),</span> 
+inches<span class="o">=</span><span class="m">.3</span><span class="p">,</span>xlab<span class="o">=</span><span class="s">&quot;Work&quot;</span><span class="p">,</span>ylab<span class="o">=</span><span class="s">&quot;Woman-Women&quot;</span><span class="p">,</span>bg <span class="o">=</span> <span class="m">1</span>:<span class="m">10</span><span class="p">,</span>fg<span class="o">=</span><span class="s">&quot;gray30&quot;</span><span class="p">,</span> main <span class="o">=</span> <span class="s">&quot;Circles Plot - Politics, gender, and size = feminist&quot;</span><span class="p">)</span> 
+   text<span class="p">(</span>t<span class="p">(</span>subset<span class="p">(</span>Eprop2<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;gender&quot;</span><span class="p">))</span>~t<span class="p">(</span>subset<span class="p">(</span>Eprop2<span class="p">,</span>mots2<span class="o">==</span><span class="s">&quot;politics&quot;</span><span class="p">)),</span> labels<span class="o">=</span>colnames<span class="p">(</span>Eprop2<span class="p">),</span>pos <span class="o">=</span> <span class="m">4</span><span class="p">,</span> pch<span class="o">=</span><span class="m">3</span><span class="p">,</span>cex<span class="o">=</span><span class="m">0.8</span><span class="p">)</span>
+
+
+   <span class="c1">##################### Expliquer ici les PCA ######################</span>
+
+<span class="c1">##Sur ces mots, selection en CSV</span>
+C<span class="o">=</span>read.csv<span class="p">(</span><span class="s">&quot;REST.csv&quot;</span><span class="p">,</span>sep<span class="o">=</span><span class="s">&#39;,&#39;</span><span class="p">,</span>header<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span> 
+mots<span class="o">=</span>C<span class="p">$</span>X
+mots<span class="o">=</span>subset<span class="p">(</span>mots<span class="p">,</span>C<span class="p">$</span>X.1<span class="o">==</span><span class="m">1</span><span class="p">)</span>
+C<span class="o">=</span>subset<span class="p">(</span>C<span class="p">,</span>X.1<span class="o">==</span><span class="m">1</span><span class="p">,</span>select<span class="o">=</span>c<span class="p">(</span><span class="o">-</span>X<span class="p">,</span><span class="o">-</span>X.1<span class="p">))</span>
+vecteurArtistes<span class="o">=</span>colnames<span class="p">(</span>C<span class="p">)</span>
+
+<span class="c1">## de nouvea ménage pour les lignes ou moins de X personnes</span>
+di<span class="o">=</span>dim<span class="p">(</span>C<span class="p">)</span>
+garder<span class="o">=</span>rep<span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>di<span class="p">[</span><span class="m">1</span><span class="p">])</span>    
+<span class="kr">for</span> <span class="p">(</span>i in <span class="m">1</span>:di<span class="p">[</span><span class="m">1</span><span class="p">])</span>           <span class="p">{</span>
+marg<span class="o">=</span>as.data.frame<span class="p">(</span>table<span class="p">(</span>C<span class="p">[</span>i<span class="p">,]))</span>
+margtot<span class="o">=</span><span class="m">0</span>
+  <span class="kr">for</span> <span class="p">(</span>j in <span class="m">2</span>:di<span class="p">[</span><span class="m">2</span><span class="p">])</span>  <span class="p">{</span><span class="kr">if</span> <span class="p">(</span>marg<span class="p">[</span>j<span class="p">]</span><span class="o">==</span><span class="m">0</span><span class="p">)</span> <span class="p">{</span>margtot<span class="o">=</span>margtot<span class="o">+</span><span class="m">1</span><span class="p">}</span> <span class="kr">else</span> <span class="p">{</span>margtot<span class="o">=</span>margtot<span class="p">}</span>  <span class="p">}</span>
+  <span class="kr">if</span> <span class="p">(</span>margtot<span class="o">&gt;</span><span class="p">(</span>di<span class="p">[</span><span class="m">2</span><span class="p">]</span><span class="o">-</span><span class="m">9</span><span class="p">))</span> <span class="p">{</span>garder<span class="p">[</span>i<span class="p">]</span><span class="o">&lt;-</span><span class="s">&#39;NON&#39;</span><span class="p">}</span>     <span class="p">}</span>
+E<span class="o">=</span>subset<span class="p">(</span>C<span class="p">,</span> garder<span class="o">==</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+mots<span class="o">=</span>subset<span class="p">(</span>mots<span class="p">,</span> garder<span class="o">==</span><span class="s">&#39;&#39;</span><span class="p">)</span>
+di<span class="o">=</span>dim<span class="p">(</span>E<span class="p">)</span>
+
+<span class="c1">## deuxième étape :a partir de là, on transpose</span>
+<span class="c1">##Total pour celles qui ont plus de 8 mots</span>
+dC<span class="o">=</span>dim<span class="p">(</span>E<span class="p">)</span>
+tot<span class="o">=</span>rep<span class="p">(</span><span class="m">0</span><span class="p">,</span>dC<span class="p">[</span><span class="m">2</span><span class="p">])</span>
+pc<span class="o">=</span>t<span class="p">(</span>E<span class="p">)</span>
+
+<span class="kr">for</span> <span class="p">(</span>i in <span class="m">1</span>:dC<span class="p">[</span><span class="m">2</span><span class="p">])</span>  <span class="p">{</span> <span class="p">(</span>tot<span class="p">[</span>i<span class="p">]</span><span class="o">&lt;-</span>sum<span class="p">(</span>pc<span class="p">[</span>i<span class="p">,]))}</span>
+pc1<span class="o">=</span>rep<span class="p">(</span><span class="m">0</span><span class="p">,</span>dC<span class="p">[</span><span class="m">1</span><span class="p">])</span>
+vectorshort<span class="o">=</span>rep<span class="p">(</span><span class="s">&quot;blank&quot;</span><span class="p">,</span><span class="m">1</span><span class="p">)</span>
+<span class="kr">for</span> <span class="p">(</span>i in <span class="m">1</span>:dC<span class="p">[</span><span class="m">2</span><span class="p">])</span> <span class="p">(</span><span class="kr">if</span> <span class="p">(</span>tot<span class="p">[</span>i<span class="p">]</span><span class="o">&lt;</span><span class="m">5</span><span class="p">)</span> <span class="p">{</span>cat<span class="p">(</span><span class="s">&quot;out &quot;</span><span class="p">)}</span> 
+      <span class="kr">else</span> 
+     <span class="p">{</span> pc1<span class="o">=</span>rbind<span class="p">(</span>pc1<span class="p">,</span>pc<span class="p">[</span>i<span class="p">,])</span>
+      vectorshort<span class="o">=</span>rbind<span class="p">(</span>vectorshort<span class="p">,</span>vecteurArtistes<span class="p">[</span>i<span class="p">])}</span>        <span class="p">)</span>
+rownames<span class="p">(</span>pc1<span class="p">)</span><span class="o">&lt;-</span>vectorshort  
+d1<span class="o">=</span>dim<span class="p">(</span>pc1<span class="p">)</span>
+
+<span class="c1">## troisième étape : homogénéiser le nombre de mots</span>
+<span class="c1">##par personne, pour celles qui restent</span>
+
+a<span class="o">&lt;-</span>dim<span class="p">(</span>pc1<span class="p">)</span>
+pc2<span class="o">&lt;-</span>matrix<span class="p">(</span><span class="m">0</span><span class="p">,</span> nrow <span class="o">=</span> a<span class="p">[</span><span class="m">1</span><span class="p">],</span> ncol <span class="o">=</span> a<span class="p">[</span><span class="m">2</span><span class="p">])</span>
+totper<span class="o">=</span>rep<span class="p">(</span><span class="m">0</span><span class="p">,</span>a<span class="p">[</span><span class="m">1</span><span class="p">])</span>
+<span class="kr">for</span> <span class="p">(</span>i in <span class="m">1</span>:a<span class="p">[</span><span class="m">1</span><span class="p">])</span>  <span class="p">{</span> <span class="p">(</span>totper<span class="p">[</span>i<span class="p">]</span><span class="o">&lt;-</span>sum<span class="p">(</span>pc1<span class="p">[</span>i<span class="p">,</span><span class="m">1</span>:a<span class="p">[</span><span class="m">2</span><span class="p">]]))}</span>
+<span class="kr">for</span> <span class="p">(</span>i in <span class="m">1</span>:a<span class="p">[</span><span class="m">1</span><span class="p">])</span> <span class="p">(</span>pc2<span class="p">[</span>i<span class="p">,]</span><span class="o">&lt;-</span>pc1<span class="p">[</span>i<span class="p">,]</span><span class="o">/</span>totper<span class="p">[</span>i<span class="p">])</span>
+colnames<span class="p">(</span>pc2<span class="p">)</span><span class="o">&lt;-</span> mots
+rownames<span class="p">(</span>pc2<span class="p">)</span><span class="o">&lt;-</span>rownames<span class="p">(</span>pc1<span class="p">)</span>
+
+
+
+<span class="c1">##et voilà la PCA</span>
+dimpc2<span class="o">=</span>dim<span class="p">(</span>pc2<span class="p">)</span>
+pc3<span class="o">=</span>pc2<span class="p">[</span><span class="m">2</span>:dimpc2<span class="p">[</span><span class="m">1</span><span class="p">],]</span>
+uD3<span class="o">=</span>dudi.pca<span class="p">(</span>pc3<span class="p">,</span>scannf<span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span>nf<span class="o">=</span><span class="m">4</span><span class="p">)</span>
+
+   
+par<span class="p">(</span>col<span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">,</span> col.main<span class="o">=</span><span class="s">&#39;blue&#39;</span><span class="p">,</span> font<span class="o">=</span><span class="m">1</span><span class="p">,</span> family<span class="o">=</span><span class="s">&quot;courrier&quot;</span><span class="p">)</span>
+
+par<span class="p">(</span>col<span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">)</span>
+scatter<span class="p">(</span>uD3<span class="p">,</span> xax <span class="o">=</span> <span class="m">1</span><span class="p">,</span> yax <span class="o">=</span> <span class="m">2</span><span class="p">,</span>clab.row <span class="o">=</span> <span class="m">0.8</span><span class="p">,</span>clab.col<span class="o">=</span><span class="m">0.8</span><span class="p">,</span>permute<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+
+
+par<span class="p">(</span>col<span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">)</span>
+scatter<span class="p">(</span>uD3<span class="p">,</span> xax <span class="o">=</span> <span class="m">3</span><span class="p">,</span> yax <span class="o">=</span> <span class="m">4</span><span class="p">,</span>clab.row <span class="o">=</span> <span class="m">0.8</span><span class="p">,</span>clab.col<span class="o">=</span><span class="m">0.8</span><span class="p">,</span>permute<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+
+z<span class="o">=</span>length<span class="p">(</span>uD3<span class="p">$</span>eig<span class="p">)</span>
+sut<span class="o">=</span>uD3<span class="p">$</span>eig<span class="o">/</span>sum<span class="p">(</span>  uD3<span class="p">$</span>eig<span class="p">)</span>
+
+barplot<span class="p">(</span>sut<span class="p">,</span> name<span class="o">=</span>rep<span class="p">(</span><span class="m">1</span>:z<span class="p">,</span><span class="m">1</span><span class="p">),</span> main<span class="o">=</span><span class="s">&quot;Eigen Values&quot;</span>  <span class="p">)</span>
+
+
+
+par<span class="p">(</span>col<span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">)</span>
+axe1<span class="o">=</span>uD3<span class="p">$</span>co
+axea<span class="o">=</span>cbind<span class="p">(</span>rep<span class="p">(</span><span class="m">1</span><span class="p">,</span>length<span class="p">(</span>axe1<span class="p">[,</span><span class="m">1</span><span class="p">])),</span>axe1<span class="p">[,</span><span class="m">1</span><span class="p">]</span> <span class="p">)</span>
+axeb<span class="o">=</span>cbind<span class="p">(</span>rep<span class="p">(</span><span class="m">1</span><span class="p">,</span>length<span class="p">(</span>axe1<span class="p">[,</span><span class="m">1</span><span class="p">])),</span>axe1<span class="p">[,</span><span class="m">2</span><span class="p">]</span> <span class="p">)</span>
+
+rownames<span class="p">(</span>axea<span class="p">)</span><span class="o">&lt;-</span>rownames<span class="p">(</span>axe1<span class="p">)</span>  
+rownames<span class="p">(</span>axeb<span class="p">)</span><span class="o">&lt;-</span>rownames<span class="p">(</span>axe1<span class="p">)</span>  
+
+
+plot<span class="p">(</span>axea<span class="p">[,</span><span class="m">2</span><span class="p">]</span>~axea<span class="p">[,</span><span class="m">1</span><span class="p">],</span>ylim<span class="o">=</span>c<span class="p">(</span><span class="m">-1</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> pch<span class="o">=</span><span class="m">19</span><span class="p">)</span>
+text<span class="p">(</span>axea<span class="p">[,</span><span class="m">2</span><span class="p">]</span>~axea<span class="p">[,</span><span class="m">1</span><span class="p">],</span> labels<span class="o">=</span>rownames<span class="p">(</span>axea<span class="p">),</span>pos <span class="o">=</span> <span class="m">4</span><span class="p">,</span> pch<span class="o">=</span><span class="m">19</span><span class="p">)</span>
+
+
+plot<span class="p">(</span>axeb<span class="p">[,</span><span class="m">2</span><span class="p">]</span>~axeb<span class="p">[,</span><span class="m">1</span><span class="p">],</span>ylim<span class="o">=</span>c<span class="p">(</span><span class="m">-1</span><span class="p">,</span><span class="m">1</span><span class="p">),</span> pch<span class="o">=</span><span class="m">19</span><span class="p">)</span>
+text<span class="p">(</span>axeb<span class="p">[,</span><span class="m">2</span><span class="p">]</span>~axeb<span class="p">[,</span><span class="m">1</span><span class="p">],</span> labels<span class="o">=</span>rownames<span class="p">(</span>axeb<span class="p">),</span>pos <span class="o">=</span> <span class="m">4</span><span class="p">)</span>
+
+
+
+
+
+
+
+<span class="c1">## a totaly different way of looking à this data</span>
+<span class="c1">## i graph##</span>
+
+Eprime<span class="o">=</span>as.matrix<span class="p">(</span>t<span class="p">(</span>E<span class="p">))</span><span class="o">%*%</span>as.matrix<span class="p">(</span>E<span class="p">)</span>
+
+<span class="k-Variable">F</span><span class="o">=</span>graph.adjacency<span class="p">(</span>Eprime<span class="p">,</span>diag<span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span>weighted<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>mode<span class="o">=</span><span class="s">&quot;undirected&quot;</span><span class="p">)</span>
+names.Vertex<span class="o">=</span>rownames<span class="p">(</span>Eprime<span class="p">)</span>                  
+plot.igraph<span class="p">(</span><span class="k-Variable">F</span><span class="p">,</span>layout<span class="o">=</span>layout.fruchterman.reingold<span class="p">,</span>vertex.size<span class="o">=</span><span class="m">10</span><span class="p">,</span>vertex.label<span class="o">=</span>names.Vertex<span class="p">)</span>
+           clusters<span class="p">(</span><span class="k-Variable">F</span><span class="p">)</span>
+            
+EConnect<span class="o">=</span>subset<span class="p">(</span>E<span class="p">,</span> select<span class="o">=</span>c<span class="p">(</span><span class="o">-</span>Klub.Zwei<span class="p">,</span><span class="o">-</span>Migrantas<span class="p">,</span><span class="o">-</span>Elssie.Ansareo<span class="p">))</span>
+Eprimeconnect0<span class="o">=</span>as.matrix<span class="p">(</span>t<span class="p">(</span>EConnect<span class="p">))</span><span class="o">%*%</span>as.matrix<span class="p">(</span>EConnect<span class="p">)</span>
+EprimeConnect<span class="o">=</span>as.matrix<span class="p">(</span>Eprimeconnect0<span class="p">)</span>
+Fconnect<span class="o">=</span>graph.adjacency<span class="p">(</span>Eprimeconnect<span class="p">,</span>diag<span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span>weighted<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>mode<span class="o">=</span><span class="s">&quot;undirected&quot;</span><span class="p">)</span>
+names.Vertex.Connect<span class="o">=</span>substring<span class="p">(</span>rownames<span class="p">(</span>EprimeConnect<span class="p">),</span><span class="m">1</span><span class="p">,</span><span class="m">10</span><span class="p">)</span>
+
+clusters<span class="p">(</span>Fconnect<span class="p">)</span>                                        
+plot.igraph<span class="p">(</span>Fconnect<span class="p">,</span>layout<span class="o">=</span>layout.fruchterman.reingold<span class="p">,</span>vertex.size<span class="o">=</span><span class="m">15</span><span class="p">,</span>vertex.label<span class="o">=</span>names.Vertex.Connect<span class="p">)</span>
+plot.igraph<span class="p">(</span>Fconnect<span class="p">,</span>layout<span class="o">=</span>layout.kamada.kawai<span class="p">,</span>vertex.size<span class="o">=</span><span class="m">30</span><span class="p">,</span>vertex.label<span class="o">=</span>names.Vertex.Connect<span class="p">)</span>
+
+        
+                                                  
+                                       
+<span class="c1">##Eliminating some week links to see the stronger one  </span>
+EprimeconnectResum<span class="o">&lt;-</span>Eprimeconnect
+dEprimeconnect<span class="o">=</span>dim<span class="p">(</span>Eprimeconnect<span class="p">)</span>
+<span class="kr">for</span> <span class="p">(</span>i in <span class="m">1</span>:dEprimeconnect<span class="p">[</span><span class="m">1</span><span class="p">])</span>    
+     <span class="p">(</span><span class="kr">for</span> <span class="p">(</span>j in <span class="m">1</span>:dEprimeconnect<span class="p">[</span><span class="m">2</span><span class="p">])</span> 
+        <span class="p">(</span><span class="kr">if</span> <span class="p">(</span>Eprimeconnect<span class="p">[</span>i<span class="p">,</span>j<span class="p">]</span><span class="o">&lt;</span><span class="m">200</span><span class="p">)</span> <span class="p">{</span>EprimeconnectResum<span class="p">[</span>i<span class="p">,</span>j<span class="p">]</span><span class="o">&lt;-</span><span class="m">0</span><span class="p">}</span>
+            <span class="kr">else</span> <span class="p">{</span>EprimeconnectResum<span class="p">[</span>i<span class="p">,</span>j<span class="p">]</span><span class="o">&lt;-</span>Eprimeconnect<span class="p">[</span>i<span class="p">,</span>j<span class="p">]}</span>  <span class="p">))</span>
+            
+FconnectResum<span class="o">=</span>graph.adjacency<span class="p">(</span>EprimeconnectResum<span class="p">,</span>diag<span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span>weighted<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>mode<span class="o">=</span><span class="s">&quot;undirected&quot;</span><span class="p">)</span>
+names.Vertex.Connect.resum<span class="o">=</span>substring<span class="p">(</span>rownames<span class="p">(</span>EprimeconnectResum<span class="p">),</span><span class="m">1</span><span class="p">,</span><span class="m">10</span><span class="p">)</span>
+                                        
+plot.igraph<span class="p">(</span>FconnectResum<span class="p">,</span>layout<span class="o">=</span>layout.fruchterman.reingold<span class="p">,</span>vertex.size<span class="o">=</span><span class="m">15</span><span class="p">,</span>vertex.label<span class="o">=</span>names.Vertex.Connect.resum<span class="p">)</span>
+           clusters<span class="p">(</span>FconnectResum<span class="p">)</span>
+plot.igraph<span class="p">(</span>FconnectResum<span class="p">,</span>layout<span class="o">=</span>layout.kamada.kawai<span class="p">,</span>vertex.size<span class="o">=</span><span class="m">30</span><span class="p">,</span>vertex.label<span class="o">=</span>names.Vertex.Connect<span class="p">)</span>
+                                
+
+<span class="c1">### moiiie !</span>
+tkplot<span class="p">(</span><span class="k-Variable">F</span><span class="p">,</span> canvas.width<span class="o">=</span><span class="m">600</span><span class="p">,</span> canvas.height<span class="o">=</span><span class="m">500</span><span class="p">,</span>vertex.label<span class="o">=</span>names.Vertex<span class="p">)</span>
+tkplot<span class="p">(</span>Fconnect<span class="p">,</span> canvas.width<span class="o">=</span><span class="m">600</span><span class="p">,</span> canvas.height<span class="o">=</span><span class="m">500</span><span class="p">,</span>vertex.label<span class="o">=</span>names.Vertex.Connect<span class="p">)</span>
+tkplot<span class="p">(</span>FconnectResum<span class="p">,</span> canvas.width<span class="o">=</span><span class="m">600</span><span class="p">,</span> canvas.height<span class="o">=</span><span class="m">500</span><span class="p">,</span>vertex.label<span class="o">=</span>names.Vertex.Connect.resum<span class="p">)</span>
+
+
+<span class="c1">### pourquoi pas tant qu&#39;on y est... </span>
+ pagerank<span class="o">=</span>page.rank<span class="p">(</span><span class="k-Variable">F</span><span class="p">)</span>
+ pagerank2<span class="o">=</span>as.data.frame<span class="p">(</span>pagerank<span class="p">$</span>vector <span class="p">)</span>
+rownames<span class="p">(</span>pagerank2<span class="p">)</span><span class="o">&lt;-</span>rownames<span class="p">(</span>Eprime<span class="p">)</span>
+par<span class="p">(</span>mai<span class="o">=</span>c<span class="p">(</span><span class="m">.5</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">.4</span><span class="p">,</span><span class="m">.5</span><span class="p">))</span>
+barplot<span class="p">(</span>height<span class="o">=</span>pagerank2<span class="p">[,</span><span class="m">1</span><span class="p">],</span>ylab<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span>horiz<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>beside<span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>names<span class="o">=</span>rownames<span class="p">(</span>Eprime<span class="p">),</span>col<span class="o">=</span><span class="s">&quot;#4682B4&quot;</span><span class="p">,</span>las<span class="o">=</span><span class="m">1</span><span class="p">,</span>main<span class="o">=</span><span class="s">&quot;Page rank of the artists&quot;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table>
