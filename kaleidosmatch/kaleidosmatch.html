@@ -6,12 +6,20 @@
     <title>Kaleidosmatch</title>
     <link rel="stylesheet" href="../static/css/vj12.css" type="text/css" media="screen" charset="utf-8">
     <style type="text/css" media="screen">
+        body {
+            height: 90%;
+            width: 95%;
+        }
+        div#container {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+        }
         iframe {
             border: 0;
             height: 100%;
-            width: 48%;
+            width: 49%;
             float: left;
-            margin-right: 1em;
         }
         
     </style>
@@ -20,7 +28,9 @@
     
 </head>
 <body>
-    <iframe id='kaleidoscope' src="kaleidoscope.html"></iframe>
-    <iframe id="smatch" src="smatch.html"></iframe>
+    <div id='container'>
+        <iframe id='kaleidoscope' src="kaleidoscope.html" style='margin-right: 1em;'></iframe>
+        <iframe id="smatch" src="smatch.html"></iframe>
+    </div>
 </body>
 </html>
