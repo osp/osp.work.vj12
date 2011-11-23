@@ -7,11 +7,10 @@
         <style>
             html {
                 background: #efefef;
+                text-rendering: optimizeLegibility;
+                overflow: visible;
             }
 
-            body {
-                padding: 20px;
-            }
 
             div.text {
                 background: white;
@@ -22,10 +21,18 @@
             }
 
             div pre {
-                cursor: text;
                 font-family: monospace;
                 font-size: 6px;
                 line-height: 10px;
+            }
+
+            pre.hide span {
+                visibility: hidden;
+            }
+
+            pre.hide span._show {
+                visibility: visible;
+                display: inline-block;
             }
 
             h2 {
@@ -36,16 +43,20 @@
                 text-transform: uppercase;
             }
 
-            a {
-                display: inline-block;
-                color: inherit;
-                text-decoration: inherit;
-                vertical-align: center;
-                width: auto;
+            span {
+                cursor: pointer;
             }
 
-            a:hover, a._active_ {
+            ._mark_yellow {
                 background-color: yellow;
+            }
+             
+            ._mark_orange {
+                background-color: #ff8c00;
+            }
+
+            ._mark_green {
+                background-color: #00FF00;
             }
 
             #controls {
@@ -70,6 +81,17 @@
                 margin: 0px 0px 10px 0px;
                 cursor: pointer;
             }
+
+            div#center {
+                z-index: 998;
+                display: block;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                width: 10px;
+                height: 10px;
+                background-color: #F00;
+            }
         </style>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
@@ -78,6 +100,125 @@
             var ZOOM_IN = 1.25;
             var ZOOM_OUT = 0.8
             var CUR_ZOOM = 1;
+            var markers = null;
+            
+            var MARK_COLOR = null;
+
+            YellowMarker = function () {
+                this.selector = null;
+                this.level = null;
+
+                this.apply = function () {
+                    this.setMarkColor ();
+                    $(this.selector).each (function () {if ($(this).hasClass ('_mark_' + MARK_COLOR) == false) { $(this).addClass ('_mark_' + MARK_COLOR)}});
+                }
+
+                this.remove = function () {
+                    this.setMarkColor ();
+                    $(this.selector).removeClass ('_mark_' + MARK_COLOR);
+                }
+
+                this.setMarkColor = function () {
+                    MARK_COLOR = 'yellow';
+                }
+            }
+
+            CollapseMarker = function () {
+                this.selector = null;
+                this.level = null;
+
+                this.apply = function () { 
+                    $('div.text > pre').addClass ('hide'); 
+                    $(this.selector).each (function () { $(this).addClass('_show').nextAll('._keyword:lt(5)').addClass('_show');$(this).prevAll ('._keyword:lt(5)').addClass('_show')});
+                }
+
+                this.remove = function () {
+                    $('div.text > pre').removeClass ('hide').removeClass('_show');
+                }
+            }
+
+            Markers = function () {
+                this.id = 0,
+                this.level = {regular: 1, permanent: 2},
+                this.markers = new Array(),
+                this.markerPrototypes = new Array (CollapseMarker)
+                this.addMarker = function (selector) {
+
+                    var level = (arguments.length < 2) ? this.level.regular : arguments[1];
+                    marker = this.getMarkerBySelector (selector);
+
+                    if (marker == null) {
+                        var marker = this.getPrototype ();
+                        marker.id = this.id++;
+                        marker.level = level;
+                        marker.selector = selector;
+                        marker.apply ();
+                        this.markers.push (marker);
+                    } else {
+                      if (level > marker.level) {
+                        marker.level = level;
+                    } }
+
+                    return marker.id;
+                }
+
+                this.getMarkerBySelector = function (selector) {
+                    for (var i = 0; i < this.markers.length; i++) {
+                        if (this.markers[i].selector == selector)
+                            return this.markers[i];
+                    }
+
+                    return null;
+                }
+
+                this.getMarker = function (id) {
+                    for (var i = 0; i < this.markers.length; i++) {
+                        if (this.markers[i].id == id)
+                            return this.markers[i];
+                    }
+
+                    return null
+                }
+
+                this.removeMarker = function (id) {
+                    var level = (arguments.length < 2) ? this.level.regular : arguments[1];
+
+                    for (var i=0; i < this.markers.length; i++) {
+                        if (this.markers[i] != null && this.markers[i].id == id)
+                            return this.removeMarkerByIndex (i, level);
+                    }
+                }
+
+                this.removeMarkerBySelector = function (selector) {
+                    var level = (arguments.length < 2) ? this.level.regular : arguments[1];
+
+                    for (var i=0; i < this.markers.length; i++) {
+                        if (this.markers[i] != null && this.markers[i].selector == selector)
+                            this.removeMarkerByIndex (i, level);
+                    }
+                }
+
+                this.removeMarkerByIndex = function (index) {
+                    var level = (arguments.length < 2) ? this.level.regular : arguments[1];
+                    
+                    if (this.markers.length > index && level >= this.markers[index].level) {
+                        this.markers[index].remove();
+                       return this.markers.splice (index, 1);
+                    } else {
+                        return false;
+                    }
+                }
+
+                this.getPrototype = function () {
+                    if (arguments.length > 0 && this.markerPrototypes.length > arguments[0]) {
+                        return new this.markerPrototypes[arguments[0]];
+                    } else {
+                        var prototype = this.markerPrototypes.shift();
+                        this.markerPrototypes.push (prototype);
+                        return new prototype;
+                    }
+                }
+            };
 
             var SCALE_PROPS = {
                'html': {
@@ -115,7 +256,10 @@
                 var grow = parseFloat (grow);
                 
                 CUR_ZOOM = CUR_ZOOM * grow;
-                
+
+                var centerTop = ($(window).scrollTop() + ($(window).height() * 0.5)) / $(document).height();
+                var centerLeft = ($(window).scrollLeft() + ($(window).width() * 0.5)) / $(document).width();
+
                 for (selector in SCALE_PROPS) {
                     for (property in SCALE_PROPS[selector]) { 
                         if (SCALE_PROPS[selector][property] == 'inherit') {
@@ -129,6 +273,9 @@
                         }
                     }
                 }
+
+                $(window).scrollTop((centerTop * $(document).height()) - ($(window).height() * 0.5));
+                $(window).scrollLeft((centerLeft * $(document).width()) - ($(window).width() * 0.5));
             }
 
             function zoom_out () {
@@ -140,19 +287,22 @@
             }
 
             $(document).ready(function() {
-                files = $.parseJSON('{{files}}')
+                var files = $.parseJSON('{{files}}')
+                markers = new Markers();
 
                 for (i=0; i < files.length; i++) {
                     text = $.get ('text/' + files[i], function (data, status) {
                         file = $.parseJSON (data)
                         
                         if (status == 'success') { 
-                            formatted_text = file.data.replace (/(\w+)/ig,'<a href="/context/$1" class="$1">$1</a>');
-                            $('#texts').append ('<div class="text"><h2>' + file.name + '</h2><pre>' + formatted_text + '</pre></div>');
+                            formatted_text = file.data.replace (/(\w+)/ig,'</span><span class="_keyword $1">$1</span><span>');
+                            $('#texts').append ('<div class="text"><h2>' + file.name + '</h2><pre><span>' + formatted_text + '</span></pre></div>');
                             
                             $("div.text").draggable({stack: "div.text"}).mousedown(function() {$(this).css ("cursor", "move")}).mouseup(function() {$(this).css ("cursor", "default")});
-                            $("a").mouseover (function () {$('.' + $(this).text()).addClass ('_active_');});
-                            $("a").mouseout (function () {$('.' + $(this).text()).removeClass ('_active_');});
+                            //$("span").mouseover (function () {markers.addMarker ('.' + $(this).text())});
+                            //$("span").mouseout (function () {markers.removeMarkerBySelector ('.' + $(this).text())});
+                            $("span._keyword").click (function () {markers.addMarker ('.' + $(this).text(), markers.level.permanent); });
+                            $("span._keyword").dblclick (function () {markers.removeMarkerBySelector ('.' + $(this).text(), markers.level.permanent); });
                         }
                     });
                 }
