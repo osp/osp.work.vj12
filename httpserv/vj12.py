@@ -1,6 +1,9 @@
+# -*- coding: utf-8 -*-
 import urllib2
 import bottle
-from bottle import (run, get, request, response, template, route)
+from string import replace
+from bottle import (run, get, request, response, template, route, static_file)
+from json import dumps
 
 bottle.debug(True)
 
@@ -15,9 +18,9 @@ def home():
     return template('hello')
 
 @route('/context')
-def context():
-    ptx = ""
-    word = request.GET.get('word')
+@route('/context/:word')
+def context(word = False):
+    ptx = ''
     if word:
         print word
         import os
@@ -26,4 +29,19 @@ def context():
         ptx = lines.read()
     return template('context', name=word, ptx=ptx)
 
-run(host='localhost', port=8080)
+@route('/overview')
+def overview():
+    return template('overview',files = '["the-man-pages", "to-talk-of-many-things"]')
+    
+@route('/text/:filename')
+def text(filename):
+    filename = 'texts/%s.txt' % replace (filename, '-', '_')
+    file = {'name': replace (filename, '-', ' '), 'data': None}
+    
+    with open (filename, 'r') as f:
+        file['data'] = f.read()
+    f.closed
+    
+    return dumps (file)
+
+run(host = 'localhost', port = 8080)
