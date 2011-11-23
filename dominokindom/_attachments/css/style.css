@@ -20,5 +20,5 @@ div#text pre {
 .tint_10  { cursor: pointer; background-color: #F50; color: black; }
 
 /* OVERRIDE SELECTION COLOR */
-::-moz-selection { background: SpringGreen; }
-::selection { background: SpringGreen; }
+::-moz-selection { background: Coral; }
+::selection { background: Coral; }
