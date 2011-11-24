@@ -13,14 +13,24 @@ div#nav {
     padding: 1em;
     width: 95%;
     margin-bottom: 1em;
+    padding-right: 2em;
+}
+div#nav h3 {
+    display: inline;
+}
+div#header {
+    margin: 1em 0;
+}
+div#sub-header {
+    display: none;
 }
 
-div#nav h1 {
-    font-size: 2em;
-    display: inline;
-    margin-right: 0.4em;
-    font-weight: bold;
-}
+/*div#nav h1 {*/
+    /*font-size: 2em;*/
+    /*display: inline;*/
+    /*margin-right: 0.4em;*/
+    /*font-weight: bold;*/
+/*}*/
 div#nav a {
     color: white;
 }
