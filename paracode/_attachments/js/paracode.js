@@ -24,15 +24,6 @@ $(document).ready(function() {
     var elts;  // the last selected nodes
     var lock = true;
 
-    // fade the text out through time
-    //var dueDate = new Date(2011, 4, 21);
-    //var currentDate = new Date();
-    //var delta = dueDate - currentDate;
-    //var remaining_days = Math.round(delta/(1000*60*60*24));
-    //var gray = Math.round(remaining_days*(255/30));
-    $("div#text p").css("color", "rgb(255,255,255)")
-    $("div#text h2").css("color", "rgb(255,255,255)")
-    
     // scrolls to with an animation
     function scrollTo (elt){
      	$('html,body').animate({
@@ -188,17 +179,6 @@ $(document).ready(function() {
             $('#comment-content').val('')
                 .focus();
         }
-    });
-
-    // removes intro div
-    $("a#toggle-intro").click(function() {
-        $('div#intro').slideToggle('slow', function() {
-            if ($("a#toggle-intro").html() == 'Hide the intro') {
-                $("a#toggle-intro").html('Show the intro');
-            } else {
-                $("a#toggle-intro").html('Hide the intro');
-            }
-        });
     });
 
     // binds click on annotations
