@@ -1,4 +1,26 @@
+#blocspicture pre {
+   color: Coral !important;
+}
+
 ul, li {
     list-style: none;
     padding-left: 0;
+}
+
+div#nav {
+    background-color: black;
+    color: white;
+    padding: 1em;
+    width: 95%;
+    margin-bottom: 1em;
+}
+
+div#nav h1 {
+    font-size: 2em;
+    display: inline;
+    margin-right: 0.4em;
+    font-weight: bold;
+}
+div#nav a {
+    color: white;
 }

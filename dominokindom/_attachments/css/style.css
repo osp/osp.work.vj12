@@ -1,0 +1,24 @@
+
+body {
+    margin: 2em;
+}
+
+div#text pre {
+    max-width: 40em;
+    white-space: pre-line;
+}
+
+.tint_1   { cursor: pointer; background-color: #FFC; color: black; }
+.tint_2   { cursor: pointer; background-color: #FF9; color: black; }
+.tint_3   { cursor: pointer; background-color: #FF6; color: black; }
+.tint_4   { cursor: pointer; background-color: #FF3; color: black; }
+.tint_5   { cursor: pointer; background-color: #FD0; color: black; }
+.tint_6   { cursor: pointer; background-color: #FC0; color: black; }
+.tint_7   { cursor: pointer; background-color: #FB0; color: black; }
+.tint_8   { cursor: pointer; background-color: #F90; color: black; }
+.tint_9   { cursor: pointer; background-color: #F70; color: black; }
+.tint_10  { cursor: pointer; background-color: #F50; color: black; }
+
+/* OVERRIDE SELECTION COLOR */
+::-moz-selection { background: Coral; }
+::selection { background: Coral; }

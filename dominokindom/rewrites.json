@@ -1,0 +1,18 @@
+[ 
+    { 
+        "from": "/dominokingdom", 
+        "to": "../.."
+    }, 
+    { 
+        "from": "/dominokingdom/*", 
+        "to": "../../*"
+    }, 
+    { 
+        "from": "/",
+        "to": "index.html"
+    }, 
+    { 
+        "from": "/*",
+        "to": "*"
+    }
+] 
