@@ -29,7 +29,7 @@ def context(word = False):
     if word:
         print word
         import os
-        cmd = 'ptx -W %s vj12_ivan.txt' % word
+        cmd = 'ptx -W %s texts/vj12_ivan.txt' % word
         lines = os.popen(cmd)
         ptx = lines.read()
     return template('context', name=word, ptx=ptx)
@@ -52,7 +52,7 @@ def text(filename):
 
 @route('/collocations/:text')
 def collocations(text):
-    corpus_root = os.path.abspath(os.path.dirname(__file__))
+    corpus_root = os.path.abspath(os.path.join(os.path.dirname(__file__), 'texts'))
     corpus = PlaintextCorpusReader(corpus_root, [text])
     n_text = nltk.text.Text(corpus.words(text))
 
@@ -95,7 +95,7 @@ def collocations(text):
 @route('/word_list/:text')
 def word_list(text):
     """Returns an alphabetical list of words for the given text."""
-    corpus_root = os.path.abspath(os.path.dirname(__file__))
+    corpus_root = os.path.abspath(os.path.join(os.path.dirname(__file__), 'texts'))
     corpus = PlaintextCorpusReader(corpus_root, [text])
     n_text = nltk.text.Text(corpus.words(text))
 
@@ -256,7 +256,7 @@ class IndexedText(object):
 @route('/concordance/:text')
 def concordance(text):
     """Returns an alphabetical list of words for the given text."""
-    corpus_root = os.path.abspath(os.path.dirname(__file__))
+    corpus_root = os.path.abspath(os.path.join(os.path.dirname(__file__), 'texts'))
     corpus = PlaintextCorpusReader(corpus_root, [text])
     n_text = nltk.text.Text(corpus.words(text))
     interesting = [
