@@ -29,13 +29,11 @@ def home():
 @route('/context/:filename/:word')
 def context(filename = False, word = False):
     ptx = ''
-    if word and re.match ("/^[a-zA-Z0-9_]+$/", filename) and re.match ("/^[a-zA-Z0-9_]+$/", word):
+    if word and re.match ("^[a-zA-Z0-9_]+$", filename) and re.match ("^[a-zA-Z0-9_]+$", word):
         import os
         cmd = 'ptx -W {0!s} texts/{1!s}.txt'.format (word, filename)
         lines = os.popen(cmd)
         ptx = lines.read()
-    else:
-        ptx = "error!"
     return ptx
 
 #@route('/overview')
