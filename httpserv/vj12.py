@@ -63,12 +63,12 @@ def collocations(text):
     from nltk.collocations import BigramCollocationFinder, TrigramCollocationFinder
     finder = BigramCollocationFinder.from_words(n_text)
     finder.apply_freq_filter(3)
-    foo = finder.nbest(bigram_measures.pmi, 30)
+    foo = finder.nbest(bigram_measures.pmi, 20)
 
     finder = BigramCollocationFinder.from_words(n_text)
     ignored_words = nltk.corpus.stopwords.words('english')
     finder.apply_word_filter(lambda w: len(w) < 3 or w.lower() in ignored_words)
-    foo = finder.nbest(bigram_measures.likelihood_ratio, 30)
+    foo = finder.nbest(bigram_measures.likelihood_ratio, 20)
 
     ## Trigrams are less interesting...
     #finder = TrigramCollocationFinder.from_words(n_text)
@@ -275,5 +275,17 @@ def concordance(text):
     word_list.sort()
     #word_list = "<br />".join(word_list)
     return template('split', word_list=word_list)
+
+# NOTE: route filers neccesitate bottle >= 0.10.
+@route('/static/<filename:path>')
+def send_static(filename):
+    print(filename)
+    return static_file(filename, root='/home/aleray/work/vj12/static')
+
+#@route('/static/<filepath>')
+#def server_static(filepath):
+    #root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'static'))
+    #print(root)
+    #return static_file(filepath, root=root)
 
 run(host='localhost', port=8080)
