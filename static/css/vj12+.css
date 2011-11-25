@@ -40,3 +40,14 @@ div#header a {
 #menu {
     width: 225px;
 }
+dt {
+}
+dt a {
+    font-weight: bold;
+    color: Coral;
+    border-bottom: 2px solid #666666;    
+}
+dd {
+    margin-left: 0;
+    margin-bottom: 18px;
+}
