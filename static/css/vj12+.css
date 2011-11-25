@@ -31,6 +31,23 @@ div#sub-header {
     /*margin-right: 0.4em;*/
     /*font-weight: bold;*/
 /*}*/
-div#nav a {
-    color: white;
+div#page {
+    width: 750px;
+}
+div#header a {
+    color: #D9D9D9;
+}
+#menu {
+    width: 225px;
+}
+dt {
+}
+dt a {
+    font-weight: bold;
+    color: Coral;
+    border-bottom: 2px solid #666666;    
+}
+dd {
+    margin-left: 0;
+    margin-bottom: 18px;
 }
