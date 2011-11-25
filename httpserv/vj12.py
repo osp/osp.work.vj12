@@ -2,6 +2,9 @@
 from __future__ import division
 import urllib2
 import bottle
+import os
+import re
+from glob import glob
 from string import replace
 from bottle import (run, get, request, response, template, route, static_file)
 from json import dumps
@@ -23,33 +26,47 @@ def home():
     return template('hello')
 
 @route('/context')
-@route('/context/:word')
-def context(word = False):
+@route('/context/:filename/:word')
+def context(filename = False, word = False):
     ptx = ''
-    if word:
-        print word
+    if word and re.match ("/^[a-zA-Z0-9_]+$/", filename) and re.match ("/^[a-zA-Z0-9_]+$/", word):
         import os
-        cmd = 'ptx -W %s vj12_ivan.txt' % word
+        cmd = 'ptx -W {0!s} texts/{1!s}.txt'.format (word, filename)
         lines = os.popen(cmd)
         ptx = lines.read()
-    return template('context', name=word, ptx=ptx)
+    else:
+        ptx = "error!"
+    return ptx
 
-@route('/overview')
-def overview():
-    return template('overview',files = '["the-man-pages", "to-talk-of-many-things"]')
+#@route('/overview')
+#def overview():
+#    return template('overview',files = '["the-man-pages", "to-talk-of-many-things"]')
+
+@route('/view')
+def view():
+    return template ('view')
     
+@route('/text/list')
+def textlist ():
+    path = 'texts/'
+    files = []
+    for filename in glob(os.path.join(path, '*.txt')):
+        files.append (filename[len(path):len(filename) - 4])
+    
+    return dumps (files)
+        
 @route('/text/:filename')
 def text(filename):
-    filename = 'texts/%s.txt' % replace (filename, '-', '_')
-    file = {'name': replace (filename, '-', ' '), 'data': None}
+    path = 'texts/'
+    filename = path + '%s.txt' % filename.replace ('-', '_')
+    file = {'name': filename[len(path):len(filename) - 4].replace ('_', ' '), 'data': None}
     
     with open (filename, 'r') as f:
         file['data'] = f.read()
     f.closed
     
     return dumps (file)
-
-
+    
 @route('/collocations/:text')
 def collocations(text):
     corpus_root = os.path.abspath(os.path.dirname(__file__))

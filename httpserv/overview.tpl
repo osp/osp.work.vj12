@@ -104,7 +104,7 @@
             
             var MARK_COLOR = null;
 
-            YellowMarker = function () {
+            Marker = function () {
                 this.selector = null;
                 this.level = null;
 
@@ -118,9 +118,15 @@
                     $(this.selector).removeClass ('_mark_' + MARK_COLOR);
                 }
 
-                this.setMarkColor = function () {
-                    MARK_COLOR = 'yellow';
+                this.setMarkColor = function (color) {
+                    this.color = color;
                 }
+            }
+
+            YellowMarker = function () {
+                this.prototype = clone(Marker.prototype);
+                this.prototype.constructor = this;
+                this.setMarkColor('yellow');
             }
 
             CollapseMarker = function () {
@@ -133,7 +139,8 @@
                 }
 
                 this.remove = function () {
-                    $('div.text > pre').removeClass ('hide').removeClass('_show');
+                    $('div.text > pre').removeClass ('hide');
+                    $('._show').removeClass ('_show');
                 }
             }
 
