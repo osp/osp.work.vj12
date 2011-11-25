@@ -24,15 +24,6 @@ $(document).ready(function() {
     var elts;  // the last selected nodes
     var lock = true;
 
-    // fade the text out through time
-    //var dueDate = new Date(2011, 4, 21);
-    //var currentDate = new Date();
-    //var delta = dueDate - currentDate;
-    //var remaining_days = Math.round(delta/(1000*60*60*24));
-    //var gray = Math.round(remaining_days*(255/30));
-    $("div#text p").css("color", "rgb(255,255,255)")
-    $("div#text h2").css("color", "rgb(255,255,255)")
-    
     // scrolls to with an animation
     function scrollTo (elt){
      	$('html,body').animate({
@@ -82,7 +73,7 @@ $(document).ready(function() {
     }
 
     function getLinks (id) {
-        db.view('dominokindm/foo?startkey=["' + id + '"]&endkey=["' + id + '", {}]', {  
+        db.view('vj12/foo?startkey=["' + id + '"]&endkey=["' + id + '", {}]', {  
             success: function(data) {  
                 // appends links/comments if any
                 if (data.rows.length !== 0) {
@@ -190,17 +181,6 @@ $(document).ready(function() {
         }
     });
 
-    // removes intro div
-    $("a#toggle-intro").click(function() {
-        $('div#intro').slideToggle('slow', function() {
-            if ($("a#toggle-intro").html() == 'Hide the intro') {
-                $("a#toggle-intro").html('Show the intro');
-            } else {
-                $("a#toggle-intro").html('Hide the intro');
-            }
-        });
-    });
-
     // binds click on annotations
     $("span.chunk").live('click', function(event) {
         getLinks($(event.target).attr("id"));
@@ -240,7 +220,7 @@ $(document).ready(function() {
             {
             success: function() { 
                 // Updates the color on the commented elements
-                db.view('dominokindm/bar?group=true&startkey="' + ids[0] + '"&endkey="' + ids[(ids.length - 1)] + '"', {  
+                db.view('vj12/bar?group=true&startkey="' + ids[0] + '"&endkey="' + ids[(ids.length - 1)] + '"', {  
                     success: function(data) {  
                         for (i in data.rows) {
                             var key = data.rows[i].key;
@@ -259,7 +239,7 @@ $(document).ready(function() {
     });
 
     // puts the color on all the elements 
-    db.view('dominokindm/bar?group=true', {  
+    db.view('vj12/bar?group=true', {  
         success: function(data) {  
             // Sets tint
             for (i in data.rows) {
@@ -270,7 +250,7 @@ $(document).ready(function() {
             }
         }
     });  
-    db.view('dominokindm/count_links?group=true', {  
+    db.view('vj12/count_links?group=true', {  
         success: function(data) {  
             $("p#comment_count span").html(data.rows.length);
         }
