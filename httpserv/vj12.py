@@ -19,15 +19,39 @@ CORPUS_ROOT = os.path.join(PROJECT_DIR, 'texts')
 STATIC_DIR = os.path.join(PROJECT_DIR, '..', 'static')
 
 
+
+@route('/skeleton/')
+def skeleton():
+    return template('templates/skeleton', title='Skeleton')
+
+@route('/')
+def home():
+    return template('templates/home')
+
+@route('/about/')
+def about():
+    return template('templates/about')
+
+@route('/kaleidosmatch/')
+def about():
+    return template('templates/kaleidosmatch')
+
+#@route('/fit-the-annual-report-on-purpose/')
+#def about():
+    #return template('templates/fit-the-annual-report-on-purpose')
+
+
+# BELOW: EXPERIMENTS
+
 @get('/proxy/')
 def proxy():
     url = request.GET.get('url')
     response = urllib2.urlopen(url)
     return response.read()
 
-@get('/')
-def home():
-    return template('templates/hello')
+#@get('/')
+#def home():
+    #return template('templates/hello')
 
 @route('/context')
 @route('/context/:word')
