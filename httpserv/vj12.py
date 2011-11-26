@@ -31,10 +31,10 @@ def context(filename = False, word = False):
     ptx = ''
     if word and re.match ("^[a-zA-Z0-9_]+$", filename) and re.match ("^[a-zA-Z0-9_]+$", word):
         import os
-        cmd = 'ptx -W {0!s} texts/{1!s}.txt'.format (word, filename)
+        cmd = 'ptx --word-regexp=\ {0!s}\  texts/{1!s}.txt'.format (word, filename)
         lines = os.popen(cmd)
         ptx = lines.read()
-    return ptx
+    return dumps ({'filename': filename, 'word': word, 'result': ptx})
 
 #@route('/overview')
 #def overview():
@@ -267,6 +267,9 @@ class IndexedText(object):
     def _stem(self, word):
         return self._stemmer.stem(word).lower()
 
+@route('/img/:filename')
+def img (filename):
+    return static_file (filename, root='img')
 
 @route('/concordance/:text')
 def concordance(text):
