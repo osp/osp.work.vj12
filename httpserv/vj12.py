@@ -12,7 +12,46 @@ import os
 import nltk
 from nltk.corpus import PlaintextCorpusReader
 
+
 bottle.debug(True)
+
+
+PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
+CORPUS_ROOT = os.path.join(PROJECT_DIR, 'texts')
+STATIC_DIR = os.path.join(PROJECT_DIR, '..', 'static')
+
+
+
+@route('/skeleton/')
+def skeleton():
+    return template('templates/skeleton', title='Skeleton')
+
+@route('/')
+def home():
+    return template('templates/home')
+
+@route('/about/')
+def about():
+    return template('templates/about')
+
+@route('/kaleidosmatch/')
+def kaleidosmatch():
+    return template('templates/kaleidosmatch')
+
+@route('/fit_the_annual_report_for_purpose/')
+def fit_the_annual_report_for_purpose():
+    return template('templates/fit_the_annual_report_for_purpose')
+
+@route('/micro/')
+def micro():
+    return template('templates/micro')
+
+@route('/moss_ambiguity/')
+def moss_ambiguity():
+    return template('templates/moss_ambiguity')
+
+
+# BELOW: EXPERIMENTS
 
 @get('/proxy/')
 def proxy():
@@ -20,9 +59,9 @@ def proxy():
     response = urllib2.urlopen(url)
     return response.read()
 
-@get('/')
-def home():
-    return template('hello')
+#@get('/')
+#def home():
+    #return template('templates/hello')
 
 @route('/context')
 @route('/context/:filename/:word')
@@ -48,9 +87,12 @@ def context(filename = False, word = False):
             
     return dumps ({'filename': filename, 'word': word, 'result': "\n".join (found_lines)})
 
-#@route('/overview')
-#def overview():
-#    return template('overview',files = '["the-man-pages", "to-talk-of-many-things"]')
+@route('/overview')
+def overview():
+    # FIXME: broken, proably because of the change of the project file
+    # structure...
+    return template('templates/overview', 
+                    files='["the-man-pages", "to-talk-of-many-things"]')
 
 @route('/compare')
 def compare():
@@ -79,12 +121,12 @@ def text(filename):
         file['data'] = f.read()
     f.closed
     
-    return dumps (file)
-    
+    return dumps(file)
+
+
 @route('/collocations/:text')
 def collocations(text):
-    corpus_root = os.path.abspath(os.path.dirname(__file__))
-    corpus = PlaintextCorpusReader(corpus_root, [text])
+    corpus = PlaintextCorpusReader(CORPUS_ROOT, [text])
     n_text = nltk.text.Text(corpus.words(text))
 
     bigram_measures = nltk.collocations.BigramAssocMeasures()
@@ -115,22 +157,21 @@ def collocations(text):
     #scored = finder.score_ngrams(bigram_measures.raw_freq)
     #foo = sorted(finder.nbest(trigram_measures.raw_freq, 10))
 
-    f = open(os.path.join(corpus_root, text), 'r')
+    f = open(os.path.join(CORPUS_ROOT, text), 'r')
     source = f.read()
     f.close()
 
     #foo = n_text.collocations()
 
-    return template('split', text=source, word_list=foo)
+    return template('templates/split', text=source, word_list=foo)
 
 @route('/word_list/:text')
 def word_list(text):
     """Returns an alphabetical list of words for the given text."""
-    corpus_root = os.path.abspath(os.path.dirname(__file__))
-    corpus = PlaintextCorpusReader(corpus_root, [text])
+    corpus = PlaintextCorpusReader(CORPUS_ROOT, [text])
     n_text = nltk.text.Text(corpus.words(text))
 
-    f = open(os.path.join(corpus_root, text), 'r')
+    f = open(os.path.join(CORPUS_ROOT, text), 'r')
     source = f.read()
     f.close()
 
@@ -236,7 +277,7 @@ def word_list(text):
 
     # Tokenizes the text
     # NOTE: what's the difference between this method and the way n_text is produced?
-    f = open(text, 'r')
+    f = open(os.path.join(CORPUS_ROOT, text), 'r')
     tokens = nltk.word_tokenize(f.read())
     f.close()
     print(tokens)
@@ -260,7 +301,7 @@ def word_list(text):
         foo += word
         foo += "</a><br />"
 
-    return template('split', text=source, word_list=foo)
+    return template('templates/split', text=source, word_list=foo)
 
 
 class IndexedText(object):
@@ -290,8 +331,7 @@ def img (filename):
 @route('/concordance/:text')
 def concordance(text):
     """Returns an alphabetical list of words for the given text."""
-    corpus_root = os.path.abspath(os.path.dirname(__file__))
-    corpus = PlaintextCorpusReader(corpus_root, [text])
+    corpus = PlaintextCorpusReader(CORPUS_ROOT, [text])
     n_text = nltk.text.Text(corpus.words(text))
     interesting = [
             'data',
@@ -308,13 +348,13 @@ def concordance(text):
     word_list = map(str.lower, list(set(list(corpus.words()))))
     word_list.sort()
     #word_list = "<br />".join(word_list)
-    return template('split', word_list=word_list)
+    return template('templates/split', word_list=word_list, text=text)
 
-# NOTE: route filers neccesitate bottle >= 0.10.
+
 @route('/static/<filename:path>')
 def send_static(filename):
-    print(filename)
-    return static_file(filename, root='/home/aleray/work/vj12/static')
+    # NOTE: route filers neccesitate bottle >= 0.10.
+    return static_file(filename, root=STATIC_DIR)
 
 #@route('/static/<filepath>')
 #def server_static(filepath):
