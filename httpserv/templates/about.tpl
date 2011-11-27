@@ -1,10 +1,17 @@
-%def extracss():
-
+%def extrahead():
+<style type="text/css" media="screen">
+    div#container {
+        background-color: white;
+        width: 850px;
+    }
+</style>
 %end
 
 
-%rebase templates/base title='| About', extracss=extracss
+%rebase templates/base  extrahead=extrahead, title='About', oneliner='Intentions behind this set of prototypes and experiments.'
 
+
+<div id="container">
 <h2>The facts</h2>
 
 <p>
@@ -117,3 +124,4 @@ This kind of ambiguous model was further experimented in literature. An unique c
 5http://it.wikisource.org/wiki/Rime_%28Dante%29/XIV__Donne_ch%27avete_intelletto_d%27amore
         
 6http://www.thelemming.com/lemming/dissertation-web/home/arcades.html
+</div>
