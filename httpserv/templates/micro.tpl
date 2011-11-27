@@ -1,10 +1,4 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <title>Verbindingen/Jonctions 12: Micro</title>
-    <link rel="stylesheet" href="../static/css/vj12.css" type="text/css" media="screen" charset="utf-8">
-
+%def extrahead():
     <style type="text/css" media="screen">
         div.micro-doc {
             float: left;
@@ -20,10 +14,11 @@
             float: left;
         }
     </style>
+%end 
 
 
-</head>
-<body>
+%rebase templates/base  extrahead=extrahead, title='Micro', oneliner='The grey literature necessary to produce Michael Moss\' <a href="http://constantvzw.org/verlag/spip.php?page=article&id_article=131&mot_filtre=5&id_lang=0" target="_blank">To Talk of Many Things</a>.'
+
 <div class="micro-doc" data-id='5' data-datetime='2009:07:27' data-destination='Constant' data-language='FR' data-keywords='-' data-objectname='Ticket' data-source='Pizza' data-caption='catering'  style='left: 50px'><a rel='scans/-big/130-PizzaDAlessio_ticket.jpg' rel='VJ12-docs'><div class='infos'>data-datetime='2009:07:27' data-destination='Constant' data-language='FR' data-keywords='-' data-objectname='Ticket' data-source='Pizza' data-caption='catering' </div><img src='/static/img/macro-x/130-PizzaDAlessio_ticket.jpg'/></a></div>
 <div class="micro-doc" data-id='6' data-datetime='2009:11:27' data-destination='Constant' data-language='FR' data-keywords='MM' data-objectname='Ticket' data-source='Gécé' data-caption='achat'  style='left: 60px'><a rel='scans/-big/038-Gece_ticket.jpg' rel='VJ12-docs'><div class='infos'>data-datetime='2009:11:27' data-destination='Constant' data-language='FR' data-keywords='MM' data-objectname='Ticket' data-source='Gécé' data-caption='achat' </div><img src='/static/img/macro-x/038-Gece_ticket.jpg'/></a></div>
 <div class="micro-doc" data-id='7' data-datetime='2009:11:28' data-destination='Constant' data-language='FR' data-keywords='MM' data-objectname='Ticket' data-source='Bio' data-caption='catering'  style='left: 70px'><a rel='scans/-big/055-BioShop_ticket.jpg' rel='VJ12-docs'><div class='infos'>data-datetime='2009:11:28' data-destination='Constant' data-language='FR' data-keywords='MM' data-objectname='Ticket' data-source='Bio' data-caption='catering' </div><img src='/static/img/macro-x/055-BioShop_ticket.jpg'/></a></div>
@@ -293,5 +288,4 @@ They'd eaten every one.
 <div class="micro-doc" data-id='128' data-datetime='2009:11:24' data-destination='Pierre' data-language='FR' data-keywords='-' data-objectname='Formulaire' data-source='Constant' data-caption='remboursement'  style='left: 1280px'><a rel='scans/-big/027-PierreDeruisseau_remboursement.jpg' rel='VJ12-docs'><div class='infos'>data-datetime='2009:11:24' data-destination='Pierre' data-language='FR' data-keywords='-' data-objectname='Formulaire' data-source='Constant' data-caption='remboursement' </div><img src='/static/img/macro-x/027-PierreDeruisseau_remboursement.jpg'/></a></div>
 <div class="micro-doc" data-id='129' data-datetime='2009:11:20' data-destination='Marloes' data-language='EN' data-keywords='-' data-objectname='Formulaire' data-source='Constant' data-caption='per'  style='left: 1290px'><a rel='scans/-big/059-MarloesVanDerHoek_perdiem.jpg' rel='VJ12-docs'><div class='infos'>data-datetime='2009:11:20' data-destination='Marloes' data-language='EN' data-keywords='-' data-objectname='Formulaire' data-source='Constant' data-caption='per' </div><img src='/static/img/macro-x/059-MarloesVanDerHoek_perdiem.jpg'/></a></div>
 
-</body>
-</html>
+
