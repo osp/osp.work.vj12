@@ -26,15 +26,23 @@
             <h1>By data we mean</h1>
         </a>
         <h3>Online publication</h3>
+        <br />
+        <br />
+        <br />
     </div>
     <div id="sub-header">
-    %include templates/menu
+
         <div id="content" class="text">
-        %include
+            %include
         </div>
+
+        %include templates/menu
         <div class="clear"></div>
+
     </div>
 </div>
-%include templates/ascii
+
+    %include templates/ascii
+
 </body>
 </html>

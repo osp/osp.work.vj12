@@ -11,6 +11,9 @@
         height: 100%;
         width: 95%;
     }
+    div#header h1 {
+        font-size: 2em;
+    }
     div#container {
         height: 100%;
         width: 100%;
@@ -21,6 +24,14 @@
         height: 100%;
         width: 49%;
         float: left;
+    }
+    ul#menu {
+        width: 100%;
+    }
+    ul#menu li {
+        float: left;
+        width: 30%;
+        margin-right: 1em;
     }
     
 </style>
@@ -45,10 +56,7 @@
 <body>
     <div id="nav">
     <div id="header">
-        <a href="#">
-            <h2>Verbindingen/Jonctions 12</h2>
-            <h1>By data we mean</h1>
-        </a>
+        <a href="/"><h1>V/J 12: By data we mean</h1></a>
             <h3>KaleidoSmatch</h3> a remix by Donatella Portoghese between <a href="http://constantvzw.org/verlag/spip.php?page=article&amp;id_article=132&amp;mot_filtre=5&amp;id_lang=0" target="_blank" style="color: pink;">Kaleidoscope</a> by An Mertens and <a href="http://constantvzw.org/verlag/spip.php?page=article&amp;id_article=129&amp;mot_filtre=5&amp;id_lang=0" target="_blank">Smatch</a> by Dominique Roodthooft.
             <br />
             <br />

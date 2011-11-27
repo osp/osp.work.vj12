@@ -29,13 +29,13 @@ target="_blank">Constant Verlag</a>.</p>
 <br />
 
 <div class="sans" id="footer"><a href="http://www.constantvzw.org"><pre>
-       *
-  *
-*
-*
- *
-   *
+           *
+      *
+    *
+    *
      *
-        *
+       *
+         *
             *
-                C O N S T A N T</pre></a></div>
+                *
+                    C O N S T A N T</pre></a></div>
