@@ -294,7 +294,8 @@
             }
 
             $(document).ready(function() {
-                var files = $.parseJSON('{{files}}')
+                // var files = $.parseJSON('{{files}}')
+                var files = {{!files}};
                 markers = new Markers();
 
                 for (i=0; i < files.length; i++) {

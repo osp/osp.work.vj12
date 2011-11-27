@@ -53,10 +53,10 @@
 
             span._marked {
                 border-bottom-width: 2px;
-                -moz-border-image:url("/img/border.png") 3 0 round; /* Firefox */
-                -webkit-border-image:url("/img/border.png") 3 0 round; /* Safari and Chrome */
-                -o-border-image:url("/img/border.png") 3 0round; /* Opera */
-                border-image:url("/img/border.png") 3 0 round;
+                -moz-border-image:url("/static/img/border.png") 3 0 round; /* Firefox */
+                -webkit-border-image:url("/static/img/border.png") 3 0 round; /* Safari and Chrome */
+                -o-border-image:url("/static/img/border.png") 3 0round; /* Opera */
+                border-image:url("/static/img/border.png") 3 0 round;
             }
 
             #controls {
