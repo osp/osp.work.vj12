@@ -36,19 +36,19 @@ def about():
     return template('templates/about')
 
 @route('/kaleidosmatch/')
-def about():
+def kaleidosmatch():
     return template('templates/kaleidosmatch')
 
 @route('/fit_the_annual_report_for_purpose/')
-def about():
+def fit_the_annual_report_for_purpose():
     return template('templates/fit_the_annual_report_for_purpose')
 
 @route('/micro/')
-def about():
+def micro():
     return template('templates/micro')
 
 @route('/moss_ambiguity/')
-def about():
+def moss_ambiguity():
     return template('templates/moss_ambiguity')
 
 
