@@ -3,6 +3,8 @@ Jeudi: présentation
 De manière générale, avoir un one liner pour chaque expérimentation et ajouter
 un bouton "voir plus" pour afficher les textes plus complets de Donatella.
 
+refaire des ascii arts
+
 # Menu
 
 All
@@ -29,6 +31,9 @@ Alex
 - intégration avec le reste du site/ design de la page
 - zoom problématique pour sortir
 - image haute-def en zoom
+- mettre les emails si possible
+- si metadonné absente, traiter differament (eg. mettre à part ou griser)
+- utiliser cardinalité en plus de la calendarité
 
 # Micro
 
