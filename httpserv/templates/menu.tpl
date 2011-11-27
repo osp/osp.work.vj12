@@ -15,7 +15,7 @@
     <dd>A close-reading of a piece of software written by Anne-Laure Buisson.</dd>
     <dt><a href="/kaleidosmatch/">KaleidoSmatch</a></dt>
     <dd>A parallel between «&thinsp;Kaleidoscope, a genesis&thinsp;» and «&thinsp;Smatch(1)&thinsp;».</dd>
-    <dt><a href="moss_ambiguity/moss_ambiguity.html">To Talk About Many&nbsp;Systemic Ambiguity</a></dt>
+    <dt><a href="/moss_ambiguity/">To Talk About Many&nbsp;Systemic Ambiguity</a></dt>
     <dd>A remix between «&thinsp;To Talk About Many Things&thinsp;» and «&thinsp;Systemic Ambiguity&thinsp;».</dd>
     <dt><a href="/fit_the_annual_report_for_purpose/">Fit the Annual Report on&nbsp;Purpose</a></dt>
     <dd>A conversation between «&thinsp;Soap Box Annual Report&thinsp;» and «&thinsp;Fit for Purpose&thinsp;».</dd>

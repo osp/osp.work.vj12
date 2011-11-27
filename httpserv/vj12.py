@@ -47,6 +47,10 @@ def about():
 def about():
     return template('templates/micro')
 
+@route('/moss_ambiguity/')
+def about():
+    return template('templates/moss_ambiguity')
+
 
 # BELOW: EXPERIMENTS
 
