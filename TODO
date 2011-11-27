@@ -1,5 +1,79 @@
-kaleidosmatch
-=============
-- texte HTML d'AN
+Jeudi: présentation
+
+De manière générale, avoir un one liner pour chaque expérimentation et ajouter
+un bouton "voir plus" pour afficher les textes plus complets de Donatella.
+
+# Menu
+
+All
+
+- Check the order
+
+# About
+
+Stéphanie
+
+- Put back the definitive text
+
+# Macro
+
+Alex
+
+- Map it in bottle
+- Integrate emails in it
+- Filters: complete the list of available filters
+    - Example: Types, langue, etc.
+- Comment mixer les filtres <http://razorjack.net/quicksand/>
+- Classement par date: espacement qui représente le temps
+- probleme de z-index
+- intégration avec le reste du site/ design de la page
+- zoom problématique pour sortir
+- image haute-def en zoom
+
+# Micro
+
+Alex
+
+- Est-ce possible d'utiliser le même principe que macro?
+    - Si non, ?
+
+# Concordances, Similar, Collocations
+
+Gijs + Alex
+
+- One interface?
+- Check if nltk code can be integrated.
+
+# Paracode
+
+Steph + Alex
+
+- Remettre le nouveau templates + revoir styles
+- Traduire les commentaire, finir les commentaires
+- mettre en ligne
+- proxy nginx
+
+# KaleidoSmatch
+
+Steph
+
+- scroll iframes
 - footnote ne doit pas appeler d'iframe
 - désactiver le son des iframes, sur tout le site?
+- being able to navigate the sites
+  - by zooming in the frames;
+  - or by opening them in a new window
+
+
+# To Talk of Many Systemic Ambiguity
+
+- OK, a fignoler si il reste du temps
+
+# Fit the Annual Report on Purpose
+
+Gijs + Steph
+
+- Fix styles messed up by importing the main stylesheet
+- change the typographic codes (look at typography in theater: small caps for
+  names, stage directions in parenthesis? voiceover monospace? etc.)
+
