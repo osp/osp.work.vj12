@@ -17,7 +17,7 @@
 %end 
 
 
-%rebase templates/base  extrahead=extrahead, title='Micro', oneliner='The grey literature necessary to produce Michael Moss\' <a href="http://constantvzw.org/verlag/spip.php?page=article&id_article=131&mot_filtre=5&id_lang=0" target="_blank">To Talk of Many Things</a>.'
+%rebase templates/base  extrahead=extrahead, title='Micro', oneliner='The grey literature necessary to produce Michael Moss\' <a href="http://constantvzw.org/verlag/spip.php?page=article&id_article=131&mot_filtre=5&id_lang=0" target="_blank">To Talk of Many Things</a> gathered by Donatella Portoghese.'
 
 <div class="micro-doc" data-id='5' data-datetime='2009:07:27' data-destination='Constant' data-language='FR' data-keywords='-' data-objectname='Ticket' data-source='Pizza' data-caption='catering'  style='left: 50px'><a rel='scans/-big/130-PizzaDAlessio_ticket.jpg' rel='VJ12-docs'><div class='infos'>data-datetime='2009:07:27' data-destination='Constant' data-language='FR' data-keywords='-' data-objectname='Ticket' data-source='Pizza' data-caption='catering' </div><img src='/static/img/macro-x/130-PizzaDAlessio_ticket.jpg'/></a></div>
 <div class="micro-doc" data-id='6' data-datetime='2009:11:27' data-destination='Constant' data-language='FR' data-keywords='MM' data-objectname='Ticket' data-source='Gécé' data-caption='achat'  style='left: 60px'><a rel='scans/-big/038-Gece_ticket.jpg' rel='VJ12-docs'><div class='infos'>data-datetime='2009:11:27' data-destination='Constant' data-language='FR' data-keywords='MM' data-objectname='Ticket' data-source='Gécé' data-caption='achat' </div><img src='/static/img/macro-x/038-Gece_ticket.jpg'/></a></div>
