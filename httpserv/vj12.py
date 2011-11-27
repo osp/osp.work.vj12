@@ -39,9 +39,9 @@ def about():
 def about():
     return template('templates/kaleidosmatch')
 
-#@route('/fit-the-annual-report-on-purpose/')
-#def about():
-    #return template('templates/fit-the-annual-report-on-purpose')
+@route('/fit_the_annual_report_for_purpose/')
+def about():
+    return template('templates/fit_the_annual_report_for_purpose')
 
 
 # BELOW: EXPERIMENTS
