@@ -43,6 +43,10 @@ def about():
 def about():
     return template('templates/fit_the_annual_report_for_purpose')
 
+@route('/micro/')
+def about():
+    return template('templates/micro')
+
 
 # BELOW: EXPERIMENTS
 

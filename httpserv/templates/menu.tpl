@@ -3,7 +3,7 @@
     <dd>Intentions behind this set of prototypes and experiments.</dd>
     <dt><a href="macro/macro.html">Macro</a></dt>
     <dd>(Almost) all he grey literature produced by the festival V/J12.</dd>
-    <dt><a href="macro/micro.html">Micro</a></dt>
+    <dt><a href="/micro/">Micro</a></dt>
     <dd>The grey literature necessary to produce the text «&thinsp;To Talk About Many Things&thinsp;».</dd>
     <dt><a href="#">Concordances</a></dt>
     <dd>View in what context a word appears in a text.</dd>
