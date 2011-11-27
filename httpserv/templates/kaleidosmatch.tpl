@@ -1,30 +1,10 @@
 %def extrahead():
 <style type="text/css" media="screen">
-    body {
-        height: 100%;
-        width: 95%;
-    }
-    div#header h1 {
-        font-size: 2em;
-    }
-    div#container {
-        height: 100%;
-        width: 100%;
-        margin: 0;
-    }
     iframe {
         border: 0;
         height: 100%;
         width: 49%;
         float: left;
-    }
-    ul#menu {
-        width: 100%;
-    }
-    ul#menu li {
-        float: left;
-        width: 30%;
-        margin-right: 1em;
     }
 </style>
 
@@ -44,7 +24,7 @@
 %end
 
 
-%rebase templates/base title=': KaleidoSmatch', extrahead=extrahead
+%rebase templates/base  extrahead=extrahead, title='KaleidoSmatch', oneliner='a remix by Donatella Portoghese between <a href="http://constantvzw.org/verlag/spip.php?page=article&amp;id_article=132&amp;mot_filtre=5&amp;id_lang=0" target="_blank" style="color: pink;">Kaleidoscope</a> by An Mertens and <a href="http://constantvzw.org/verlag/spip.php?page=article&amp;id_article=129&amp;mot_filtre=5&amp;id_lang=0" target="_blank">Smatch</a> by Dominique Roodthooft.'
 
 <div id='container'>
     <iframe id='kaleidoscope' src="/static/html/kaleidoscope.html" style='margin-right: 1em;'></iframe>

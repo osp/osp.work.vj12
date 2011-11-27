@@ -1,10 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="en-US">
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
-        <title>Fit [the man pages] for purpose</title>
-        <link rel="stylesheet" href="../static/css/vj12.css" type="text/css" media="screen" charset="utf-8">
-
+%def extrahead():
         <style>
             @font-face {
                 font-family: 'Libertinagec';
@@ -15,9 +9,7 @@
                     url('../static/fonts/libertinage/libertinage-c-webfont.svg#Libertinagec') format('svg');
                 font-weight: normal;
                 font-style: normal;
-
             }
-
             @font-face {
                 font-family: 'ConsolaMonoBook';
                 src: url('../static/fonts/consola/consolamono-webfont.eot');
@@ -27,9 +19,7 @@
                     url('../static/fonts/consola/consolamono-webfont.svg#ConsolaMonoBook') format('svg');
                 font-weight: normal;
                 font-style: normal;
-
             }
-
             @font-face {
                 font-family: 'LiberationMonoRegular';
                 src: url('../static/fonts/liberation/LiberationMono-Regular-webfont.eot');
@@ -39,9 +29,7 @@
                     url('../static/fonts/liberation/LiberationMono-Regular-webfont.svg#LiberationMonoRegular') format('svg');
                 font-weight: normal;
                 font-style: normal;
-
             }
-            
             .line {
                 padding: 10px 0 7px 0;
                 display: block;
@@ -49,100 +37,89 @@
                 border-bottom: 1px solid #efefef;
                 vertical-align: text-top;
             }
-
             .username, .timecode, .message, .message.ivan {
                 margin: 0;
                 padding: 0;
                 display: inline-block;
                 vertical-align: text-top;
             }
-
             .username, span.timecode {
                 width: 18%;
             }
-
             .timecode {
                 margin-right: -18%;
-
                 font-family: "ConsolaMonoBook";
                 font-size: 12px;
             }
-
             .username {
                 margin-left: 18%;
                 margin-right: -36%;
             }
-
             .ivan {
                 color: #008000;
             }
-
             .message, .message.ivan {
                 margin-left: 36%;
                 width: 60%;
             }
-
             .message.ivan, .username.ivan {
                 font-family: "LiberationMonoRegular";
                 font-size: 13px;
                 line-height: 1.5;
             }
-
-            h1, h2, h3, h4, h5, h6 {
+            div#container h1, div#container h2, div#container h3, div#container h4, div#container h5, div#container h6 {
                 margin-left: 18%;
                 font-family: "Consola Mono";
                 text-transform: uppercase;
             }
-
-            h1 {
+            div#container h1 {
                 font-size: 40px;
                 margin-top: 100px;
             }
-
-            h2 {
+            div#container h2 {
                 margin-top: 40px;
             }
-
-            h5 {
+            div#container h5 {
                 margin: 10px 0 5px 36%;
                 font-size: 16px;
             }
-
-            h6 {
+            div#container h6 {
                 margin-top: 15px;
                 margin-bottom: 10px;
                 font-size: 14px;
             }
-
-            p {
+            div#container p {
                 margin: 0;
             }
-
-            p, .message {
+            div#container p, .message {
                 font-family: "Libertinagec";
                 font-size: 16px;
                 line-height: 1.3;
+                background-color: white;
             }
-
-            p.text {
+            div#container p.text {
                 margin-left: 18%;
             }
-
             .header.ivan {
                 display: inline-block;
                 margin-left: 50px;
             }
-
             .system_message {
                 font-family: "LiberationMonoRegular";
                 font-size: 13px;
                 margin-left: 36%;
                 color: #999;
             }
-
+            div#container {
+                background-color: white;
+            }
         </style>
-    </head>
-    <body>
+%end
+
+
+%rebase templates/base extrahead=extrahead, title='Fit the Annual Report for Purpose', oneliner='A conversation between Ivan Monroy Lopez\'s <a href="http://constantvzw.org/verlag/spip.php?page=article&id_article=123&mot_filtre=5&id_lang=0" target="_blank">Soap Box Annual Report</a> and <a href="http://constantvzw.org/verlag/spip.php?page=article&id_article=121&mot_filtre=5&id_lang=0" target="_blank">Fit for Purpose</a>.'
+
+    <div id="container">
         <h1>Fit <span class="header ivan">the annual report</span><br /> for purpose</h1>
         <p class="text">
             A software testers day in 3 acts :<br />
@@ -797,5 +774,4 @@
                 </span>
             </span>
         </p>
-    </body>
-</html>
+</div>
