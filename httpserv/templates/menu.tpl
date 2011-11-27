@@ -7,6 +7,6 @@
     <li><a href="#">Collocations</a> Finding couples in a text.</li>
     <li><a href="http://127.0.0.1:5984/vj12/_design/paracode/index.html">Paracode</a> A close-reading of a piece of software written by Anne-Laure Buisson.</li>
     <li><a href="/kaleidosmatch/">KaleidoSmatch</a>  parallel between «&#x202F;Kaleidoscope, a genesis&#x202F;» and «&#x202F;Smatch(1)&#x202F;».</li>
-    <li><a href="/moss_ambiguity/">To Talk About Many&nbsp;Systemic Ambiguity</a> A remix between «&#x202F;To Talk of Many Things&#x202F;» and «&#x202F;Systemic Ambiguity&#x202F;».</li>
+    <li><a href="/moss_ambiguity/">To Talk of&nbsp;Many Systemic Ambiguity</a> A remix between «&#x202F;To Talk of Many Things&#x202F;» and «&#x202F;Systemic Ambiguity&#x202F;».</li>
     <li><a href="/fit_the_annual_report_for_purpose/">Fit the Annual Report on&nbsp;Purpose</a> A conversation between «&#x202F;Soap Box Annual Report&#x202F;» and «&#x202F;Fit for Purpose&#x202F;».</li>
 </ul>
