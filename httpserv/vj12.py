@@ -11,7 +11,6 @@ from json import dumps
 import os
 import nltk
 from nltk.corpus import PlaintextCorpusReader
-import re
 
 bottle.debug(True)
 
@@ -28,17 +27,34 @@ def home():
 @route('/context')
 @route('/context/:filename/:word')
 def context(filename = False, word = False):
-    ptx = ''
     if word and re.match ("^[a-zA-Z0-9_]+$", filename) and re.match ("^[a-zA-Z0-9_]+$", word):
-        import os
-        cmd = 'ptx --word-regexp=\ {0!s}\  texts/{1!s}.txt'.format (word, filename)
-        lines = os.popen(cmd)
-        ptx = lines.read()
-    return dumps ({'filename': filename, 'word': word, 'result': ptx})
+        handler = open ("texts/%s.txt" % filename)
+        
+        found_lines = []
+        head_length = 0
+        
+        for line in handler:
+            pattern = "(?P<head>^|^\W+|(\w+\W+){1,4})(?P<body>%s)(?P<tail>(\W+\w+){1,4}|\W+$|$)" % word
+            match = re.search (pattern, line);
+            while match:
+                head_length = len (match.group ('head')) if len(match.group ('head')) > head_length else head_length
+                found_lines.append ([match.group ('head'), match.group ('body'), match.group ('tail')])
+                line = line[match.end('body'):]
+                match = re.search (pattern, line)
+        
+        for x, line in enumerate(found_lines):
+            line[0] = line[0].rjust (head_length, ' ')
+            found_lines[x] = ''.join (line)
+            
+    return dumps ({'filename': filename, 'word': word, 'result': "\n".join (found_lines)})
 
 #@route('/overview')
 #def overview():
 #    return template('overview',files = '["the-man-pages", "to-talk-of-many-things"]')
+
+@route('/compare')
+def compare():
+    return template ('compare')
 
 @route('/view')
 def view():
