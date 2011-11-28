@@ -63,6 +63,7 @@ Steph + Alex
 Steph
 
 - footnote ne doit pas appeler d'iframe
+- images ne doit pas appeler d'iframe
 - désactiver le son des iframes, sur tout le site?
 - being able to navigate the sites
   - by zooming in the frames;
