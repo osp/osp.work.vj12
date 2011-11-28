@@ -1,0 +1,58 @@
+ul {
+  width: 3500px;  
+  position: relative;
+  top: 199px;
+}
+
+
+li {
+    float: left;
+    width: 20px;
+	-moz-box-shadow: -3px 3px 4px #CCC;
+	-webkit-box-shadow: -3px 3px 4px #CCC;
+	box-shadow: -3px 3px 4px #CCC;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+}
+li:hover {
+    width: auto;
+    /*position: relative;*/
+    /*top: -30px;*/
+    /*border: 1px solid black;*/
+}
+
+.date {
+    font-family: monospace;
+    background-color: gray;
+    letter-spacing: 1px;
+    color: white;
+    padding: 3px;
+    font-weight: bold;
+    font-size: 9px;
+    position: relative;
+    top: -60px;
+    -webkit-transform: rotate(-90deg); 
+    -moz-transform: rotate(-90deg);	
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    position: absolute;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+div.email {
+    white-space: pre-line;
+    font-family: monospace;
+    font-size: 5px;
+    width: 160px;
+    height: 220px;
+    overflow: hidden;
+    border: 1px solid black;
+    padding: 0 1em;
+    background-color: white;
+}
+li:hover {
+    position: relative;
+    top: -20px;
+}
