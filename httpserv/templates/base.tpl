@@ -15,6 +15,7 @@
     }
     div#header h1 {
         font-size: 2em;
+        font-weight: bold;
     }
     div#container {
         height: 100%;
@@ -23,11 +24,7 @@
     }
     ul#menu {
         width: 100%;
-    }
-    ul#menu li {
-        float: left;
-        width: 30%;
-        margin-right: 1em;
+        height: 200px;
     }
 </style>
 

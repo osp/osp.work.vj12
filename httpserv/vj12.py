@@ -56,32 +56,39 @@ def moss_ambiguity():
 
 
 @route('/context')
-@route('/context/<filename:path>/:word')
-def context(filename=False, word=False):
-    """
-    Returns a JSON containing the result of the ptx command.
-    """
-    result = None
-    if word:
-        cmd = 'ptx --word-regexp=\ {0!s}\  {1!s}.txt'.format(word, os.path.join(CORPUS_ROOT, filename))
-        stdout = os.popen(cmd)
-        result = stdout.read()  # FIXME: unicodedecoderror may happen...
-    return dumps({'filename': filename, 'word': word, 'result': result})
-
-
-@route('/overview')
-def overview():
-    """
-
-    """
-    return template('templates/overview', files='["the-man-pages", "to-talk-of-many-things"]')
-
-
-@route('/view')
-def view():
+@route('/context/:filename/:word')
+def context(filename = False, word = False):
     """
     An interface to look at permutated indices.
     """
+    if word and re.match ("^[a-zA-Z0-9_]+$", filename) and re.match ("^[a-zA-Z0-9_]+$", word):
+        handler = open ("texts/%s.txt" % filename)
+        
+        found_lines = []
+        head_length = 0
+        
+        for line in handler:
+            pattern = "(?P<head>^|^\W+|(\w+\W+){1,4})(?P<body>%s)(?P<tail>(\W+\w+){1,4}|\W+$|$)" % word
+            match = re.search (pattern, line);
+            while match:
+                head_length = len (match.group ('head')) if len(match.group ('head')) > head_length else head_length
+                found_lines.append ([match.group ('head'), match.group ('body'), match.group ('tail')])
+                line = line[match.end('body'):]
+                match = re.search (pattern, line)
+        
+        for x, line in enumerate(found_lines):
+            line[0] = line[0].rjust (head_length, ' ')
+            found_lines[x] = ''.join (line)
+            
+    return dumps ({'filename': filename, 'word': word, 'result': "\n".join (found_lines)})
+
+
+@route('/compare')
+def compare():
+    return template ('compare')
+
+@route('/view')
+def view():
     return template('view')
     
 
@@ -97,9 +104,8 @@ def textlist ():
         files.append(basename)
 
     return dumps (files)
-
-
-@route('/text/<filename:path>')
+        
+@route('/text/:filename')
 def text(filename):
     """
     Returns a json dictionnary containing:

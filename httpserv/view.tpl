@@ -6,21 +6,19 @@
         <link rel="stylesheet" href="http://meyerweb.com/eric/tools/css/reset/reset.css" type="text/css" media="screen" charset="utf-8">
         <style>
             html {
-                background: rgb(239,239,239);
                 text-rendering: optimizeLegibility;
-                overflow: visible;
+                margin: 0;
+                padding: 0;
             }
 
-
             div#text {
+                overflow: auto;
                 background: white;
                 display: none;
-                float: left;
-                padding: 30px;
-                margin: 20px
             }
 
             div#text pre {
+                margin: 15px 30px 30px 30px;
                 font-family: monospace;
                 font-size: 11px;
                 line-height: 16px;
@@ -36,14 +34,14 @@
             }
 
             h2 {
-                margin: -5px 5px 10px -5px;
+                margin: 15px 10px 0px 15px;
                 font-size: 11px;
                 font-weight: bold;
                 font-family: sans-serif;
                 text-transform: uppercase;
             }
 
-            span._keyword {
+            span._keyword, span._line {
                 cursor: pointer;
             }
             
@@ -60,37 +58,33 @@
             }
 
             #controls {
-                position: fixed;
-                top: 20px;
-                right: 20px;
+                display: block;
+                width: 100%;
                 z-index: 999;
+                text-align: right;
             }
             
+            #controls select {
+                margin: 5px;
+            }    
+               
             #result {
-                    position: fixed;
-                    display: none;
-                    padding: 10px;
-                    top: 60px;
-                    right: 20px;
-                    width: auto;
-                    font-family: monospace;
-                    font-size: 10px;
-                    line-height: 16px;
-                    z-index: 998;
-                    background: rgba(239, 239, 239, 0.75);
+                overflow: auto;
+                text-align: left;
+                position: relative;
+                display: none;
+                width: auto;
+                font-family: monospace;
+                font-size: 10px;
+                line-height: 16px;
+                z-index: 998;
+                background: rgb(245, 245, 245);
             }
-
-            #controls span {
-                display: block;
-                color: #333333;
-                background: white;
-                border: 1px solid #ddd;
-                border-radius: 6px;
-                padding: 3px 6px 1px 6px;
-                margin: 0px 0px 10px 0px;
-                cursor: pointer;
+            
+            #result pre {
+                    margin: 4px 0px 4px 20px;
             }
-
+            
             div#center {
                 z-index: 998;
                 display: block;
@@ -130,11 +124,35 @@
                     if (status == 'success') { 
                         formatted_text = file.data.replace (/(\w+)/ig,'<span class="_keyword $1">$1</span>');
                         $('#result').empty().hide();
+                        $('#text').height($(window).height() - $('#controls').height());
                         $('#text').empty().append ('<h2>' + file.name + '</h2><pre>' + formatted_text + '</pre>');
                         markWord (['the','notice','and']);
-                        $("span._keyword").mouseover(function () {$('.' + $(this).text()).addClass ('_active');});
-                        $("span._keyword").mouseout(function () {$('.' + $(this).text()).removeClass ('_active');});
-                        $("span._keyword").click(function () {getContext ($(this).text());});
+                        
+                        if (window == window.top) {
+                            $("span._keyword").mouseover(function () {$('.' + $(this).text()).addClass ('_active');});
+                            $("span._keyword").mouseout(function () {$('.' + $(this).text()).removeClass ('_active');});
+                            $("span._keyword").click(function () {getContext ($(this).text());});
+                        } else {
+                            $("span._keyword").mouseover(function () {
+                                for (var i = 0; i < window.top.frames.length; i++) {
+                                    $('.' + $(this).text(), window.top.frames[i].document).addClass ('_active');
+                                }
+                            });
+                            
+                            $("span._keyword").mouseout(function () {
+                                for (var i = 0; i < window.top.frames.length; i++) {
+                                    $('.' + $(this).text(), window.top.frames[i].document).removeClass ('_active');
+                                }
+                            });
+                            
+                            $("span._keyword").click(function () {
+                                getContext ($(this).text());
+                            });
+                            
+                            $("span._keyword").dblclick(function () {
+                                hideContext ();
+                            });
+                        }
                     }
                     
                     $('#text').show ();
@@ -151,35 +169,51 @@
                 }
             }
             
-            function getContext(word) {
-                $.get ('context/' + $('#file_list').val() + '/' + word, function (data, status) {
-                    if (status == 'success') {
-                        data = $.parseJSON (data);
-                        result = data.result.replace(/(.+)/g, '<span class="_line"><pre>$1</pre></span>');
-                        
-                        $('#result').height('auto').width ('auto').empty ().append (result).show();
-                        $('._search_active').removeClass ('_search_active');
-                        
-                        if ($('#result').height() > ($(window).height() * 0.9)) {
-                            $('#result').height($(window).height() * 0.75).css ('overflow-y', 'auto').width ($('#result').width() + 25);
+            function getContext(word, force) {
+                if (window == top.window || force == true) {
+                    $.get ('context/' + $('#file_list').val() + '/' + word, function (data, status) {
+                        if (status == 'success') {
+                            data = $.parseJSON (data);
+                            result = data.result.replace(/(.+)/g, '<span class="_line"><pre>$1</pre></span>');
+                            
+                            $('#result').height('auto').width ('auto').empty ().append (result).show();
+                            $('._search_active').removeClass ('_search_active');
+                            
+                            $('#result').height($(window).height() * 0.25);
+                            $('#text').height($(window).height() * 0.75 - $('#controls').height());
+                            
+                            $('span._line').click (function () {
+                                index = $(this).prevAll ('span._line').length;
+                                goToWord (word, index);
+                            });
                         }
-                        
-                        $('span._line').click (function () {
-                            index = $(this).prevAll ('span._line').length;
-                            goToWord (word, index);
-                        });
+                    });
+                } else {
+                    for (var i = 0; i < window.top.frames.length; i++) {
+                        window.top.frames[i].getContext (word, true);
                     }
-                });
+                }
+            }
+            
+            function hideContext (force) {
+                if (window == top.window || force == true) {
+                    $('#result').hide().empty();
+                    $('#text').height($(window).height() - $('#controls').height());
+                } else {
+                    for (var i = 0; i < window.top.frames.length; i++) {
+                        window.top.frames[i].hideContext (true);
+                    }
+                }
             }
             
             function goToWord (word, index) {
                 var selector = 'span._keyword.' + word + ':eq(' + index + ')';
-                var offsetTop = $(selector).offset().top - $(window).height() / 2;
-                var distance = Math.abs ($('html').offset().top - offsetTop);
+                var offsetTop = $(selector).offset().top - $('#text').height() / 2;
+                var distance = Math.abs ($('#text').offset().top - offsetTop);
                 var duration = (distance > 1000) ? 500 : distance / 2;
                 
                 $('._search_active').removeClass ('_search_active');
-                $('html:not(:animated),body:not(:animated)').animate ({'scrollTop': offsetTop}, duration);
+                $('#text').animate ({'scrollTop': offsetTop}, duration);
                 $(selector).addClass ('_search_active');
             }
         </script>
