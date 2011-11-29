@@ -24,21 +24,12 @@ for (i, filename) in enumerate(os.listdir(folder)):
                 data = data.split(" ")
                 if data[1] != '0':
                     attributes += '\n    data-%s="%s"' % (data[0].lower(), data[1])
-        html = """<li data-id="%d" %s>
+        html = """<li id="item_%d"\n    data-id="%d" %s>
     <a href="%s/%s">
-        <img src="%s/%s"/>
+        <img src="%s/%s" width="160" height="220"/>
     </a>
 </li>
-""" % (i, attributes, src_big_img, filename, src_small_img, filename)
+""" % (i, i, attributes, src_big_img, filename, src_small_img, filename)
         output += html
 
 print(output)
-
-
-#f1 = open("macro-head.html", "r")
-#header = f1.read();
-#f1.close()
-
-#f = open("macro.html", "w")
-#f.write(header + "<ul>\n" + output + "\n</ul>\n</div>\n</body>\n</html>")
-#f.close()

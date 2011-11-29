@@ -1,50 +1,46 @@
-//         jQuery.fn.sort = function() {
-//           return this.pushStack([].sort.apply(this, arguments), []);
-//         };
-
-function sort_by_date(a, b){
-    if ($(a).attr('data-datetime') == $(b).attr('data-datetime'))
-        return $(a).attr('data-id') > $(b).attr('data-id') ? 1 : -1;
-    else {
-        return $(a).attr('data-datetime') > $(b).attr('data-datetime') ? 1 : -1;
-    }
-};
-function sort_by_date_2(b, a){
-    return $(a).attr('data-datetime') > $(b).attr('data-datetime') ? 1 : -1;
-};
-
-function toggle_src(a, img){
-    var href = $(a).attr('href');
-    var src = $(img).attr('src');
-    $(img).attr('src', href);
-    $(a).attr('href', src);
-    return false
-};
-
-function sort_by(attribute) {
-    function sort_by_attr(b, a){
-        return $(a).attr(attribute) > $(b).attr('attribute') ? 1 : -1;
-    };
-    $('ul li').sort(sort_by_attr).appendTo('ul');
-    return false
-}
-function spread_by(attribute) {
-    var offset = 30;
-    var values = []
-    $('ul li').each(function() {
-        var attr = $(this).attr(attribute);
-        var index = $.inArray(attr, values);
-        if (index === -1) {
-            values.push(attr);
-            index = values.length - 1;
-        };
-        $(this).css('padding-top', 50 + index * offset);
-        $(this).css('padding-bottom', 3000);
-    });
-
-}
-
 $(function() {
+    function toggle_src(a, img){
+        var href = $(a).attr('href');
+        var src = $(img).attr('src');
+        $(img).attr('src', href);
+        $(a).attr('href', src);
+        return false
+    };
+
+    function sort_by(attribute) {
+        function sort_by_attr(a, b){
+            return $(a).attr(attribute) > $(b).attr('attribute') ? 1 : -1;
+        };
+        $('ul li').sort(sort_by_attr).appendTo('ul');
+
+        $('.tag').remove();
+        var current_attr;
+        $('ul li').each(function() {
+            var this_attr = $(this).attr(attribute);
+            if (this_attr !== current_attr) {
+                current_attr = this_attr;
+                var foo = $('<div></div>');
+                foo.addClass('tag');
+                foo.text(this_attr);
+                foo.prependTo(this);
+            };
+        });
+        return false
+    }
+    function spread_by(attribute) {
+        var offset = 30;
+        var values = []
+        $('ul li').each(function() {
+            var attr = $(this).attr(attribute);
+            var index = $.inArray(attr, values);
+            if (index === -1) {
+                values.push(attr);
+                index = values.length - 1;
+            };
+            $(this).css('margin-top', 50 + index * offset);
+            //$(this).css('padding-bottom', 3000);
+        });
+    }
     (function() {
         var keys = [];
         $('ul li').each(function() {
@@ -79,26 +75,7 @@ $(function() {
         });
 
     })();
-    $('a#sort_by_date').click(function() {
-        $('ul li').sort(sort_by_date).appendTo('ul');
-        return false;
-    });
-    $('a#sort_by_date_2').click(function() {
-        $('ul li').sort(sort_by_date_2).appendTo('ul');
-        return false;
-    });
-    $('a#spread_by_language').click(function() {
-        spread_by('data-language');
-        return false;
-    });
-    $('a#spread_by_destination').click(function() {
-        spread_by('data-destination');
-        return false;
-    });
-    //$('li a').click(function() {
-        //toggle_src(this, $(this).find('img'));
-        //return false;
-    //});
+
     $('li').hover(function() {
         var prefix = "data-"; 
         var $infos = $("dl#infos").empty()
@@ -111,5 +88,26 @@ $(function() {
         });
     }, function() {
         var $infos = $("dl#infos").empty()
+    });
+    $("li").click(function(evt) {
+        evt.preventDefault();
+        evt.stopPropagation();
+        
+        $(this).zoomTo({
+            targetsize: 0.8,
+            scalemode: "both",
+            duration: 1000,
+            easing: "ease",
+            nativeanimation: true
+        });
+        
+        //var a = $(this).find('a');
+        //var img = a.find('img');
+        //toggle_src(a, img);
+    });
+
+    $("body").click(function(evt) {
+        evt.stopPropagation();
+        $(this).zoomTo({targetsize: 1});
     });
 });

@@ -6,18 +6,19 @@ ul {
 
 
 li {
+    display: block;
     float: left;
     width: 20px;
-    border-left: 1px dotted lightgray;
+    /*border-left: 1px dotted lightgray;*/
 }
-li img {
-	-moz-box-shadow: -3px 3px 4px #CCC;
-	-webkit-box-shadow: -3px 3px 4px #CCC;
-	box-shadow: -3px 3px 4px #CCC;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+body.shadow li img {
+    -moz-box-shadow: -3px 3px 6px #CCC;
+    -webkit-box-shadow: -3px 3px 6px #CCC;
+    box-shadow: -3px 3px 6px #CCC;
+    /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+    /* For IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
 }
 li:hover {
     width: auto;
@@ -26,7 +27,7 @@ li:hover {
     /*border: 1px solid black;*/
 }
 
-.date {
+.tag {
     font-family: monospace;
     background-color: gray;
     letter-spacing: 1px;
@@ -35,11 +36,14 @@ li:hover {
     font-weight: bold;
     font-size: 9px;
     position: relative;
-    top: -60px;
+    top: -10px;
+    width: 50px;
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
     -webkit-transform: rotate(-90deg); 
     -moz-transform: rotate(-90deg);	
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-    position: absolute;
+    /*position: absolute;*/
     -moz-border-radius: 3px;
     border-radius: 3px;
 }
@@ -86,8 +90,11 @@ img {
     max-width: 500px;
 }
 img:hover {
-    width: 300px;
+    /*width: 300px;*/
 }
 nav {
     position: fixed;
+}
+a, img {
+    border: 0px solid black;
 }
