@@ -1,0 +1,118 @@
+    "The terms parent and child are specific applications
+    of the terms ancestor and descendant."
+    (Cascading Style Sheets, O'Reilly Media, 2004.
+
+Kaleidoscope was a transdisciplinary research project that looked into the notion of collaborative authorship in the most horizontal structure possible, with nine creators using the software Object Score Notation as a platform for negociation. By lack of a better term the result was called a 'performance-installation', composed of nine games that could be played by everyone present. Kaleidoscope was proposed to an audience in the framework of VJ10 in La Bellone on 25, 27 & 28 November 2009.
+
+The way the project came along and the form it finally took was highly organic. We talk about serendipity or about one fact leading to another when wanting to show the specificities. One thing is clear, VJ10 is stated to be the ancestor of Kaleidoscope. Therefore it is marked up in this text with the element h1 from which different generations of facts were produced - h2, h3, h4, h5 - leading to h6 or Kaleidoscope (the performances, the blog, the lectures, the publications) and to Kaleidoscope-the-next-generation that runs under the name !Co LAPse KoDe and should theoretically go under h7. As the h7 header is not recognized by W3C and because !Co LAPse KoDe is considered to be a new project with a changed combination of people, I'll go with the tool and will ignore !Co LAPse KoDe in this article. Other sources used can be found here. As I'm one of the writers and initiators of the group, I take the freedom to reconstruct the process, knowing this format allows any of the members to change the text, and add or delete content.
+
+The main idea behind Kaleidoscope was to create scores that could be executed, studied, changed and reinserted in the computer. The source for this approach can be found in collectives using improvisation as a means of creation like The Scratch Orchestra, the Art Ensemble of Chicago or the Parliament. The first score was given to us by Tristan Honsinger and replayed in Ateliers Claus in company of the software. Many others followed. In the beginning we took notes of the process, of what worked and did not work. Later, when we got familiar with the software and started developing material-specific scores, we published them on the blog.
+
+The particular approach of Kaleidoscope made tactile the notion of 'new digital disorder' as all categories started to fluctuate. Every player, for example, was at the same time player in the game of others and director in her own game. The hierarchical concept of amateur versus professional collapsed during the creation process, as it became clear the amateur often explores with much more liberty the newly built environment. The immediate relation between the two-dimensional world of the screen and the three-dimensional world of the stage took away the scission between spectator and player. Everyone present was potentially both at the same time. The only difference was that some had more site-specific previous knowledge. We concluded that the word 'installation-performance' was clumsy as a name, because we realised we had created above all a new kind of meeting place, for people, objects and machines. !Co LAPse KoDe will be looking further into these results.
+
+[Copyright: An Mertens, Brussels, April 2011. Copyleft: This is a free work, you can copy, distribute, and modify it under the terms of the Free Art License.]
+Performance-Installation Kaleidoscope: credits, games, questions, problems, reactions
+
+Kaleidoscope was presented in La Bellone on 25, 27 & 28 November 2009, each night from 18:00 till 22:00. Visitors had the possibility to enter the space at each hour. Before entering thy received a set of cards. We called it a program. These cards allowed to 'read' each game, getting to know the ingredients and the rules to play along. The makers of Kaleidoscope played a series of 4 or 5 games. All people present could shout 'quit' to end a game and propose another game.
+
+Reactions of visitors were very diverse, going from 'I didn't get a clue' to 'a nice toy!' or 'what you created is a whole new universe'. The classical set-up lead clearly to confusion, positioning the audience in front of the 'stage'. We would have loved to find another solution, but we had no choice. The motion tracking software objscrs needs the least shadow possible in order to perform adequately. Light designer Michael Janssens therefore positioned the lights at each side of the stage so they would merge the shadows. The tracking worked fine, but the interaction with the audience was sometimes very difficult. The more playful visitors were those having experience with either technology, performance or the spirit of the festival VJ.
+
+Working with technology causes difficulties that cannot always be solved. Kaleidoscope learned us that whatever goes wrong, the makers should always keep up appearances. In that sense, it is still theater, spectacle, a show. We had developed an emergency game in case of a total system crash, but the one moment Simon the programmer was absent, we got into such a technological panic we canceled the show. We all agreed upon the fact this was not a good decision to take. When speaking to other makers it became clear that having just one B-plan is not enough.
+
+CREDITS: [Makers]: Dorothe Depeauw, Lot Jansen, Matthias Koole, Rebecca Lenaerts, An Mertens, Thomas Olbrechts, Laia Sadurni, Kirsty Stansfield, Simon Yuill. [Light]: Michael Janssens. [Costums]: Roberta Miss & Barbara Decloux. [Production]: Mangrove-Tentactile. [Coproduction]: Constant, La Communaute francaise/Arts Numeriques. [With the support of]: De Pianofabriek KWP, Charleroi-Danses/La Raffinerie, Maison de la Bellone, Zinneke. [In the framework of]: Verbinding/Jonctions 12.
+
+Residency in Maison de La Bellone: impressive set-up, first rehearsal!
+
+From 2-11 till 6-11 we rehearsed in Maison de la Bellone. For lighting reasons we only could use the space after 5pm. For the first time we rehearsed all together. Every game needed to be adjusted in terms of sound, space, lights, mouvement...
+
+Residency in Charleroi-Danses/La Raffinerie: let's turn this into a modular game!, creation program, finalisation of the games
+
+From 19-9-9 till 31-10-9 we worked in La Raffinerie. Here we felt the rush of going into production mode. The games were thought through, pictures resized & made transparant, sounds decided upon and recorded, videos converted and positioned, costumes tried out. The stress was present. When the program needed to be made, names for concepts needed to be invented, compromises were made at a large scale. The collective turned out to have a leader anyway, even if this leader was not chosen. The tension was high, the immediate effect was to put aside the improvisation and the playfullness and to start fixing things. Luckily, all this did not limit the laughters that were necessary for the game Repause.
+We organised a first try-out, with success.
+
+Residency in De Pianofabriek: introduction into each other's methodologies, collective improvisations, retreat into individual universes, emergencies (theft & universe)
+
+De Pianofabriek KWP hosted us from 14-9-9 till 11-10-9 and from 17-11-9 till 22-11-9. Wheras the last week helped us to finetune everything for the VJ12 festival, the first month was a period of rich explorings, exchanges and collaborations. We realized we all had our working methods and visions. The main difference was the interpretation of the concept of 'narrativity' between the dancers/musicians and the storyteller/actress. It can be traced back to wanting to tell a concrete versus an abstract story in a linear versus fragmented way.
+
+The city, our daily life, pattern practices were the topics of improvisation sessions. The different working methods were presented in workshop-form by Laia, Lot, Rebecca, An, Dorothe and Simon. For the musicians it seemed quite difficult to propose methods to play along, they mainly played along. Most of the scores can be found back here.
+
+First we improvised without the machine. After each improvisation we asked the same question over again: 'what is it the machine can add here that we cannot do ourselves?' These sessions allowed an extensive exchange with Simon who was sort of live-coding along.
+
+We also bought a suitable project computer - an old IBM Thinkpad - to make sure the software would not need too many changes from Simon's Thinkpad. The day we had the machine set-up with the newest version of objscrs, somewhere half-way our residency, we were euphoric. We started to get onto the new code, we got our hands dirty!
+
+Not for long though... One shiny morning a couple of days later, none of our gear was left. There had been ugly visitors in the venue. Followed a day of watching the images on the surveillance system of De Pianofabriek. We found the two boys coming in the building, crossing the patio, checking the exit at the back, taking out our bags and walking out of De Pianofabriek again as if nothing happened. Unfortunate to say that even after delivering a copy of these video snippets to the police, we never heard back from them.
+
+The robbery experience turned out to be very useful in different ways. While An got the set-up back together, finding a new computer, installing the software, figuring out with Simon what more additional packages had been installed, noting down it would be good to have that information written down in a manual; the others stayed away from the machine, developed an emergency game that would work without the machine. They also defined their own games - by then still called universes - on... a sheet of paper.
+
+From the 23rd till the 31st January 2009 we were in residency in Les Brigittines. The overall sensation was 'Waauw, this is great!'. We kept a daily list of our actions, took note of what worked and what didn't work. All this can be found here.
+
+After this week we agreed to continue working. We decided to look for funding to develop this work together.
+
+Residency in Ateliers Claus: testing & experiencing the software
+
+The first test case was done in Ateliers Claus on 12-13-14 December 2008. Laia, Dorothe, Matthias and An experienced the software on a surface of 2 square metres. The potential was clear.
+
+Objscrs had been taken out the 'drawer' of Constant and brought back to life after several Skype conversations with Nicolas and Simon. A Skype sample is about the only archived material that has survived. It reads like poetry!
+
+CIAO/CU & Performance OKNO 'Karass-Suite': or how we would love to not be sitting in front of a computer while performing
+
+As part of the program of the Collaborative Online Video workshop, organised by Constant, we met up one evening at Okno for the performances of the Karass Suite Gala. The setting of two men facing each other but watching both their computer screens while performing electronic symphonies based on archived material, originated the strong desire to be able one day to include the body in machine based performances.
+
+While commenting on this visual artist Laia Sadurni remembered the experience of playing physically with the software objscrs in Les Bains::Connective. When leaving Okno that night, the plan was born to dig into the archive of Constant, find back the first version of objscrs and try it out.
+
+    Laia comments on her participation in Kaleidoscope as followed:
+    
+    I'm interested in comunication and language in a non-verbal way,
+    finding tools and resources to traduce daily situations through the body.
+    It was interesting for me to bring together different expressive languages
+    to exchange and learn from one to another by exchanging the codes and
+    creating collective scores. This can be synthetized as:
+        
+    - body itself as activator (by designing physical interfaces)
+    - creating scores as a structure for common agreements
+    - development of improvisation as a strategy for daily life
+
+The fact that technology, in this case a software working real time could assemble all those and bring the possibility of building stories from different nature by different participants attracted me, and further on breaking notions of stage and public.
+
+For writer and storyteller An Mertens this project fitted the next stage of a research trajectory on 'writing in the digital age'. She had been looking into ways to develop 'a collaborative tool that would allow different authors to collaborate simultaneously without compromising on individual esthetics and methods and without copromising on the artistic result. The work should be exportable outside of the net.' The idea existed under the name 'CIAO/CU++', meant to be a 'series of performances linking improvisation techniques with the creation of different narrative threads in different disciplines (text, photo, video, drawing, music...'. What first existed as a net native project, needed physical meetings after spending months in front of a screen talking to collaborators through mail, chat and voip.
+
+Advanced Performance Training Antwerp - Workshop Transdisciplinary Improvisation: 4 members meet & decide to continue working together
+
+From 3 till 7 November 2008 Matthias Koole, Dorothe Depeauw, Rebecca Lenaerts and An Mertens met in a workshop at APT in Antwerp. During a week they explored the practice of transdisciplinary improvisation with musician Tristan Honsinger. Tristan's main objective was finding an interesting theatrical way to make all disciplines improvise together. Improvisation is seen along the main rules of the interactive relational game, anarchistic and egalitarian. For him there is no full egalitarism when all disciplines mix, as the text will always take on a dominant position. Therefore, he proposed to work from a short story made up by Rebecca and another actress that served as a grid to play in. It worked well thanks to the undefined plot, the multitude of characters, and the open end.
+
+In order to dismantle the text, the participants were given the assignment to make two mental associations before we would pronounce the words, and place it well in the given context. The result was a surrealist play with many actions happening at the same time. The spectator was obliged to install your own hierarchy in what was happening on stage.
+
+At the end of the week we proposed to continue the improvisation sessions in Brussels, as many of the participants were living there. We would look for a venue and meet on a regular basis to play.
+
+Some reasons why we met where we met:
+
+An: Improvisation seemed to be the right way to explore the notion of true collaborative authorship. I had done theatrical improvisation in the past, but keeping netnative creation processes in mind, I was looking for cross-over practices with sound, images, video.
+
+Rebecca: In my work I often use improvisation to generate material. I only improvised in front of a microphone. Tristan Honsingers workshop provided a context to explore my way of improvising and to confront it with other methods. As an actress I had experience with improvisation theater. The workshop at APT focused on interdisciplinarity; which was something completely new for me. It was fascinating to learn to play together, like children, without diffidence.
+
+Dorothe: I was looking for an exchange through improvisation between danced mouvements and a combination of other disciplines. My previous experiences with improvisation were generally focused on dance in combination with one specific discipline (dance-music, dance-sculpture, dance-words). My friend Klaas Devos who was participating in the postgraduate formation at APT advised me vividly to participate to the workshop led by Tristan Honsinger. As a dancer, his approach has triggered me to improvise from different starting points, that can be sound, spoken words, scores.
+
+Later on Lot and Thomas joined the project Kaleidoscope, they were invited by Dorothe and Matthias.
+
+Thomas: The live aspect was very inspiring: to be filmed live as musician-performer - something I experienced before - and moreover being conditioned by a system that interacts live with you. I like the 'theatrical tension' and the guiding force that go with live-manipulations, it obliges you to keep a sharp focus. In that sense Kaleidoscope was complimentary to the project LIVENESS, a research on the live-experience in Instant Composition performances: a series of experiments in which media like televisie, computer, live-cam ...
+
+Advanced Performance Training Antwerp - Workshop Object Score Notations: 1st version of software objscrs is developed, try-out
+
+For the first trimester of 2008 Constant was invited to participate to the programme and to contribute to the content of the APT postgraduate (part of the Posthogeschool voor Podiumkunsten which is based at Singel in Antwerp). They decided to invite Simon Yuill who had been lecturing at VJ10 in November 2007.
+
+The approach of the workshop was as followed: The workshop will be based around a piece of software that tracks movements via video camera. This translates movement into a form of notation that can be used to construct audio scores, or, which can feedback into the performance and notation system itself (i.e. creating commands for other performers). The workshop will be based in a space with simple objects and furniture that the participants can use as their notational canvas. They will be able to construct a notation system from their own movements and their interactions with the objects in the space. From this they will create a series of object scores. Participants will work collectively in creating and altering these object scores following a FLOSS paradigm of writing and re-writing each others contributions. This will create a tight feedback loop between writing and performing - the motions of performance become recorded as notations in the scores. These scores then generate the possibilities for further performances which re-write the previous notations.
+
+The announcement of the program: http://www.constantvzw.org/site/Advanced-Performance-training.html
+
+The participants in the workshop had access to a rich collection of essays and texts. At the end of the workshop the result was showed publicly. Visual artist Laia Sadurni was one of the persons who explored the set-up after the performance.
+
+VJ10: Tracks in electr(on)ic fields: Simon Yuill presents his lecture 'All problems of notation will be solved by the masses'
+
+    "Whether we operate a computer with the help of a command line
+    interface, or by using buttons, switches and clicks, the exact location
+    of interaction often serves as conduit for mutual knowledge -
+    machines learn about bodies and bodies learn about machines.
+    Dialogues happen at different levels and in various forms: code,
+    hardware, interface, language, gestures, circuits." (VJ10, Mutual Motions)
+
+For the festival VJ10 Simon Yuill was asked to give a lecture on distributed practices, comparing experimental music collectives of the late 1960s, such as the Scratch Orchestra and the Black Artists Group of St Louis, with Free Software and related art practice. The essay he wrote for the publication of VJ10 was rewarded with the Vilem Flusser theory prize at Transmediale 2008. Following to his intervention at VJ10, Constant invited Simon Yuill and Kirsty Stansfield to experiment with notation and a motion tracking software during workshop sessions for students at APT, called Object Score Notation. Hence, the name of the software.

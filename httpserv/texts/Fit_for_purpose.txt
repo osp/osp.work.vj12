@@ -1,0 +1,517 @@
+A software testers day in 3 acts: 
+10 deploys, 10 bugs and the team
+
+Fit for purpose is a principle included in Quality Assurance. 
+The product should be suitable for the intended purpose. 
+Quality is determined by the product user.
+
+
+I ACT
+
+A day in 10 deployments
+
+Loops 
+
+Deploy 1
+
+Andy: morning qa people.  I am going to start a full qa deployment in a couple of minutes i'll start with the data base backups backups started... qa environments going offline in 10 minutes starting data base restore... qa environment is offline. I will give progress updates here Data base 3/4 started. code starting Code deploy finished. Data base 4/4 , it is 30 Qa environment online. give a couple of mins for first page load.
+Michael: yo
+John: Good morning!
+Andy: hi guys
+
+Deploy 2
+
+Andy: okay good to go
+Michael: @Mark: You ok for a code deploy to QA ?
+Mark: code deploy finished. Data base 4/4 , it is 30%
+Claudia: @micheal just a sec Colin needs to check it in
+Michael: ok
+QA server coming down now
+and we're back
+Claudia: getting 500 here :(
+Michael: argh
+John??
+Claudia: Is someone doing the deploy for QA? Pls
+Michael: it's done, but we need John'  s   input
+as for whatever reason it build but doesn't work
+Claudia: oh understood.... he is in this chat. ((wave)) Hi John!
+
+Deploy 3
+Andy: right. sorry i got *severly* sidetracked. Okay, i'm going to start the restore of the dbases to the qa env. Means qa goes offline for 20 mins. everyone okay for that to happen now?
+
+Deploy 4
+
+Michael: i need a code deploy
+for a change to the import-export tool
+yay/nay?
+Andy: yes, but do it fast
+like real fast
+fast like the wind
+Michael: ok
+Andy: you done yet?
+Michael: no
+Andy: :)
+Michael: building
+oi
+ants in ya pants
+Andy: yes
+John: you QA people are funny
+Michael: eccentricity is the way we cope with cockups
+which are our lifeblood
+Andy: you english QA ppl are funny
+like funny in the head
+loops
+
+Deploy 5
+
+John: we have a build update to QA we would like to do
+Andy: rightio...
+John: no additional bug fixes included
+Andy: code + dbase?
+John: but, we have updated the client side caching expiry times
+just code
+Andy: okay
+John: after talking to ebm
+Andy: i can do that
+John: so, just tag build deploy please
+Andy: rightio
+Michael: if you need any content copying from A to B let me know from where to where
+Andy: i'll take that action
+Michael: and for which locale
+John: thank you
+Andy: qa env is up
+
+Deploy 6
+
+
+Andy: starting a deployment
+qa env will go offline in 10 mins
+Michael: code or data too
+Andy: both
+Michael: ok have you started the data backup yet?
+I can wait till it's done and repeat after
+no biggie
+Andy: till started already yom kippur
+or, yonder kipper, as we say to the youth of today
+Michael: np
+Andy: do you know what a yonder kipper is?
+Michael: no, a far-away kipper?
+Andy: heh :) good guess
+Michael: "what light through yonder kipper breaks"
+Andy: nice. that's quite poetic.
+Michael: it's from Romeo and Kippliet
+hmm just remembered, if I update the Integ CMS and it's being backed up, it will not break the backup, will it?
+so i can do my edit now...
+btw someone on integ was testing timed publish, and hasn't reverted it, that's why Products is showing a warning
+Andy: nah not at all
+go right ahead and keep editing
+Michael: ok there were not changes required on integ for integ domains
+the asia fonts are not yet available on .qa domains
+well, not Vietnamese or Thai
+Andy: that will be a problem for claudia to test them
+Michael: ok the values will be in the next QA DB deploy
+they're fine now for QA
+
+loops
+
+Redeploy 
+
+John: Redeploying the build
+Michael: Last night I did a deploy  if that is anything to go by
+John: I'm retagging  the build
+Michael: Yesterday we had 2 or 3 breakages which I got Topher to fix as they were related to shortURLs
+John: make that 4
+Michael: joy
+John: I just fixed it though waiting for server to load up
+Michael: Topher thought he removed the shortURL functionality but evidently did not
+John: That wasn't it
+QA is back up
+Michael: yay
+tnx
+Mark: tnx !
+John: Sorry for the breakage
+
+Deploy 7
+
+Andy: Data base backups starting
+qa environment offline in 10 mins
+qa environment going offline
+qa environment is up
+give a few mins for first page load
+give me a few mins
+Michael: oo isn't this exciting
+will it work, won't it work, you decide
+Andy: all good, kids
+i had a typo in a database name
+it's up
+enjoy...  tell your friends.
+
+Deploy 8
+
+Andy: qa environment will go offline in a few mins for a few mins
+Michael: any news on the env?
+Andy: yeah sorry...  a couple more minutes.  I fucked up and deployed it wrong :)
+I have to do the actual deploy that bit again
+go go go
+qa environment is up
+Integral database backup started. ~10 mins till qa goes offline
+
+Deploy 9
+
+Andy: qa environment going offline for deploy and data base restore
+Data base 3/4 started. code deploy starting. qa environment online in 20 mins
+It's for IE6 browser detection
+Michael: do we need a new deploy for that?  it's a CR
+Andy: no it's all done from a qa perspective as far as i understand,  all there that needs to be.
+sorry... I misunderstood tudor.  he is importing some stuff into qa env for us to enable the browser detection to work.  He is working on it now, but it's not ready.  I'll notify when that's done
+Michael: importing stuff...  back from prodn to integ then to QA
+
+Deploy 10
+
+Andy: will start now with the dbase dumps
+so 10 minutes countdown until the QA env goes offline
+Mark: I will have to clock off for today
+Andy: rightio, thanks for your help today Mark
+much appreciated
+good stuff. i'll make a note of those
+qa env going offline
+qa env is up
+Michael: argh and Claudia is offline...
+Claudia: apologies, i needed to restart
+i dont need korea for today on 03
+Michael: um, guys... QA is poitning to Integ
+I am changing the connnection strings now
+so you get the correct CMS
+Claudia: ok
+Michael: it's up now, it reported an error (i.e. went to Page Not Found)
+very strange
+
+II ACT
+
+Software failure (real or perceived) – a day in 10 bugs
+
+Description of the problem: 
+Usually, quality is constrained to such topics as correctness, completeness, security, but can also include more technical requirements as described under the ISO standard ISO/IEC 9126, such as capability, reliability, efficiency, portability, maintainability, compatibility, and Usability.
+
+Walkthrough
+
+John: go there
+then click on the ribbon, and choose publish
+then choose change
+check, publishable
+then save the item
+then preview again
+Mark: "click on the ribbon" what ribbon would that be?
+John: along the top
+the main menu
+Home, Navigate, Review, etc, etc
+Mark: Yeps, works now. I can see the extra tab.. it looks horrible though :)
+Something is wrong with the flash module
+Mark checks if we are using the right one there
+John: looks good to me
+Andy: i'll be concerned if it's not the right one
+John: clear cache
+the links are pointing to the right flash version
+just checked
+Andy: okay, cool
+
+Bug 1
+
+Sources of system failure
+
+[12:38:49] Mark: Actually, the bug they mention: o   If completed once and then send to other friends it does not react anymore after filling in the details, there is no confirmation that it has been sent, but the emails do actually go out ñ the friend gets spammed with emails, because the user thinks it has not been send and tries several times
+[12:39:01] Right. Other than that the issues raised are the tell a friends functionality. The text and values are a bit messed up though:"!!       Tran:Q1!! wants to share a link with you Dear friendsname,"
+[13:24:39] Mark  logs the !!Tran:Q1!! finding and will reply to the mail with found WWP issues.
+[13:54:50] 
+
+Bug 2
+
+Description of the problem: 
+Error, defect, failure
+
+[13:54:50] Andy: mark you need to add your comment to 40 as a defect
+[13:55:02] the comment isn't something actionable by the devs just yet
+[13:55:21] just copy paste that into a new defect report in that story and assign that to Lucci
+
+Bug 3
+
+Description of the problem: 
+Error, defect, failure
+
+[13:58:53] Mark: Yeah I understand its not really a defect
+[13:59:18] Its not a new thing though, and that issue has been open for quite a while
+[14:00:28] will copy it to a subtask/defect
+[14:06:41] Andy: you think it's not or it is?
+[14:06:57] putting that string in the email looks off to me :)
+[14:19:16] Mark: Hehe, it looks off.
+[14:19:33] And it is a regression
+[14:20:39] The 40 issue did have an open question about the email structure
+[14:20:55] Andy: yeah.
+[14:37:32] Good work, mark
+[14:37:35] good email
+[14:38:13] Mark: Thanks!
+[14:38:42] Need to look into that "creating file in one locale shows up in another"
+[14:38:57] Andy: yeah. that's strange
+[14:39:18] John: thats been corrected
+
+Bug 4
+
+Description of the problem: 
+Error, defect, failure
+
+[14:39:21] Andy: if that's reported from the customer i would have to see that for myself, because we dont have version problems like that with locales that i've seen
+[14:39:21] John: its website settings,  in their test locale, en-IL they had no Website entry in globalization settings
+[14:39:48] John: which is where the website locale is specified
+[14:39:55] and when that happens, it defaults to com
+[14:39:55] Andy: good catch
+[14:41:59] John: Correct each country has its own files
+[14:52:36] Andy: john with this explanation, i'm closing out
+[14:52:47] mike,  ignore my last email,  brainfart
+
+Bug 5
+
+Description of the problem: 
+Error, defect, failure
+
+[15:30:06] Mark: But, what is expected behaviour? Why whouldnt you be able to see files of other counties
+[15:36:31] Michael: well, on the Q&A page, when you expand the answer, it "jumps" just before opening the answer completely
+[15:36:47] it is smoothe opening until about 90% open, then it jumps to 100%
+[15:37:03] observed in IE8
+
+Bug 6
+
+Description of the problem: 
+Error, defect, failure
+
+[15:21:43] Claudia: hey Micheal, do you remember that issue from yesterday from the drop down menu that had a new item? This new item is not present anymore on 03. Do you know why?
+[15:25:59] i see it is again pointing to obsolete
+[15:26:28] it did not save the changes done yesterday ?
+[15:27:37] Michael: remind me where the link is that is sending you to the Obsolete page? the homepage on the left side?
+[15:28:34] Claudia: on the big teaser/home page, the thumb 7 from the top
+[15:29:07] Michael: yes, but that link is correct
+[15:29:11] not going to Obsolete
+[15:30:08] where did the link to Obsolete appear from? Which item took you to that page?
+
+Bug 7
+
+Description of the problem: 
+Error, defect, failure
+
+[15:52:44] Michael: this isn't the last one for today given that Ada is still working on some other bugs
+[15:52:57] but I would like to get Estonia out of the way as it's trying to go live and our bug is holding it up somewhat
+[15:53:27] Andy: hang on
+[15:53:35] let me ask if there is stuff topher can commit
+[15:55:28] go ahead. he's not ready to commit his work yet
+[15:55:43] Michael: : k
+
+Bug 8
+
+Description of the problem: 
+Error, defect, failure
+
+[16:10:38] Michael: Anyone know anything about double optin and links generated for double optin? I'd say that's a Campaign issue
+[16:16:15] Mark: Is there a problem with the double optin?
+[16:16:26] Michael: basically we just got a defect saying that the double opt-in URL is an invalid link
+
+Bug 9
+
+Description of the problem: 
+Error, defect, failure
+
+[16:45:36] Andy: that's a bug
+[16:45:42] file it
+[16:46:09] yeah... safe bet
+[16:47:12] John: so it should be in the main maintenance project
+[16:47:14] Andy: yeah really? i've seen this before
+[16:47:15] John: and assigned to them
+[16:47:22] i think so...
+[16:47:30] could be wrong though
+[16:47:31] Andy: okay... so do that.
+[16:47:34] assign to them
+[16:47:38] let them come back to us if not
+[16:47:45] John: ya
+
+Bug 10
+
+Description of the problem: 
+Error, defect, failure
+
+[16:48:31] Mark: @Andy, so there is a bug about this already?
+[16:48:40] Andy: i would say not.
+[16:48:59] the double slashes i saw was for campaigns with flash modules
+[16:49:06] which could be fixed by the frontend team
+[16:49:09] this is not that problem
+[16:49:20] so thinking about it, john's right
+[16:49:34] John: nah this is the domain name redirect
+[16:49:38] Andy: yeah
+
+
+III ACT
+
+The software tasting team
+
+QA chat
+
+[11:27:34] Andy: hey mike  we've just deployed to cms-test
+[11:29:43] Martin: London office! Official pictures!
+[11:29:54] Michael: boredom threashold exceeded?
+[11:30:27] Bojan: hello guys im back again
+[11:30:30] :)
+[11:33:02] Andy: wb bojan.
+[11:33:18] Bojan: thank you andy
+[11:33:55] Andy: to remind everyone  QA chat is strictly work only. anything not directly relevant to QA should go to the casual jibber jabber chat.
+[11:35:00] Bojan: ok packages and all are in place - can you guys do the magic and check if we can go live
+[11:35:01] thanks!
+[11:38:52] Andy: i got sidetracked. dbase 4/4 started. deploy done. qa env online in 10 mins
+[11:47:34] qa env online. give a few mins for first page load
+[12:54:25] Michael: nvm  caching
+[12:31:04] Andy: kids,  I have to restart 03. I'm changing a configuration parameter
+[12:33:24] Michael: Just got Lucci to make a bunch of corrections on the gateway page values in the cms
+[12:34:06] updated gateway page mock is now uploaded to box
+[12:34:43] Andy: ok, good work
+[12:05:29] Michael: QA team meeting?
+[12:05:58] Andy: no longer having qa team meetings until the new manager starts
+[12:06:20] he'll pick them up in the format that will suit him
+[12:06:42] Michael: k
+[12:06:50] is he around today?
+[12:06:56] 1st day on the job
+[12:06:59] Andy: i'm not in the office so i dont know
+[12:07:02] Michael: ah ok
+[12:07:31] "where the team"? "at home.  bunch of slackers  all 5 off site" :P
+[12:08:13] how's the tummy Andy?
+[12:08:18] Andy: much like the linux kernel dev team
+[12:08:21] bad today
+[12:08:25] Michael: don't get me started
+[12:08:49] apparently there are some motherboards that are incompatible with ubuntu :(
+[12:09:14] Andy: How did you find that out?
+[12:09:44] Michael: a friend who is a Linux user (and not one of the less helpful ones) mentioned it
+[12:10:07] next question is finding out what MotherBoard I have
+[12:10:15] asus something
+[12:10:23] Andy: crack the box open and get a torch
+[12:10:34] Michael: A7N8X was the old one.  not sure the current version I have
+[12:10:38] yeah
+[12:10:52] torch it shall be
+[12:11:05] but not now  the office is keeping it out of the line of sight
+[12:11:26] otherwise it sits there glaring at me and reminding me of an oversized doorstop ;)
+[12:12:18] Andy: honestly,  i'd just try another distro if i was you. 
+[12:14:18] Michael: kernel panic
+
+<<< bojan has left >>>
+
+[12:30:18] Michael: Was it something I said? 
+[12:31:01] or didn't say
+[12:31:04] Andy: heh :) bojan's a too-much-information-a-phobe
+[12:31:09] Michael: he doesn't want soft skin
+[12:31:12] being gritty and only on a need-to-know basis keeps him sharp
+[12:31:30] has anyone noticed that he doesn't (always) use THE or A [articles] in sentences
+[12:31:45] (it's common in Slavic langs to do that)
+[12:31:53] I found it funny in my last co that our ex-Yugoslavs used to say "vee hev problem"
+[12:32:19] Andy: russians especially
+
+the non working chat
+[13:03:36] Andy: too much non work chat in the work chats tends to piss a few ppl off, so we made this chat for jibberish banter
+[13:03:52] Daniel: oh, ok - have i spoke too much?
+[13:03:57] Andy: nah :)
+[13:04:06] but bojan is pulling faces
+[13:04:26] meaning his threshold for jibberish has been reached and any more he'll start to flip out
+[13:05:00] Daniel: kk - haha ive only chipped in a couple of replies :(
+[13:05:17] Andy: dont worry about it :)
+[13:05:25] Michael: I think it's coz Bojan's pc is giving him stick so he might have a sense of humur failure
+[13:05:48] Andy: interesting theory. i let you raise that with him to see if thats the case :)
+[13:06:17] while i'm at it... i'll add sandy
+[13:06:28] *** Andy added Sandy  ***
+[13:06:31] hi sandy
+[13:06:39] this is the new non work chat chat
+[13:06:39] Michael: welcome sandy
+[13:06:51] Andy: feel free to rabbit on as much as you want here
+[13:06:52] Michael: sandy's full of beans and appreciates obscurity
+[13:07:15] Sandy: full of beans?
+[13:07:21] Michael: energy
+[13:07:25] Andy: also feel free to add anyone you think would like to be in the non work chat
+[13:07:41] Michael: don't you mean all except Bojan?
+[13:08:05] Andy: well half the team come to mind as non members
+[13:12:22] Martin: brains...
+[13:12:26] Sandy: did we get told off for chitchatting?
+[13:12:53] Martin: soory. think i had a zombie flashback for a moment there
+[13:13:46] Michael: vegetarian zombies eat g r a i n s
+[13:13:51] Mark: Welcome Sandy!
+[13:13:58] Martin: re: CAKE at 4pm. // can someone email me a slice? ta!
+[13:14:34] Sandy: is this chat the quarantine?
+[13:14:46] aka, shut up in the other chats, Sandy?
+[13:14:54] Daniel: :D
+[13:15:19] Sandy: we should change the name to The Peanut Gallery
+[13:17:56] Andy: @ sandy - not told off, but i've had talks with unnamed ppl about keeping non work chatter to a minimum (or totally off) work chats because it interferes with ppls ability to make skype useful
+[13:18:08] Andy: alan isn't back yet is he?
+[13:18:20] Michael: no names mentioned, eh andy?
+[13:18:21] Sandy: noted
+[13:18:25] no
+[13:18:35] Andy: i'll add him when he is cause he's a jibber jabberer
+[13:18:36] Michael: "random fact guy"
+[13:18:56] he'd be great in a pub quiz
+[13:19:11] Sandy: non work chatter keeps my brain active
+[13:19:13] i object
+[13:19:23] Andy: noted
+[13:19:41] Michael: you object to what?
+[13:19:50] Sandy: to keeping work chatter to a minimum
+[13:20:05] Andy: heh... you're giving that cat a workout today
+[13:20:17] Sandy: discussing whether to spread cheeze whiz left to right as opposed to right to left helps my creative problemsolving skills
+[13:20:25] Michael: I still haven't worked out the cat thing. I am doign a Steve Jobs (I must be doing it wrong)
+[13:20:43] Sandy: i'm grumbling
+[13:20:49] Andy: you need to have it in your icon list
+[13:20:59] Sandy: wrong
+[13:21:07] Andy: i'm never wrong
+[13:21:11] that's why i'm in qa
+[13:28:59] mrbreaker76: never wrong?
+[13:29:22] note to all - do not follow andy around when he thinks he knows where he is going
+[13:32:24] Sandy: this feels like detention
+[13:41:43] Claudia: hey Mike, on my turn, I haven't figured out the Steve Jobs thing
+[13:42:46] Sandy: neither has Mike
+[13:42:48] HAHAHAHAHAHAHHAA
+[13:43:05] Andy: @ rak - i got us there in the end
+[13:43:23] i took you the scenic route
+[13:44:43] Claudia: tours are always a plus
+[13:54:42] *** mrbeeansr76 has left ***
+[13:56:58] Andy: haha :)
+[13:57:18] i guess he didnt like the non work chat
+[13:57:26] very serious guy that raj
+[14:12:08] Mark: Mark has left
+[14:12:14] Mark: ((bandit))
+[14:13:41] Andy: Andy has existentially left his body but remains in this chat
+[14:20:54] Daniel: i dont want to get told off so im just observing :)
+[14:20:55] Claudia: hey martin ! you are missing cakes while in england!
+[14:21:19] Sandy: mmmmm.... raspberry brownies....
+[14:24:03] Andy: jabber away in this chat, dan. you get prizes at the end of the day if you can keep posting here non stop
+[14:24:22] Sandy: Andy will give you the 5 cents he got for listening to Adele
+[14:24:32] Andy: NOT!
+[14:24:33] Daniel: :)
+[14:25:00] Martin: raspberry brownies? what colour is a raspberry brownie?
+[14:25:08] Daniel: maroon
+[14:25:41] Sandy: it's not quite as red as a Red Velvet cupcake
+[14:26:11] Martin: I've asked you not to call me that in public
+[14:26:31] Sandy: awww
+[14:27:52] Claudia: what is it from?
+[14:28:06] Martin: kittens
+[14:28:11] Daniel: :O
+[14:28:54] Sandy: ew
+[14:35:21] Michael: sfw = ?
+[14:35:29] yoda's description of single white female
+[14:36:18] Andy: ohhhh mike...
+[14:36:41] Sandy: tfw
+[14:36:46] Andy: we need to get you to a beginners web geek course
+[14:36:50] Sandy: yoda's version for i don't understand
+[14:37:15] Andy: NSFW is important to know
+[14:37:38] Sandy: A pissed off person's compass?
+[14:40:41] Andy: heh... no, but very inventive of you
+[15:00:04] Michael: http://news.bbc.co.uk/1/hi/8248056.stm
+[15:00:12] an old one but still a good one
+[15:00:35] (same issue here because it's ADSL not SDSL but hey, we like a good yarn)
+[15:01:45] Martin: ha! 'Telkom said it was not responsible for the firm's slow internet speeds.'
+[15:01:56] that's what i like. flat denial
+[15:02:06] Andy: that's hilarious
+[15:02:30] Martin: works for me. did u check this? no.
+[15:03:03] Andy: They included "no cats allowed" and "birdseed must not have any performance- enhancing seeds within".
+[15:03:44] Claudia: Claudia will use the expression 'flat denial'  more often. Love it!
+[15:05:03] Andy: this is a tactic i have used to great effect in my working career. In the face of overwhelming evidence, flat deny  everything, and make loud counter accusations at being framed.
+[15:05:22] Martin: goes well with a dead eye stare, i find. And a slightly curlled lip.... can u tell i have teenagers at home?
+[15:05:46] Andy: heh :) i would have said experience managing qa groups
+[15:08:07] goddamn right i am!
