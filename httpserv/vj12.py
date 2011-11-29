@@ -22,38 +22,45 @@ from glob import glob
 from json import dumps
 from nltk.corpus import PlaintextCorpusReader
 from string import replace
+import random
 
 
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
 CORPUS_ROOT = os.path.join(PROJECT_DIR, 'texts')
 STATIC_DIR = os.path.join(PROJECT_DIR, '..', 'static')
 
+def pick_ascii():
+    fn = random.choice(["ascii.tpl", "ascii2.tpl", "ascii3.tpl", "ascii4.tpl", "ascii5.tpl"])
+    f = open("templates/ascii/%s" % fn, "r") 
+    background = f.read()
+    f.close()
+    return background
 
 @route('/')
 def home():
-    return template('templates/home')
+    return template('templates/home', background = pick_ascii())
 
 
 @route('/about/')
 def about():
-    return template('templates/about')
+    return template('templates/about', background = pick_ascii())
 
 
 @route('/kaleidosmatch/')
 def kaleidosmatch():
-    return template('templates/kaleidosmatch')
+    return template('templates/kaleidosmatch', background = pick_ascii())
 
 @route('/fit_the_annual_report_for_purpose/')
 def fit_the_annual_report_for_purpose():
-    return template('templates/fit_the_annual_report_for_purpose')
+    return template('templates/fit_the_annual_report_for_purpose', background = pick_ascii())
 
 @route('/micro/')
 def micro():
-    return template('templates/micro')
+    return template('templates/micro', background = pick_ascii())
 
 @route('/moss_ambiguity/')
 def moss_ambiguity():
-    return template('templates/moss_ambiguity')
+    return template('templates/moss_ambiguity', background = pick_ascii())
 
 
 # BELOW: EXPERIMENTS
