@@ -1,19 +1,27 @@
 # -*- coding: utf-8 -*-
+
+"""
+This is the main script for vj12 publication websites.  It runs on bottle, a
+micro framework written in python. See <http://bottlepy.org/>.
+"""
+
+
 from __future__ import division
-import urllib2
+
+
 import bottle
+import nltk
 import os
 import re
+
+import codecs
 from glob import glob
 from string import replace
 from bottle import (run, get, request, response, template, route, static_file)
+from glob import glob
 from json import dumps
-import os
-import nltk
 from nltk.corpus import PlaintextCorpusReader
-
-
-bottle.debug(True)
+from string import replace
 
 
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
@@ -21,18 +29,15 @@ CORPUS_ROOT = os.path.join(PROJECT_DIR, 'texts')
 STATIC_DIR = os.path.join(PROJECT_DIR, '..', 'static')
 
 
-
-@route('/skeleton/')
-def skeleton():
-    return template('templates/skeleton', title='Skeleton')
-
 @route('/')
 def home():
     return template('templates/home')
 
+
 @route('/about/')
 def about():
     return template('templates/about')
+
 
 @route('/kaleidosmatch/')
 def kaleidosmatch():
@@ -53,22 +58,15 @@ def moss_ambiguity():
 
 # BELOW: EXPERIMENTS
 
-@get('/proxy/')
-def proxy():
-    url = request.GET.get('url')
-    response = urllib2.urlopen(url)
-    return response.read()
-
-#@get('/')
-#def home():
-    #return template('templates/hello')
 
 @route('/context')
 @route('/context/:filename/:word')
 def context(filename = False, word = False):
-    if word and re.match ("^[a-zA-Z0-9_]+$", filename) and re.match ("^[a-zA-Z0-9_]+$", word):
-        handler = open ("texts/%s.txt" % filename)
-        
+    """
+    An interface to look at permutated indices.
+    """
+    if word and re.match ("^[a-zA-Z0-9_\(\),\.]+$", filename) and re.match ("^[a-zA-Z0-9_]+$", word):
+        handler = codecs.open ("texts/%s.txt" % filename, "r", "utf-8")
         found_lines = []
         head_length = 0
         
@@ -77,22 +75,16 @@ def context(filename = False, word = False):
             match = re.search (pattern, line);
             while match:
                 head_length = len (match.group ('head')) if len(match.group ('head')) > head_length else head_length
-                found_lines.append ([match.group ('head'), match.group ('body'), match.group ('tail')])
+                found_lines.append ({'head': match.group ('head'), 'body': match.group ('body'), 'tail': match.group ('tail')})
                 line = line[match.end('body'):]
                 match = re.search (pattern, line)
         
         for x, line in enumerate(found_lines):
-            line[0] = line[0].rjust (head_length, ' ')
-            found_lines[x] = ''.join (line)
+            found_lines[x]['head'] = found_lines[x]['head'].rjust (head_length, ' ')
+            found_lines[x]['full_line'] = ''.join (line)
             
-    return dumps ({'filename': filename, 'word': word, 'result': "\n".join (found_lines)})
+    return dumps ({'filename': filename, 'word': word, 'result': found_lines})
 
-@route('/overview')
-def overview():
-    # FIXME: broken, proably because of the change of the project file
-    # structure...
-    return template('templates/overview', 
-                    files='["the-man-pages", "to-talk-of-many-things"]')
 
 @route('/compare')
 def compare():
@@ -100,28 +92,41 @@ def compare():
 
 @route('/view')
 def view():
-    return template ('view')
+    return template('view')
     
+
 @route('/text/list')
 def textlist ():
-    path = 'texts/'
+    """
+    Generates a a javascript array of the available texts filename.
+    """
     files = []
-    for filename in glob(os.path.join(path, '*.txt')):
-        files.append (filename[len(path):len(filename) - 4])
-    
+    for filename in glob(os.path.join(CORPUS_ROOT, '*.txt')):
+        name = os.path.basename(filename)
+        (basename, extension) = os.path.splitext(name)
+        files.append(basename)
+
     return dumps (files)
         
 @route('/text/:filename')
 def text(filename):
-    path = 'texts/'
-    filename = path + '%s.txt' % filename.replace ('-', '_')
-    file = {'name': filename[len(path):len(filename) - 4].replace ('_', ' '), 'data': None}
+    """
+    Returns a json dictionnary containing:
     
-    with open (filename, 'r') as f:
-        file['data'] = f.read()
+    - data: the content of the file "filename"
+    - name: the name of the text, deduced form the file name
+    """
+    path = 'texts/'
+    filename = os.path.join(CORPUS_ROOT, "%s.txt" % filename)
+    name = os.path.basename(filename)
+    (basename, extension) = os.path.splitext(name)
+    file_dict = {'name': basename, 'data': None}
+    
+    f = open(filename, 'r')
+    file_dict['data'] = f.read()
     f.closed
     
-    return dumps(file)
+    return dumps(file_dict)
 
 
 @route('/collocations/:text')
@@ -324,10 +329,6 @@ class IndexedText(object):
     def _stem(self, word):
         return self._stemmer.stem(word).lower()
 
-@route('/img/:filename')
-def img (filename):
-    return static_file (filename, root='img')
-
 @route('/concordance/:text')
 def concordance(text):
     """Returns an alphabetical list of words for the given text."""
@@ -356,10 +357,7 @@ def send_static(filename):
     # NOTE: route filers neccesitate bottle >= 0.10.
     return static_file(filename, root=STATIC_DIR)
 
-#@route('/static/<filepath>')
-#def server_static(filepath):
-    #root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'static'))
-    #print(root)
-    #return static_file(filepath, root=root)
 
-run(host='localhost', port=8080)
+if __name__ == '__main__':
+    bottle.debug(True)
+    run(host='localhost', port=8080)

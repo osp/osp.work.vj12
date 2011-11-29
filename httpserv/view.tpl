@@ -15,11 +15,12 @@
                 overflow: auto;
                 background: white;
                 display: none;
+                position: relative;
             }
 
-            div#text pre {
-                margin: 15px 30px 30px 30px;
-                font-family: monospace;
+            div#text p {
+                margin: 16px 40px 16px 40px;
+                font-family: sans-serif;
                 font-size: 11px;
                 line-height: 16px;
             }
@@ -34,7 +35,7 @@
             }
 
             h2 {
-                margin: 15px 10px 0px 15px;
+                margin: 15px 10px 0px 25px;
                 font-size: 11px;
                 font-weight: bold;
                 font-family: sans-serif;
@@ -49,12 +50,16 @@
                 background: #ffff00;
             }
 
+            span._index_keyword {
+                font-weight: bold;
+            }
+            
             span._marked {
                 border-bottom-width: 2px;
-                -moz-border-image:url("/img/border.png") 3 0 round; /* Firefox */
-                -webkit-border-image:url("/img/border.png") 3 0 round; /* Safari and Chrome */
-                -o-border-image:url("/img/border.png") 3 0round; /* Opera */
-                border-image:url("/img/border.png") 3 0 round;
+                -moz-border-image:url("/static/img/border.png") 3 0 round; /* Firefox */
+                -webkit-border-image:url("/static/img/border.png") 3 0 round; /* Safari and Chrome */
+                -o-border-image:url("/static/img/border.png") 3 0round; /* Opera */
+                border-image:url("/static/img/border.png") 3 0 round;
             }
 
             #controls {
@@ -110,7 +115,7 @@
                         
                         $('#file_list').change (function () {
                             if ($(this).val() != 'null') {
-                                getText ($(this).val().replace (/[^a-zA-Z0-9_-]/g, ''));
+                                getText ($(this).val().replace (/[^a-zA-Z0-9_\(\),\.-]/g, ''));
                             }
                         });
                     }
@@ -121,11 +126,12 @@
                $.get ('text/' + name, function (data, status) {
                     file = $.parseJSON (data)
                     
-                    if (status == 'success') { 
-                        formatted_text = file.data.replace (/(\w+)/ig,'<span class="_keyword $1">$1</span>');
+                    if (status == 'success') {
+                        formatted_text = '<p>' + file.data.replace (/(\w+)/ig,'<span class="_keyword $1">$1</span>').replace(/\n{2,}/g, '</p><p>').replace (/\n/g, '<br />').replace (/\s{3,}/g, '&nbsp;&nbsp;&nbsp;&nbsp;') + '</p>'
+                        
                         $('#result').empty().hide();
                         $('#text').height($(window).height() - $('#controls').height());
-                        $('#text').empty().append ('<h2>' + file.name + '</h2><pre>' + formatted_text + '</pre>');
+                        $('#text').empty().append ('<h2>' + file.name + '</h2>' + formatted_text);
                         markWord (['the','notice','and']);
                         
                         if (window == window.top) {
@@ -171,23 +177,27 @@
             
             function getContext(word, force) {
                 if (window == top.window || force == true) {
-                    $.get ('context/' + $('#file_list').val() + '/' + word, function (data, status) {
-                        if (status == 'success') {
-                            data = $.parseJSON (data);
-                            result = data.result.replace(/(.+)/g, '<span class="_line"><pre>$1</pre></span>');
-                            
-                            $('#result').height('auto').width ('auto').empty ().append (result).show();
-                            $('._search_active').removeClass ('_search_active');
-                            
-                            $('#result').height($(window).height() * 0.25);
-                            $('#text').height($(window).height() * 0.75 - $('#controls').height());
-                            
-                            $('span._line').click (function () {
-                                index = $(this).prevAll ('span._line').length;
-                                goToWord (word, index);
-                            });
-                        }
-                    });
+                    if ($('#file_list').val() != 'null') {
+                        $.get ('context/' + $('#file_list').val() + '/' + word, function (data, status) {
+                            if (status == 'success') {
+                                data = $.parseJSON (data);
+                                var result = ''
+                                for (var i = 0; i < data.result.length; i++) {
+                                    result += '<span class="_line"><pre>' + data.result[i]['head'] + '<span class="_index_keyword">' + data.result[i]['body'] + '</span>' + data.result[i]['tail'] + '</pre></span>'
+                                }
+                                $('#result').height('auto').width ('auto').empty ().append (result).show();
+                                $('._search_active').removeClass ('_search_active');
+                                
+                                $('#result').height($(window).height() * 0.25);
+                                $('#text').height($(window).height() * 0.75 - $('#controls').height());
+                                
+                                $('span._line').click (function () {
+                                    index = $(this).prevAll ('span._line').length;
+                                    goToWord (word, index);
+                                });
+                            }
+                        });
+                    }
                 } else {
                     for (var i = 0; i < window.top.frames.length; i++) {
                         window.top.frames[i].getContext (word, true);
@@ -208,12 +218,11 @@
             
             function goToWord (word, index) {
                 var selector = 'span._keyword.' + word + ':eq(' + index + ')';
-                var offsetTop = $(selector).offset().top - $('#text').height() / 2;
-                var distance = Math.abs ($('#text').offset().top - offsetTop);
-                var duration = (distance > 1000) ? 500 : distance / 2;
+                var distance = $(selector).position().top - $('#text').height() / 2;
+                var duration = (Math.abs (distance) > 1000) ? 500 : Math.abs(distance) / 2;
                 
                 $('._search_active').removeClass ('_search_active');
-                $('#text').animate ({'scrollTop': offsetTop}, duration);
+                $('#text').animate ({'scrollTop': $('#text').scrollTop() + distance}, duration);
                 $(selector).addClass ('_search_active');
             }
         </script>
