@@ -20,39 +20,28 @@ refaire des ascii arts
 - Alex
   - Map it in bottle
   - Integrate emails in it
-  - Filters: complete the list of available filters
-      - Example: Types, langue, etc.
-  - Comment mixer les filtres <http://razorjack.net/quicksand/>
-  - Classement par date: espacement qui représente le temps
-  - intégration avec le reste du site/ design de la page
+  - Filters: show/hide by type?
+  - Classement par date: espacement qui représente le temps?
   - image haute-def en zoom
   - si metadonné absente, traiter differament (eg. mettre à part ou griser)
-  - utiliser cardinalité en plus de la calendarité
-
-# Micro
-- Alex
-  - Est-ce possible d'utiliser le même principe que macro? Si non, ?
 
 # Concordances, Similar, Collocations
 - Gijs + Alex
   - One interface?
   - Check if nltk code can be integrated.
-  - style the clicked word in the index
   - hover style on the index
   - when a word is clicked, leave the highlighted style on the words in the text
   - put NLTK graphs in the webpage
       - make them clickable ? even manually?
-  - Compare only those texts:
-    - Systemic Ambiguity / To Talk of Many Things
-    - Kaleidoscope / Smatch
-    - Fit on Purpose / Soap Box Annual Report
+  - Make only one drop down menu for choosing between the couples of texts:
+      - Systemic Ambiguity / To Talk of Many Things
+      - Kaleidoscope / Smatch
+      - Fit on Purpose / Soap Box Annual Report
 
 # Paracode
 - Steph
-  - revoir styles
-  - Traduire les commentaire, finir les commentaires
+  - finir les commentaires
 - Alex
-  - Remettre le nouveau templates
   - mettre en ligne
   - proxy nginx
 
