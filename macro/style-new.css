@@ -9,6 +9,7 @@ li {
     display: block;
     float: left;
     width: 20px;
+    position: relative;
     /*border-left: 1px dotted lightgray;*/
 }
 body.shadow li img {
@@ -21,11 +22,14 @@ body.shadow li img {
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
 }
 li:hover {
-    width: auto;
-    /*position: relative;*/
+    /*width: auto;*/
+    z-index: 2;
+    position: relative;
     /*top: -30px;*/
     /*border: 1px solid black;*/
+    /*top: -20px;*/
 }
+
 
 .tag {
     font-family: monospace;
@@ -35,9 +39,9 @@ li:hover {
     padding: 3px;
     font-weight: bold;
     font-size: 9px;
-    position: relative;
+    position: absolute;
     top: -10px;
-    width: 50px;
+    /*width: 100px;*/
     transform-origin: 0 0;
     -webkit-transform-origin: 0 0;
     -webkit-transform: rotate(-90deg); 
@@ -59,11 +63,6 @@ div.email {
     padding: 0 1em;
     background-color: white;
 }
-li:hover {
-    position: relative;
-    top: -20px;
-}
-
 dl#infos {
     z-index: 2;
     position: fixed;

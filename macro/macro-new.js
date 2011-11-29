@@ -7,16 +7,17 @@ $(function() {
         return false
     };
 
-    function sort_by(attribute) {
+    function sort_by(myattr) {
+        //var myattr = myattr;
         function sort_by_attr(a, b){
-            return $(a).attr(attribute) > $(b).attr('attribute') ? 1 : -1;
+            return $(a).attr(myattr) > $(b).attr(myattr) ? 1 : -1;
         };
         $('ul li').sort(sort_by_attr).appendTo('ul');
 
         $('.tag').remove();
         var current_attr;
         $('ul li').each(function() {
-            var this_attr = $(this).attr(attribute);
+            var this_attr = $(this).attr(myattr);
             if (this_attr !== current_attr) {
                 current_attr = this_attr;
                 var foo = $('<div></div>');

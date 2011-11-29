@@ -24,7 +24,7 @@ for (i, filename) in enumerate(os.listdir(folder)):
                 data = data.split(" ")
                 if data[1] != '0':
                     attributes += '\n    data-%s="%s"' % (data[0].lower(), data[1])
-        html = """<li id="item_%d"\n    data-id="%d" %s>
+        html = """<li id="item_%03d"\n    data-id="%03d" %s>
     <a href="%s/%s">
         <img src="%s/%s" width="160" height="220"/>
     </a>
