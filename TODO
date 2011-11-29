@@ -14,7 +14,6 @@ refaire des ascii arts
 - Alex
   - NLTK descriptions: machine comparison vs human comparison
 - Stéphanie
-  - Micro/Macro description
   - Put back the definitive text
 
 # Macro
@@ -25,11 +24,8 @@ refaire des ascii arts
       - Example: Types, langue, etc.
   - Comment mixer les filtres <http://razorjack.net/quicksand/>
   - Classement par date: espacement qui représente le temps
-  - probleme de z-index
   - intégration avec le reste du site/ design de la page
-  - zoom problématique pour sortir
   - image haute-def en zoom
-  - mettre les emails si possible
   - si metadonné absente, traiter differament (eg. mettre à part ou griser)
   - utiliser cardinalité en plus de la calendarité
 
