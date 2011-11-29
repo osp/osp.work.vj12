@@ -62,17 +62,11 @@ def moss_ambiguity():
 @route('/context')
 @route('/context/:filename/:word')
 def context(filename = False, word = False):
-<<<<<<< Updated upstream
     """
     An interface to look at permutated indices.
     """
-    if word and re.match ("^[a-zA-Z0-9_]+$", filename) and re.match ("^[a-zA-Z0-9_]+$", word):
-        handler = open ("texts/%s.txt" % filename)
-=======
     if word and re.match ("^[a-zA-Z0-9_\(\),\.]+$", filename) and re.match ("^[a-zA-Z0-9_]+$", word):
         handler = codecs.open ("texts/%s.txt" % filename, "r", "utf-8")
->>>>>>> Stashed changes
-        
         found_lines = []
         head_length = 0
         
