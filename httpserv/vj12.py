@@ -13,6 +13,10 @@ import bottle
 import nltk
 import os
 import re
+
+import codecs
+from glob import glob
+from string import replace
 from bottle import (run, get, request, response, template, route, static_file)
 from glob import glob
 from json import dumps
@@ -58,11 +62,16 @@ def moss_ambiguity():
 @route('/context')
 @route('/context/:filename/:word')
 def context(filename = False, word = False):
+<<<<<<< Updated upstream
     """
     An interface to look at permutated indices.
     """
     if word and re.match ("^[a-zA-Z0-9_]+$", filename) and re.match ("^[a-zA-Z0-9_]+$", word):
         handler = open ("texts/%s.txt" % filename)
+=======
+    if word and re.match ("^[a-zA-Z0-9_\(\),\.]+$", filename) and re.match ("^[a-zA-Z0-9_]+$", word):
+        handler = codecs.open ("texts/%s.txt" % filename, "r", "utf-8")
+>>>>>>> Stashed changes
         
         found_lines = []
         head_length = 0
@@ -72,15 +81,15 @@ def context(filename = False, word = False):
             match = re.search (pattern, line);
             while match:
                 head_length = len (match.group ('head')) if len(match.group ('head')) > head_length else head_length
-                found_lines.append ([match.group ('head'), match.group ('body'), match.group ('tail')])
+                found_lines.append ({'head': match.group ('head'), 'body': match.group ('body'), 'tail': match.group ('tail')})
                 line = line[match.end('body'):]
                 match = re.search (pattern, line)
         
         for x, line in enumerate(found_lines):
-            line[0] = line[0].rjust (head_length, ' ')
-            found_lines[x] = ''.join (line)
+            found_lines[x]['head'] = found_lines[x]['head'].rjust (head_length, ' ')
+            found_lines[x]['full_line'] = ''.join (line)
             
-    return dumps ({'filename': filename, 'word': word, 'result': "\n".join (found_lines)})
+    return dumps ({'filename': filename, 'word': word, 'result': found_lines})
 
 
 @route('/compare')
@@ -328,9 +337,7 @@ class IndexedText(object):
 
 @route('/concordance/:text')
 def concordance(text):
-    """
-    TODO: Do it!
-    """
+    """Returns an alphabetical list of words for the given text."""
     corpus = PlaintextCorpusReader(CORPUS_ROOT, [text])
     n_text = nltk.text.Text(corpus.words(text))
     interesting = [
