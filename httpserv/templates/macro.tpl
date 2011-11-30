@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8" />
-	<title>HTML5 boilerplate—all you really need…</title>
-	<link rel="stylesheet" type="text/css" href="http://meyerweb.com/eric/tools/css/reset/reset.css" />
-	<link rel="stylesheet" type="text/css" href="style-new.css" />
-	<!--[if IE]>
-		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+    <meta charset="utf-8" />
+    <title>HTML5 boilerplate—all you really need…</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/macro.css" />
+    <!--[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
     <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
-    <script type="text/javascript" src="../static/js/zoomooz/lib/jquery-1.4.4.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/static/js/zoomooz/lib/jquery-1.4.4.js" charset="utf-8"></script>
 
     <!--ZOOMOOZ-->
-    <link rel="stylesheet" href="../static/js/zoomooz/style/zoomooz.css" type="text/css" />
-    <script type="text/javascript" src="../static/js/zoomooz/lib/sylvester.js"></script>
-    <script type="text/javascript" src="../static/js/zoomooz/js/purecssmatrix.js"></script>
-    <script type="text/javascript" src="../static/js/zoomooz/js/jquery.animtrans.js"></script>
-    <script type="text/javascript" src="../static/js/zoomooz/js/jquery.zoomooz.js"></script>
+    <link rel="stylesheet" href="/static/js/zoomooz/style/zoomooz.css" type="text/css" />
+    <script type="text/javascript" src="/static/js/zoomooz/lib/sylvester.js"></script>
+    <script type="text/javascript" src="/static/js/zoomooz/js/purecssmatrix.js"></script>
+    <script type="text/javascript" src="/static/js/zoomooz/js/jquery.animtrans.js"></script>
+    <script type="text/javascript" src="/static/js/zoomooz/js/jquery.zoomooz.js"></script>
 
-    <script type="text/javascript" src="macro-new.js"></script>
+    <script type="text/javascript" src="/static/js/macro.js"></script>
 </head>
 
 <body id="home">
@@ -2084,28 +2084,28 @@
 <!--Return-Path: <donatella@constantvzw.org>-->
 <!--Delivered-To: alexandre@stdin.fr-->
 <!--Received: from spool.mail.gandi.net (mspool2-d.mgt.gandi.net [10.0.21.133])-->
-	<!--by nmboxes10-d.mgt.gandi.net (Postfix) with ESMTP id 057251AF4BF-->
-	<!--for <alexandre@stdin.fr>; Sun, 27 Nov 2011 20:36:27 +0100 (CET)-->
+    <!--by nmboxes10-d.mgt.gandi.net (Postfix) with ESMTP id 057251AF4BF-->
+    <!--for <alexandre@stdin.fr>; Sun, 27 Nov 2011 20:36:27 +0100 (CET)-->
 <!--Received: from mfilter5-d.gandi.net (mfilter5-d.gandi.net [217.70.178.132])-->
-	<!--by spool.mail.gandi.net (Postfix) with ESMTP id 02F6917802E;-->
-	<!--Sun, 27 Nov 2011 20:36:27 +0100 (CET)-->
+    <!--by spool.mail.gandi.net (Postfix) with ESMTP id 02F6917802E;-->
+    <!--Sun, 27 Nov 2011 20:36:27 +0100 (CET)-->
 <!--X-Virus-Scanned: Debian amavisd-new at mfilter5-d.gandi.net-->
 <!--Received: from spool.mail.gandi.net ([10.0.21.133])-->
-	<!--by mfilter5-d.gandi.net (mfilter5-d.gandi.net [10.0.15.180]) (amavisd-new, port 10024)-->
-	<!--with ESMTP id 7RkhSzsFUQIi; Sun, 27 Nov 2011 20:36:25 +0100 (CET)-->
+    <!--by mfilter5-d.gandi.net (mfilter5-d.gandi.net [10.0.15.180]) (amavisd-new, port 10024)-->
+    <!--with ESMTP id 7RkhSzsFUQIi; Sun, 27 Nov 2011 20:36:25 +0100 (CET)-->
 <!--Received: from lucie.domainepublic.net (collectif1.all2all.org [62.58.108.140])-->
-	<!--by spool.mail.gandi.net (Postfix) with ESMTP id 9707417802A;-->
-	<!--Sun, 27 Nov 2011 20:36:19 +0100 (CET)-->
+    <!--by spool.mail.gandi.net (Postfix) with ESMTP id 9707417802A;-->
+    <!--Sun, 27 Nov 2011 20:36:19 +0100 (CET)-->
 <!--Received: from localhost (localhost [127.0.0.1])-->
-	<!--by lucie.domainepublic.net (Postfix) with ESMTP id 75C92A4482;-->
-	<!--Sun, 27 Nov 2011 20:36:19 +0100 (CET)-->
+    <!--by lucie.domainepublic.net (Postfix) with ESMTP id 75C92A4482;-->
+    <!--Sun, 27 Nov 2011 20:36:19 +0100 (CET)-->
 <!--X-Virus-Scanned: Debian amavisd-new at altern.domainepublic.net-->
 <!--Received: from lucie.domainepublic.net ([127.0.0.1])-->
-	<!--by localhost (lucie.domainepublic.net [127.0.0.1]) (amavisd-new, port 10024)-->
-	<!--with ESMTP id vfY33I7LCWb9; Sun, 27 Nov 2011 20:36:18 +0100 (CET)-->
+    <!--by localhost (lucie.domainepublic.net [127.0.0.1]) (amavisd-new, port 10024)-->
+    <!--with ESMTP id vfY33I7LCWb9; Sun, 27 Nov 2011 20:36:18 +0100 (CET)-->
 <!--Received: from mail.domainepublic.net (localhost [127.0.0.1])-->
-	<!--by lucie.domainepublic.net (Postfix) with ESMTP id 6140EA4480;-->
-	<!--Sun, 27 Nov 2011 20:36:18 +0100 (CET)-->
+    <!--by lucie.domainepublic.net (Postfix) with ESMTP id 6140EA4480;-->
+    <!--Sun, 27 Nov 2011 20:36:18 +0100 (CET)-->
 <!--Received: from 212.76.244.145-->
         <!--(SquirrelMail authenticated user donatella@constantvzw.org)-->
         <!--by mail.domainepublic.net with HTTP;-->
