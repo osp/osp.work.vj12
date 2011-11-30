@@ -26,10 +26,6 @@ un bouton "voir plus" pour afficher les textes plus complets de Donatella.
   - when a word is clicked, leave the highlighted style on the words in the text
   - put NLTK graphs in the webpage
       - make them clickable ? even manually?
-  - Make only one drop down menu for choosing between the couples of texts:
-      - Systemic Ambiguity / To Talk of Many Things
-      - Kaleidoscope / Smatch
-      - Fit on Purpose / Soap Box Annual Report
 
 # Paracode
 - Steph
@@ -40,13 +36,10 @@ un bouton "voir plus" pour afficher les textes plus complets de Donatella.
 
 # KaleidoSmatch
 - Steph
-  - footnote ne doit pas appeler d'iframe
   - images ne doit pas appeler d'iframe
-  - désactiver le son des iframes, sur tout le site?
   - being able to navigate the sites
     - by zooming in the frames;
     - or by opening them in a new window
-
 
 # Fit the Annual Report on Purpose
 - Gijs + Steph
