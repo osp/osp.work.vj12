@@ -1,19 +1,11 @@
 %def extrahead():
-<style type="text/css" media="screen">
-    div#container {
-        background-color: white;
-        width: 850px;
-        height: auto;
-    }
-</style>
+
 %end
 
 
-%rebase templates/base background=background, extrahead=extrahead, title='About', oneliner='Intentions behind this set of prototypes and experiments.'
+%rebase templates/normal background=background, extrahead=extrahead, title='By data we mean, a publication', oneliner='Intentions behind this set of prototypes and experiments.'
 
 
-<div id="container">
-<h1>By data we mean, a publication</h1>
 <b>The facts</b><br />
 <br />
 This publication documents the 12th edition of the
@@ -426,4 +418,3 @@ of the World Wide Web.<br />
 13An example among many: Shelley Jackson's <i>Patchwork
 girl.</i><br />
 <br />
-</div>

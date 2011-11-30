@@ -80,7 +80,7 @@
     </style>
 %end
 
-%rebase templates/base  extrahead=extrahead, background=background, title='NLTK', oneliner='NLTK'
+%rebase templates/compact extrahead=extrahead, background=background, title='NLTK', oneliner='NLTK'
 
 <div id="controls">
     <select id="file_list">Loading texts...</select>
