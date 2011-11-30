@@ -45,6 +45,7 @@
                 margin-left: 18%;
                 margin-right: -36%;
                 text-transform: uppercase;
+                letter-spacing: 2px;
             }
             .ivan {
                 color: Gray;
@@ -58,39 +59,34 @@
             }
             div#container h1, div#container h2, div#container h3, div#container h4, div#container h5, div#container h5 {
                 margin-left: 18%;
-                font-family: "Consola Mono";
+                font-family: "ConsolaMonoBook";
                 text-transform: uppercase;
             }
             div#container h1 {
                 font-size: 40px;
-                margin-top: 100px;
+                padding-top: 1.5em;
+                margin-bottom: 1em;
             }
             div#container h2 {
                 margin-top: 40px;
             }
             div#container h4 {
-                margin: 10px 0 5px 36%;
+                margin: 40px 0 -12px 36%;
                 font-size: 16px;
             }
             div#container h5 {
-                margin-top: 15px;
+                margin-top: 3em;
                 margin-bottom: 10px;
                 font-size: 14px;
-            }
-            div#container p {
-                margin: 0;
             }
             div#container p, .message {
                 font-family: "Linux Libertine";
             }
-            .header.ivan {
-                display: inline-block;
-                margin-left: 50px;
-            }
             .system_message {
-                font-family: NotCourierSans, Courier, Monospace; 
+                font-family: "ConsolaMonoBook";
+                font-style: italic;
                 margin-left: 36%;
-                color: #999;
+                font-size: 12px;
             }
             div#container {
                 background-color: white;
@@ -100,6 +96,9 @@
                 font-style: italic;
                 margin-left: 18%;
             }
+            div#container li {
+                display: block;
+            }
         </style>
 %end
 
@@ -107,7 +106,7 @@
 %rebase templates/base background=background, extrahead=extrahead, title='Fit the Annual Report for Purpose', oneliner='A conversation between Ivan Monroy Lopez\'s <a href="http://constantvzw.org/verlag/spip.php?page=article&id_article=123&mot_filtre=5&id_lang=0" target="_blank">Soap Box Annual Report</a> and <a href="http://constantvzw.org/verlag/spip.php?page=article&id_article=121&mot_filtre=5&id_lang=0" target="_blank">Fit for Purpose</a> filtered by Donatella Portoghese.'
 
     <div id="container">
-        <h1>Fit <span class="header ivan">the annual report</span><br /> for purpose</h1>
+        <h1>Fit <span class="header ivan"> &nbsp;the annual report</span><br /> for purpose</h1>
         <p class="didascalie">
             A software testers day in 3 acts :<br />
             10 deploys, 10 bugs and the team
@@ -117,8 +116,22 @@
             The product should be suitable for the intended purpose.<br />
             Quality is determined by the product user.
         </p>
+        <p class="line">
+        <h2>Characters</h2>
+        <ul>
+            <li class="username">IVAN, <em style="letter-spacing: 0; text-transform: lowercase">the voice-over</em></li>
+            <li class="username">ANDY</li>
+            <li class="username">MICHAEL</li>
+            <li class="username">JOHN</li>
+            <li class="username">MARK</li>
+            <li class="username">CLAUDIA</li>
+            <li class="username">MARTIN</li>
+            <li class="username">BOJAN</li>
+            <li class="username">SANDY</li>
+        </ul>
+        </p>
 
-        <h2>I ACT</h2>
+        <h2>ACT I</h2>
 
         <h3>A day in 10 deployments</h3>
 
@@ -354,7 +367,7 @@
             <span class="line"><span class="username">Michael:</span><span class="message">it's up now, it reported an error (i.e. went to Page Not Found)</span></span>
             <span class="line"><span class="message">very strange</span></span>
         </p>
-        <h2>II ACT</h2>
+        <h2>ACT II</h2>
 
         <h3>Software failure (real or perceived) &ndash; a day in 10 bugs</h3>
         <p class="didascalie">
@@ -547,7 +560,7 @@
             <span class="line"><span class="timecode">[16:49:38]</span><span class="username">Andy:</span><span class="message">yeah</span></span>
         </p>
 
-        <h2>III ACT</h2>
+        <h2>ACT III</h2>
 
         <h3>The software tasting team</h3>
         <p>
