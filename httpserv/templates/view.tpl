@@ -110,13 +110,33 @@
                 CURTEXT = name;
                 $.get ('/text/' + name, function (data, status) {
                     file = $.parseJSON (data)
+                    console.log(name)
                     if (status == 'success') {
                         formatted_text = '<p>' + file.data.replace (/(\w+)/ig,'<span class="_keyword $1">$1</span>').replace(/\n{2,}/g, '</p><p>').replace (/\n/g, '<br />').replace (/\s{3,}/g, '&nbsp;&nbsp;&nbsp;&nbsp;') + '</p>'
                         
                         $('#result').empty().hide();
                         setHeight ();
                         $('#text').empty().append ('<h2>' + file.name + '</h2>' + formatted_text);
-                        markWord (['the','notice','and']);
+
+                        // CURATION OF WORDS PER TEXT
+                        if (CURTEXT == "Fit_for_purpose") {
+                            markWord (['the','notice','and']);
+                        }
+                        if (CURTEXT == "The_man_pages") {
+                            markWord (['the','notice','and']);
+                        }
+                        if (CURTEXT == "To_talk_of_many_things") {
+                            markWord (['the','notice','and']);
+                        }
+                        if (CURTEXT == "Systemic_ambiguity") {
+                            markWord (['data','grey','literature', 'relation', 'user', 'information', 'error', 'value', 'other']);
+                        }
+                        if (CURTEXT == "Kaleidoscope,a_genesis") {
+                            markWord (['the','notice','and']);
+                        }
+                        if (CURTEXT == "Smatch_(1)") {
+                            markWord (['the','notice','and']);
+                        }
                         
                         setFilter ();
                     }
@@ -153,7 +173,9 @@
             
             function getFilterResult (word, force) {
                 if (CURTEXT != '') {
-                                $("._selected").removeClass("_selected");
+                    // When changing filters, remove highlight on words
+                    $("._selected").removeClass("_selected");
+
                     if (force == true) {
                         /////////////////////////////////////////// CONCORDANCE FILTER ////////////////////////////////////
                         parseConcordanceFilterResult = function (data, status) {
@@ -260,6 +282,7 @@
                 
                 /////////////////////////////////////////// CONCORDANCE FILTER ////////////////////////////////////
                 if (CURFILTER == 'concordance') {
+                    $("._marked").css("border-width", "0 0 2px");
                     $("span._keyword").click(function () {
                         getFilterResult (this);
                     });
@@ -279,6 +302,7 @@
                 
                 /////////////////////////////////////////// CONTEXT FILTER ////////////////////////////////////
                 if (CURFILTER == 'context') {
+                    $("._marked").css("border-width", "0 0 2px");
                     $("span._keyword").unbind('mouseover').mouseover(function () {
                         $(this).next('._keyword').addClass ('_active');
                         $(this).prev('._keyword').addClass ('_active');
@@ -292,6 +316,7 @@
                 
                 /////////////////////////////////////////// COLLOCATION FILTER ////////////////////////////////////
                 if (CURFILTER == 'collocations') {
+                     $("._marked").css("border-width", "0");
                      $("span._keyword").unbind ('click');
                      $("span._keyword").unbind('mouseover');
                      getFilterResult ('', true);

@@ -21,9 +21,10 @@ un bouton "voir plus" pour afficher les textes plus complets de Donatella.
   - si metadonné absente, traiter differament (eg. mettre à part ou griser)
 
 # Concordances, Similar, Collocations
-- Gijs + Alex
-  - put NLTK graphs in the webpage
-      - make them clickable ? even manually?
+- marked words
+  - make a selection per couples of text (and per filter?)
+- put NLTK graphs in the webpage
+  - make them clickable ? even manually?
 
 # Paracode
 - Steph
