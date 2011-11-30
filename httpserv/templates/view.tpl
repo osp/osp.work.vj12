@@ -153,6 +153,7 @@
             
             function getFilterResult (word, force) {
                 if (CURTEXT != '') {
+                                $("._selected").removeClass("_selected");
                     if (force == true) {
                         /////////////////////////////////////////// CONCORDANCE FILTER ////////////////////////////////////
                         parseConcordanceFilterResult = function (data, status) {
@@ -166,7 +167,6 @@
                                 }
 
                                 // Leaves selected words highlighted
-                                $("._selected").removeClass("_selected");
                                 $("." + $(word).text()).addClass("_selected");
                                 
                                 putResult (result);
@@ -293,8 +293,8 @@
                 /////////////////////////////////////////// COLLOCATION FILTER ////////////////////////////////////
                 if (CURFILTER == 'collocations') {
                      $("span._keyword").unbind ('click');
-                    
-                    getFilterResult ('', true);
+                     $("span._keyword").unbind('mouseover');
+                     getFilterResult ('', true);
                 }
             }
         </script>
