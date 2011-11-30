@@ -93,16 +93,19 @@ def context(filename = False, word = False):
     return dumps ({'filename': filename, 'word': word, 'result': found_lines})
 
 
-@route('/compare')
+@route('/compare/')
 def compare():
-    return template ('compare')
+    return template ('templates/compare', background = pick_ascii())
 
-@route('/view')
+@route('/view/')
 def view():
-    return template('view')
+    return template('templates/view')
     
-
-@route('/text/list')
+@route('/text/pair_list/')
+def pairList ():
+    return dumps (['Fit_for_purpose|The_man_pages', 'To_talk_of_many_things|Systemic_ambiguity', 'Kaleidscope,_a_genesis|Smatch_(1)'])
+    
+@route('/text/list/')
 def textlist ():
     """
     Generates a a javascript array of the available texts filename.
@@ -135,47 +138,28 @@ def text(filename):
     
     return dumps(file_dict)
 
-
-@route('/collocations/:text')
+@route('/js')
+def js():
+    return static_file ('jquery.min.js', 'js/')
+    
+@route('/collocations/:text/')
 def collocations(text):
+    text = '%s.txt' % text
     corpus = PlaintextCorpusReader(CORPUS_ROOT, [text])
     n_text = nltk.text.Text(corpus.words(text))
 
     bigram_measures = nltk.collocations.BigramAssocMeasures()
-    trigram_measures = nltk.collocations.TrigramAssocMeasures()
 
     # Finds bigrams
-    from nltk.collocations import BigramCollocationFinder, TrigramCollocationFinder
-    finder = BigramCollocationFinder.from_words(n_text)
-    finder.apply_freq_filter(3)
-    foo = finder.nbest(bigram_measures.pmi, 20)
-
+    from nltk.collocations import BigramCollocationFinder
+    
     finder = BigramCollocationFinder.from_words(n_text)
     ignored_words = nltk.corpus.stopwords.words('english')
     finder.apply_word_filter(lambda w: len(w) < 3 or w.lower() in ignored_words)
-    foo = finder.nbest(bigram_measures.likelihood_ratio, 20)
+    bigrams = finder.nbest(bigram_measures.likelihood_ratio, 20)
 
-    ## Trigrams are less interesting...
-    #finder = TrigramCollocationFinder.from_words(n_text)
-    #ignored_words = nltk.corpus.stopwords.words('english')
-    #finder.apply_word_filter(lambda w: len(w) < 3 or w.lower() in ignored_words)
-    #foo = finder.nbest(trigram_measures.likelihood_ratio, 30)
-
-    #word_fd = nltk.FreqDist(n_text)
-    #bigram_fd = nltk.FreqDist(nltk.bigrams(n_text))
-    #finder = BigramCollocationFinder(word_fd, bigram_fd)
-    #ignored_words = nltk.corpus.stopwords.words('english')
-    #finder.apply_word_filter(lambda w: len(w) < 4 or w.lower() in ignored_words)
-    #scored = finder.score_ngrams(bigram_measures.raw_freq)
-    #foo = sorted(finder.nbest(trigram_measures.raw_freq, 10))
-
-    f = open(os.path.join(CORPUS_ROOT, text), 'r')
-    source = f.read()
-    f.close()
-
-    #foo = n_text.collocations()
-
-    return template('templates/split', text=source, word_list=foo)
+    #return template('templates/split', text=source, word_list=foo)
+    return dumps ({'name': text, 'bigrams': bigrams})
 
 @route('/word_list/:text')
 def word_list(text):
@@ -359,11 +343,10 @@ def concordance(text):
     return template('templates/split', word_list=word_list, text=text)
 
 
-@route('/static/<filename:path>')
-def send_static(filename):
+@route('/static/:dirname/:filename')
+def send_static(dirname, filename):
     # NOTE: route filers neccesitate bottle >= 0.10.
-    return static_file(filename, root=STATIC_DIR)
-
+    return static_file(filename, root=STATIC_DIR + '/' + dirname)
 
 if __name__ == '__main__':
     bottle.debug(True)
