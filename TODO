@@ -22,8 +22,6 @@ un bouton "voir plus" pour afficher les textes plus complets de Donatella.
 
 # Concordances, Similar, Collocations
 - Gijs + Alex
-  - hover style on the index
-  - when a word is clicked, leave the highlighted style on the words in the text
   - put NLTK graphs in the webpage
       - make them clickable ? even manually?
 

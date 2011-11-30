@@ -45,7 +45,13 @@
             span._keyword, span._line {
                 cursor: pointer;
             }
+            span._line:hover * {
+                background-color: yellow;
+            }
             
+            span._selected {
+                background: #D9D9D9;
+            }
             span._active, span._search_active {
                 background: #ffff00;
             }
@@ -92,7 +98,6 @@
             }
         </style>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-        <!-- <script src="/js" type="text/javascript" charset="utf-8"></script> -->
         <script type="text/javascript" charset="utf-8">
             var CURTEXT = '';
             var CURFILTER = '';
@@ -149,6 +154,7 @@
             function getFilterResult (word, force) {
                 if (CURTEXT != '') {
                     if (force == true) {
+                        /////////////////////////////////////////// CONCORDANCE FILTER ////////////////////////////////////
                         parseConcordanceFilterResult = function (data, status) {
                             if (status == 'success') {
                                 data = $.parseJSON (data);
@@ -158,6 +164,10 @@
                                 for (var i = 0; i < data.result.length; i++) {
                                     result += '<span class="_line"><pre>' + data.result[i]['head'] + '<span class="_index_keyword">' + data.result[i]['body'] + '</span>' + data.result[i]['tail'] + '</pre></span>'
                                 }
+
+                                // Leaves selected words highlighted
+                                $("._selected").removeClass("_selected");
+                                $("." + $(word).text()).addClass("_selected");
                                 
                                 putResult (result);
                                 
@@ -168,6 +178,7 @@
                             }
                         };
                         
+                        /////////////////////////////////////////// COLLOCATION FILTER ////////////////////////////////////
                         parseCollocationResult = function (data, status) {
                             if (status == 'success') {
                                 data = $.parseJSON (data);
@@ -202,10 +213,12 @@
                         }
                         
                         if ($('#file_list').val() != 'null') {
+                            /////////////////////////////////////////// CONCORDANCE FILTER ////////////////////////////////////
                             if (CURFILTER == 'concordance') {
                                 $.get ('/context/' + CURTEXT + '/' + $(word).text(), parseConcordanceFilterResult);
                             }
                             
+                            /////////////////////////////////////////// COLLOCATION FILTER ////////////////////////////////////
                             if (CURFILTER == 'collocations') {
                                 $.get ('/collocations/' + CURTEXT + '/', parseCollocationResult);
                             }
@@ -245,6 +258,7 @@
             function setFilter () {
                 CURFILTER = window.top.$('#filter_list').val();
                 
+                /////////////////////////////////////////// CONCORDANCE FILTER ////////////////////////////////////
                 if (CURFILTER == 'concordance') {
                     $("span._keyword").click(function () {
                         getFilterResult (this);
@@ -263,6 +277,7 @@
                     });
                 }
                 
+                /////////////////////////////////////////// CONTEXT FILTER ////////////////////////////////////
                 if (CURFILTER == 'context') {
                     $("span._keyword").unbind('mouseover').mouseover(function () {
                         $(this).next('._keyword').addClass ('_active');
@@ -275,6 +290,7 @@
                     });
                 }
                 
+                /////////////////////////////////////////// COLLOCATION FILTER ////////////////////////////////////
                 if (CURFILTER == 'collocations') {
                      $("span._keyword").unbind ('click');
                     
