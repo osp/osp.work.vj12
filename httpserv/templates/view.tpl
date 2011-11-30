@@ -120,16 +120,16 @@
 
                         // CURATION OF WORDS PER TEXT
                         if (CURTEXT == "Fit_for_purpose") {
-                            markWord (['the','notice','and']);
+                            markWord (['qa','QA','environment', 'data', 'chat', 'offline', 'today', 'done', 'test', 'problem', 'mins', 'email', 'page', 'bug', 'team', 'user', 'work']);
                         }
                         if (CURTEXT == "The_man_pages") {
-                            markWord (['the','notice','and']);
+                            markWord (['man','documentation','software', 'code', 'text', 'computer', 'manual']);
                         }
                         if (CURTEXT == "To_talk_of_many_things") {
-                            markWord (['the','notice','and']);
+                            markWord (['environment', 'nonsense', 'information', 'reference', 'tokens', 'systems', 'digital', 'analogue']);
                         }
                         if (CURTEXT == "Systemic_ambiguity") {
-                            markWord (['data','grey','literature', 'relation', 'user', 'information', 'error', 'value', 'other']);
+                            markWord (['data','grey','literature', 'relation', 'user', 'error', 'value', 'other', 'systems', 'formal', 'ambiguity', 'intelligence', 'world', 'media', 'deception', 'conflict', 'failure', 'communication', 'human', 'machine']);
                         }
                         if (CURTEXT == "Kaleidoscope,a_genesis") {
                             markWord (['the','notice','and']);

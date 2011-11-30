@@ -21,8 +21,7 @@ un bouton "voir plus" pour afficher les textes plus complets de Donatella.
   - si metadonné absente, traiter differament (eg. mettre à part ou griser)
 
 # Concordances, Similar, Collocations
-- marked words
-  - make a selection per couples of text (and per filter?)
+- marked words for Kaleidosmatch
 - put NLTK graphs in the webpage
   - make them clickable ? even manually?
 
