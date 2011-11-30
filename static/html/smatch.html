@@ -8,6 +8,7 @@
         body, .text {
             width: auto;
             line-height: 1.2 !important;
+            font-family: "Linux Libertine", "Liberation Serif", "Hoefler Text", Georgia, serif; 
         }
         h3,
         div + div {
@@ -38,7 +39,7 @@
     <script src="/static/js/jquery-1.6.4.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" charset="utf-8">
         $(document).ready(function(){
-            $("a").click(function(e){
+            $("a:not(.footnote)").click(function(e){
                 e.preventDefault();
                 src = $(this).attr("href");
                 if ($(this).next().attr("id") != src) {
@@ -471,7 +472,7 @@
     commission, another project: a carte blanche for a street theatre
     festival. Invent a new<em>entresort</em>, an extremely brief form:
     you walk in, see something, you walk out.<a title=
-    "Footnote: An entresort is a fair or carnival attraction in which one pays to walk through and see a display. – Trans." href="#ftn1"
+    "Footnote: An entresort is a fair or carnival attraction in which one pays to walk through and see a display. – Trans." class="footnote" href="#ftn1"
     id="body_ftn1" name="body_ftn1">1</a> Like
     the headless woman, Spiderman, the beard man or the trunk man. I wanted to question the audience’s
     voyeurism. I went against the grain of the form. That is to say: I
@@ -646,7 +647,7 @@
     The third panel was an initiative
     for the auto-social construction (a practice of the
     GFEN) <a title=
-    "Footnote: A démarche d’auto-socio-construction is an approach practiced by the Groupe français d’education nouvelle." href="#ftn2"
+    "Footnote: A démarche d’auto-socio-construction is an approach practiced by the Groupe français d’education nouvelle." class="footnote" href="#ftn2"
     id="body_ftn2" name="body_ftn2">2</a> of a
     common knowledge around a place where it was still possible to
     resist.
@@ -924,15 +925,13 @@
     the beginning of a new story? </p>
 </div>
 <div>
-    <p class="footnote">An
-    <em>entresort</em> is a fair or carnival attraction
+    <a id="ftn1" href="#body_ftn1" class="footnote">1/</a> An <em>entresort</em> is a fair or carnival attraction
     in which one pays to walk through and see a display. –
-    Trans.</p>
-
-    <p class="footnote">A
-     <em>démarche d’auto-socio-construction</em> is an
+    Trans.
+    <br />
+    <a  id="ftn2" href="#body_ftn2" class="footnote">2/</a> A <em>démarche d’auto-socio-construction</em> is an
     approach practiced by the Groupe français d’education
-    nouvelle.</p>
+    nouvelle.
 </div>
 
 </body>
