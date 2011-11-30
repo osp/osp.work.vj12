@@ -52,11 +52,11 @@ def kaleidosmatch():
 
 @route('/fit_the_annual_report_for_purpose/')
 def fit_the_annual_report_for_purpose():
-    return template('templates/fit_the_annual_report_for_purpose', background = pick_ascii())
+    return template('templates/fit_the_annual_report_for_purpose', background=pick_ascii())
 
 @route('/macro/')
 def macro():
-    return template('templates/macro')
+    return template('templates/macro', background=pick_ascii())
 
 @route('/micro/')
 def micro():
@@ -347,10 +347,11 @@ def concordance(text):
     return template('templates/split', word_list=word_list, text=text)
 
 
-@route('/static/:dirname/:filename')
-def send_static(dirname, filename):
+@route('/static/<filename:path>')
+def send_static(filename):
     # NOTE: route filers neccesitate bottle >= 0.10.
-    return static_file(filename, root=STATIC_DIR + '/' + dirname)
+    return static_file(filename, root=STATIC_DIR)
+
 
 if __name__ == '__main__':
     bottle.debug(True)

@@ -41,7 +41,7 @@
     </style>
 %end
     
-%rebase templates/base  background=background, extrahead=extrahead, title='To Talk of Many Systemic Ambiguity', oneliner='A remix by Donatella Portoghese between Michael Moss\' <a href="http://constantvzw.org/verlag/spip.php?page=article&id_article=131&mot_filtre=5&id_lang=0" target="_blank">To Talk of Many Things</a> and Andrew Goffey and Matthew&nbsp;Fuller\'s <a href="http://constantvzw.org/verlag/spip.php?page=article&id_article=130&mot_filtre=5&id_lang=0" target="_blank">Systemic Ambiguity</a>.'
+%rebase templates/compact background=background, extrahead=extrahead, title='To Talk of Many Systemic Ambiguity', oneliner='A remix by Donatella Portoghese between Michael Moss\' <a href="http://constantvzw.org/verlag/spip.php?page=article&id_article=131&mot_filtre=5&id_lang=0" target="_blank">To Talk of Many Things</a> and Andrew Goffey and Matthew&nbsp;Fuller\'s <a href="http://constantvzw.org/verlag/spip.php?page=article&id_article=130&mot_filtre=5&id_lang=0" target="_blank">Systemic Ambiguity</a>.'
 
 <div id="container">
 <h1><span class="moss">To Talk of Many</span> <span class="ambiguity">Systemic Ambiguity</span></h1>
