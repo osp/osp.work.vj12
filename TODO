@@ -1,9 +1,5 @@
-Jeudi: présentation
-
 De manière générale, avoir un one liner pour chaque expérimentation et ajouter
 un bouton "voir plus" pour afficher les textes plus complets de Donatella.
-
-refaire des ascii arts
 
 # Menu
 - Steph
@@ -18,7 +14,6 @@ refaire des ascii arts
 
 # Macro
 - Alex
-  - Map it in bottle
   - Integrate emails in it
   - Filters: show/hide by type?
   - Classement par date: espacement qui représente le temps?
@@ -27,8 +22,6 @@ refaire des ascii arts
 
 # Concordances, Similar, Collocations
 - Gijs + Alex
-  - One interface?
-  - Check if nltk code can be integrated.
   - hover style on the index
   - when a word is clicked, leave the highlighted style on the words in the text
   - put NLTK graphs in the webpage
