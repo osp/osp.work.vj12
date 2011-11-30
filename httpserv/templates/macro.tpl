@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <title>HTML5 boilerplate—all you really need…</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
+%def extrahead():
     <link rel="stylesheet" type="text/css" href="/static/css/macro.css" />
     <!--[if IE]>
         <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -20,14 +15,16 @@
     <script type="text/javascript" src="/static/js/zoomooz/js/jquery.zoomooz.js"></script>
 
     <script type="text/javascript" src="/static/js/macro.js"></script>
-</head>
+%end
 
-<body id="home">
+
+%rebase templates/base  extrahead=extrahead, title='Macro', oneliner='Description to come'
 
 
     <dl id="infos"></dl>
 
-<!--<div id="bla">-->
+<div id="outer">
+<div id="container">
 <ul>
 
 <li id="item_000"
@@ -2150,7 +2147,6 @@
 
 
 </ul>
-<!--</div>-->
+</div>
+</div>
 
-</body>
-</html>

@@ -1,4 +1,4 @@
-ul {
+div#outer ul {
   width: 3500px;  
   position: relative;
   top: 100px;
@@ -6,7 +6,7 @@ ul {
 }
 
 
-li {
+div#outer li {
     display: block;
     float: left;
     width: 20px;
@@ -22,7 +22,7 @@ body.shadow li img {
     /* For IE 5.5 - 7 */
     filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
 }
-li:hover {
+div#outer li:hover {
     /*width: auto;*/
     z-index: 2;
     position: relative;
@@ -98,27 +98,28 @@ dl#infos {
     width: 220px;
     background-color: rgba(255, 255, 255, 0.75);
 }
-dt {
+dl#infos dt {
     float: left;
 }
-dt:after {
+dl#infos dt:after {
     content: ":  ";
 }
-dd {
+dl#infos dd {
     font-weight: bold;
+    margin-bottom: 0;
 }
 
-img {
+div#outer img {
     max-width: 500px;
 }
-img:hover {
+div#outer img:hover {
     /*width: 300px;*/
 }
-nav {
+div#outer nav {
     position: fixed;
 
 }
-a, img {
+div#outer a, div#outer img {
     border: 0px solid black;
 }
 

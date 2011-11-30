@@ -1,6 +1,6 @@
 <ul id="menu">
     <li><a href="/about/">About</a> Intentions behind this set of prototypes and experiments.</li>
-    <li><a href="macro/macro.html">Macro</a> (Almost) all the grey literature produced by the festival V/J12.</li>
+    <li><a href="/macro/">Macro</a> (Almost) all the grey literature produced by the festival V/J12.</li>
     <li><a href="/micro/">Micro</a> The grey literature necessary to produce the text «&#x202F;To Talk of Many Things&#x202F;».</li>
     <li><a href="#">Concordances</a> View in what context a word appears in a text.</li>
     <li><a href="#">Similar Contexts</a> Finding words sharing the same context in a text.</li>

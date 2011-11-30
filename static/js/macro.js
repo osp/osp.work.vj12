@@ -11,11 +11,11 @@ $(function() {
         function sort_by_attr(a, b){
             return $(a).attr(attribute) > $(b).attr(attribute) ? 1 : -1;
         };
-        $('ul li').sort(sort_by_attr).appendTo('ul');
+        $('div#outer ul li').sort(sort_by_attr).appendTo('div#outer ul');
 
         $('.tag').remove();
         var current_attr;
-        $('ul li').each(function() {
+        $('div#outer ul li').each(function() {
             var this_attr = $(this).attr(attribute);
             if (this_attr !== current_attr) {
                 current_attr = this_attr;
@@ -30,7 +30,7 @@ $(function() {
     function spread_by(attribute) {
         var offset = 30;
         var values = []
-        $('ul li').each(function() {
+        $('div#outer ul li').each(function() {
             var attr = $(this).attr(attribute);
             var index = $.inArray(attr, values);
             if (index === -1) {
@@ -42,7 +42,7 @@ $(function() {
         });
         $('.tag2').remove();
         var current_attr;
-        $('ul li').each(function() {
+        $('div#outer ul li').each(function() {
             var this_attr = $(this).attr(attribute);
             if (this_attr !== current_attr) {
                 current_attr = this_attr;
@@ -55,7 +55,7 @@ $(function() {
     }
     (function() {
         var keys = [];
-        $('ul li').each(function() {
+        $('div#outer ul li').each(function() {
             $.each(this.attributes, function(i, attr) {
                 if ($.inArray(attr.name, keys) === -1) {
                     keys.push(attr.name);
@@ -76,7 +76,7 @@ $(function() {
         clone.appendTo(nav);
         $('<label for="spread_by">Spread by</label>').appendTo(nav);
         sort.appendTo(nav);
-        nav.prependTo('body');
+        nav.prependTo('div#outer');
         sort.change(function() {
             spread_by($(this).val());
             return false;
@@ -88,7 +88,7 @@ $(function() {
 
     })();
 
-    $('li').hover(function() {
+    $('div#outer li').hover(function() {
         var prefix = "data-"; 
         var $infos = $("dl#infos").empty()
         $.each(this.attributes, function(i, attr) {
@@ -103,7 +103,7 @@ $(function() {
     });
 
     var current_a, current_img;
-    $("li").hover(function(evt) {
+    $("div#outer li").hover(function(evt) {
         evt.stopPropagation();
         current_a = $(this).find('a');
         current_img = current_a.find('img');
@@ -114,7 +114,7 @@ $(function() {
         current_img = current_a.find('img');
         toggle_src(current_a, current_img);
     });
-    $("li").click(function(evt) {
+    $("div#outer li").click(function(evt) {
         evt.preventDefault();
         evt.stopPropagation();
         

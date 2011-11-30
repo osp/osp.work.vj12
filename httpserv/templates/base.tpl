@@ -5,6 +5,7 @@
 <title>Verbindingen/Jonctions 12: {{title}}</title>
 <script src="/static/js/jquery-1.6.4.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="/static/js/vj12.js" type="text/javascript" charset="utf-8"></script>
+<link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
 <link rel="stylesheet" href="/static/css/vj12.css" type="text/css" media="screen">
 <link rel="stylesheet" href="/static/css/vj12+.css" type="text/css" media="screen">
 
