@@ -7,17 +7,16 @@ $(function() {
         return false
     };
 
-    function sort_by(myattr) {
-        //var myattr = myattr;
+    function sort_by(attribute) {
         function sort_by_attr(a, b){
-            return $(a).attr(myattr) > $(b).attr(myattr) ? 1 : -1;
+            return $(a).attr(attribute) > $(b).attr(attribute) ? 1 : -1;
         };
         $('ul li').sort(sort_by_attr).appendTo('ul');
 
         $('.tag').remove();
         var current_attr;
         $('ul li').each(function() {
-            var this_attr = $(this).attr(myattr);
+            var this_attr = $(this).attr(attribute);
             if (this_attr !== current_attr) {
                 current_attr = this_attr;
                 var foo = $('<div></div>');
@@ -40,6 +39,18 @@ $(function() {
             };
             $(this).css('margin-top', 50 + index * offset);
             //$(this).css('padding-bottom', 3000);
+        });
+        $('.tag2').remove();
+        var current_attr;
+        $('ul li').each(function() {
+            var this_attr = $(this).attr(attribute);
+            if (this_attr !== current_attr) {
+                current_attr = this_attr;
+                var foo = $('<div></div>');
+                foo.addClass('tag2');
+                foo.text(this_attr);
+                foo.prependTo(this);
+            };
         });
     }
     (function() {
@@ -90,11 +101,25 @@ $(function() {
     }, function() {
         var $infos = $("dl#infos").empty()
     });
+
+    var current_a, current_img;
+    $("li").hover(function(evt) {
+        evt.stopPropagation();
+        current_a = $(this).find('a');
+        current_img = current_a.find('img');
+        toggle_src(current_a, current_img);
+    }, function(evt) {
+        evt.stopPropagation();
+        current_a = $(this).find('a');
+        current_img = current_a.find('img');
+        toggle_src(current_a, current_img);
+    });
     $("li").click(function(evt) {
         evt.preventDefault();
         evt.stopPropagation();
         
         $(this).zoomTo({
+            //root: $('div#bla'),
             targetsize: 0.8,
             scalemode: "both",
             duration: 1000,
@@ -102,13 +127,20 @@ $(function() {
             nativeanimation: true
         });
         
-        //var a = $(this).find('a');
-        //var img = a.find('img');
-        //toggle_src(a, img);
+        //try {
+            //toggle_src(current_a, current_img);
+        //} catch (e) {
+
+        //}
+
+        //current_a = $(this).find('a');
+        //current_img = current_a.find('img');
+        //toggle_src(current_a, current_img);
     });
 
     $("body").click(function(evt) {
         evt.stopPropagation();
         $(this).zoomTo({targetsize: 1});
+        //toggle_src(current_a, current_img);
     });
 });

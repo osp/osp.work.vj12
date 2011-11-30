@@ -1,7 +1,8 @@
 ul {
   width: 3500px;  
   position: relative;
-  top: 199px;
+  top: 100px;
+  left: 100px;
 }
 
 
@@ -31,6 +32,27 @@ li:hover {
 }
 
 
+.tag2 {
+    font-family: monospace;
+    background-color: gray;
+    letter-spacing: 1px;
+    color: white;
+    padding: 3px;
+    font-weight: bold;
+    font-size: 9px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*width: 100px;*/
+    /*transform-origin: right bottom;*/
+    /*-webkit-transform-origin: right bottom;*/
+    /*-webkit-transform: rotate(-90deg); */
+    /*-moz-transform: rotate(-90deg);	*/
+    /*filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);*/
+    /*position: absolute;*/
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
 .tag {
     font-family: monospace;
     background-color: gray;
@@ -66,13 +88,15 @@ div.email {
 dl#infos {
     z-index: 2;
     position: fixed;
-    right: 0;
-    top: 0;
+    bottom: 1em;
+    left: 1em;
     font-family: monospace;
-    font-size: 9px;
+    font-size: 11px;
+    letter-spacing: 1px;
     text-transform: uppercase;
     line-height: 1.3;
     width: 220px;
+    background-color: rgba(255, 255, 255, 0.75);
 }
 dt {
     float: left;
@@ -82,7 +106,6 @@ dt:after {
 }
 dd {
     font-weight: bold;
-    border-bottom: 1px solid black;
 }
 
 img {
@@ -93,7 +116,16 @@ img:hover {
 }
 nav {
     position: fixed;
+
 }
 a, img {
     border: 0px solid black;
 }
+
+/*div#bla {*/
+    /*position: absolute;*/
+    /*top: 0,*/
+    /*left: 0,*/
+    /*height: 500px;*/
+    /*width: 500px;*/
+/*}*/
