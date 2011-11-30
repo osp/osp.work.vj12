@@ -117,7 +117,7 @@
 %end
 
 
-%rebase templates/base extrahead=extrahead, title='Fit the Annual Report for Purpose', oneliner='A conversation between Ivan Monroy Lopez\'s <a href="http://constantvzw.org/verlag/spip.php?page=article&id_article=123&mot_filtre=5&id_lang=0" target="_blank">Soap Box Annual Report</a> and <a href="http://constantvzw.org/verlag/spip.php?page=article&id_article=121&mot_filtre=5&id_lang=0" target="_blank">Fit for Purpose</a> filtered by Donatella Portoghese.'
+%rebase templates/base background=background, extrahead=extrahead, title='Fit the Annual Report for Purpose', oneliner='A conversation between Ivan Monroy Lopez\'s <a href="http://constantvzw.org/verlag/spip.php?page=article&id_article=123&mot_filtre=5&id_lang=0" target="_blank">Soap Box Annual Report</a> and <a href="http://constantvzw.org/verlag/spip.php?page=article&id_article=121&mot_filtre=5&id_lang=0" target="_blank">Fit for Purpose</a> filtered by Donatella Portoghese.'
 
     <div id="container">
         <h1>Fit <span class="header ivan">the annual report</span><br /> for purpose</h1>

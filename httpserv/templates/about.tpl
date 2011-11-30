@@ -9,7 +9,7 @@
 %end
 
 
-%rebase templates/base  extrahead=extrahead, title='About', oneliner='Intentions behind this set of prototypes and experiments.'
+%rebase templates/base background=background, extrahead=extrahead, title='About', oneliner='Intentions behind this set of prototypes and experiments.'
 
 
 <div id="container">

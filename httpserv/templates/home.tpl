@@ -74,7 +74,7 @@
     </div>
 </div>
 
-    %include templates/ascii
+    {{!background}}
 
 </body>
 </html>

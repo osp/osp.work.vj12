@@ -52,7 +52,7 @@
         %include
     </div>
 
-    %include templates/ascii
+    {{!background}}
 
 </body>
 </html>

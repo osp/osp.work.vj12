@@ -13,35 +13,46 @@ import bottle
 import nltk
 import os
 import re
+
+import codecs
+from glob import glob
+from string import replace
 from bottle import (run, get, request, response, template, route, static_file)
 from glob import glob
 from json import dumps
 from nltk.corpus import PlaintextCorpusReader
 from string import replace
+import random
 
 
 PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
 CORPUS_ROOT = os.path.join(PROJECT_DIR, 'texts')
 STATIC_DIR = os.path.join(PROJECT_DIR, '..', 'static')
 
+def pick_ascii():
+    fn = random.choice(["ascii.tpl", "ascii2.tpl", "ascii3.tpl", "ascii4.tpl", "ascii5.tpl"])
+    f = open("templates/ascii/%s" % fn, "r") 
+    background = f.read()
+    f.close()
+    return background
 
 @route('/')
 def home():
-    return template('templates/home')
+    return template('templates/home', background = pick_ascii())
 
 
 @route('/about/')
 def about():
-    return template('templates/about')
+    return template('templates/about', background = pick_ascii())
 
 
 @route('/kaleidosmatch/')
 def kaleidosmatch():
-    return template('templates/kaleidosmatch')
+    return template('templates/kaleidosmatch', background = pick_ascii())
 
 @route('/fit_the_annual_report_for_purpose/')
 def fit_the_annual_report_for_purpose():
-    return template('templates/fit_the_annual_report_for_purpose')
+    return template('templates/fit_the_annual_report_for_purpose', background = pick_ascii())
 
 @route('/macro/')
 def macro():
@@ -49,11 +60,11 @@ def macro():
 
 @route('/micro/')
 def micro():
-    return template('templates/micro')
+    return template('templates/micro', background = pick_ascii())
 
 @route('/moss_ambiguity/')
 def moss_ambiguity():
-    return template('templates/moss_ambiguity')
+    return template('templates/moss_ambiguity', background = pick_ascii())
 
 
 # BELOW: EXPERIMENTS
@@ -65,9 +76,8 @@ def context(filename = False, word = False):
     """
     An interface to look at permutated indices.
     """
-    if word and re.match ("^[a-zA-Z0-9_]+$", filename) and re.match ("^[a-zA-Z0-9_]+$", word):
-        handler = open ("texts/%s.txt" % filename)
-        
+    if word and re.match ("^[a-zA-Z0-9_\(\),\.]+$", filename) and re.match ("^[a-zA-Z0-9_]+$", word):
+        handler = codecs.open ("texts/%s.txt" % filename, "r", "utf-8")
         found_lines = []
         head_length = 0
         
@@ -76,15 +86,15 @@ def context(filename = False, word = False):
             match = re.search (pattern, line);
             while match:
                 head_length = len (match.group ('head')) if len(match.group ('head')) > head_length else head_length
-                found_lines.append ([match.group ('head'), match.group ('body'), match.group ('tail')])
+                found_lines.append ({'head': match.group ('head'), 'body': match.group ('body'), 'tail': match.group ('tail')})
                 line = line[match.end('body'):]
                 match = re.search (pattern, line)
         
         for x, line in enumerate(found_lines):
-            line[0] = line[0].rjust (head_length, ' ')
-            found_lines[x] = ''.join (line)
+            found_lines[x]['head'] = found_lines[x]['head'].rjust (head_length, ' ')
+            found_lines[x]['full_line'] = ''.join (line)
             
-    return dumps ({'filename': filename, 'word': word, 'result': "\n".join (found_lines)})
+    return dumps ({'filename': filename, 'word': word, 'result': found_lines})
 
 
 @route('/compare')
@@ -332,9 +342,7 @@ class IndexedText(object):
 
 @route('/concordance/:text')
 def concordance(text):
-    """
-    TODO: Do it!
-    """
+    """Returns an alphabetical list of words for the given text."""
     corpus = PlaintextCorpusReader(CORPUS_ROOT, [text])
     n_text = nltk.text.Text(corpus.words(text))
     interesting = [

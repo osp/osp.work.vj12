@@ -82,8 +82,8 @@ $(document).ready(function() {
                     // finds where to display the comment 
                     var lastElts = [];
                     var wrap_elt = $('<div class="annotations"></div>');
-                    var close_elt = $('<p style="text-align: center;"><a href="#">close comments</a></p><br />');
-                    var close_elt2 = $('<p style="text-align: center;"><a href="#">close comments</a></p>');
+                    //var close_elt = $('<p class="close"><a href="#">&times;</a></p><br class="clear" />');
+                    var close_elt2 = $('<p class="close"><a href="#">&times;</a></p>');
 
                     for (i in data.rows) {
                         var value = data.rows[i].value;
@@ -92,26 +92,7 @@ $(document).ready(function() {
 
                         lastElts.push(value.elts[value.elts.length - 1]);
                         
-                        html = ''
-                        + '<p>' 
-                        + '    ' + humaneDate(new Date(value.created_at)).toLowerCase() + ', '
-                        
-                        if (value.author) {
-                            html += ''
-                            + '    ' + (value.author ? value.author : 'someone') + ' wrote:'
-                        };
-                        // closes <p> from date/author
-                        html += ''
-                        + '</p>';
-
-                        if (value.url) {
-                            html += ''
-                            + '<p>' 
-                            + '    <a href="' + value.url + '" target="_blank">' 
-                            + '        ' + (value.title ? value.title : value.url)
-                            + '    </a>'
-                            + '</p>';
-                        };
+                        html = '';
 
                         if (value.content) {
                             html += ''
@@ -120,14 +101,29 @@ $(document).ready(function() {
                             + '</p>';
                         };
 
+                        created = new Date(value.created_at);
+
+                        html += ''
+                        + '<p class="comment-infos">' 
+                        + '    ' + created.getDate() + "/" + created.getMonth() + "/"  + created.getFullYear() + ', ';
+                        
+                        if (value.author) {
+                            html += ''
+                            + '    ' + (value.author ? value.author : 'someone')
+                        };
+                        // closes <p> from date/author
+                        html += ''
+                        + '</p>';
+
+
                         entry_elt.append(html);
-                        wrap_elt.append(close_elt);
+                        //wrap_elt.append(close_elt);
                         wrap_elt.append(entry_elt);
                         wrap_elt.append(close_elt2);
-                        close_elt.click(function(event){
-                            event.preventDefault();
-                            $("div.annotations").remove();
-                        });
+                        //close_elt.click(function(event){
+                            //event.preventDefault();
+                            //$("div.annotations").remove();
+                        //});
                         close_elt2.click(function(event){
                             event.preventDefault();
                             $("div.annotations").remove();
