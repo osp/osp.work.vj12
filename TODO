@@ -1,9 +1,5 @@
-Jeudi: présentation
-
 De manière générale, avoir un one liner pour chaque expérimentation et ajouter
 un bouton "voir plus" pour afficher les textes plus complets de Donatella.
-
-refaire des ascii arts
 
 # Menu
 - Steph
@@ -18,7 +14,6 @@ refaire des ascii arts
 
 # Macro
 - Alex
-  - Map it in bottle
   - Integrate emails in it
   - Filters: show/hide by type?
   - Classement par date: espacement qui représente le temps?
@@ -27,16 +22,10 @@ refaire des ascii arts
 
 # Concordances, Similar, Collocations
 - Gijs + Alex
-  - One interface?
-  - Check if nltk code can be integrated.
   - hover style on the index
   - when a word is clicked, leave the highlighted style on the words in the text
   - put NLTK graphs in the webpage
       - make them clickable ? even manually?
-  - Make only one drop down menu for choosing between the couples of texts:
-      - Systemic Ambiguity / To Talk of Many Things
-      - Kaleidoscope / Smatch
-      - Fit on Purpose / Soap Box Annual Report
 
 # Paracode
 - Steph
@@ -47,17 +36,7 @@ refaire des ascii arts
 
 # KaleidoSmatch
 - Steph
-  - footnote ne doit pas appeler d'iframe
   - images ne doit pas appeler d'iframe
-  - désactiver le son des iframes, sur tout le site?
   - being able to navigate the sites
     - by zooming in the frames;
     - or by opening them in a new window
-
-
-# Fit the Annual Report on Purpose
-- Gijs + Steph
-  - Fix styles messed up by importing the main stylesheet
-  - change the typographic codes (look at typography in theater: small caps for
-    names, stage directions in parenthesis? voiceover monospace? etc.)
-

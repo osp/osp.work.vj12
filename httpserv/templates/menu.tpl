@@ -1,6 +1,6 @@
 <ul id="menu">
     <li><a href="/about/">About</a> Intentions behind this set of prototypes and experiments.</li>
-    <li><a href="macro/macro.html">Macro</a> (Almost) all the grey literature produced by the festival V/J12.</li>
+    <li><a href="/macro/">Macro</a> (Almost) all the grey literature produced by the festival V/J12.</li>
     <li><a href="/micro/">Micro</a> The grey literature necessary to produce the text «&#x202F;To Talk of Many Things&#x202F;».</li>
     <li><a href="/moss_ambiguity/">To Talk of&nbsp;Many Systemic Ambiguity</a> A remix between «&#x202F;To Talk of Many Things&#x202F;» and «&#x202F;Systemic Ambiguity&#x202F;».</li>
     <li><a href="/kaleidosmatch/">KaleidoSmatch</a>A parallel between «&#x202F;Kaleidoscope, a genesis&#x202F;» and «&#x202F;Smatch(1)&#x202F;».</li>

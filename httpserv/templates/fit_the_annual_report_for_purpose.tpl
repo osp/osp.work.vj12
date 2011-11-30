@@ -1,32 +1,22 @@
 %def extrahead():
         <style>
             @font-face {
-                font-family: 'Libertinagec';
-                src: url('../static/fonts/libertinage/libertinage-c-webfont.eot');
-                src: url('../static/fonts/libertinage/libertinage-c-webfont.eot?#iefix') format('embedded-opentype'),
-                    url('../static/fonts/libertinage/libertinage-c-webfont.woff') format('woff'),
-                    url('../static/fonts/libertinage/libertinage-c-webfont.ttf') format('truetype'),
-                    url('../static/fonts/libertinage/libertinage-c-webfont.svg#Libertinagec') format('svg');
-                font-weight: normal;
-                font-style: normal;
-            }
-            @font-face {
                 font-family: 'ConsolaMonoBook';
-                src: url('../static/fonts/consola/consolamono-webfont.eot');
-                src: url('../static/fonts/consola/consolamono-webfont.eot?#iefix') format('embedded-opentype'),
-                    url('../static/fonts/consola/consolamono-webfont.woff') format('woff'),
-                    url('../static/fonts/consola/consolamono-webfont.ttf') format('truetype'),
-                    url('../static/fonts/consola/consolamono-webfont.svg#ConsolaMonoBook') format('svg');
+                src: url('/static/css/fonts/consola/consolamono-webfont.eot');
+                src: url('/static/css/fonts/consola/consolamono-webfont.eot?#iefix') format('embedded-opentype'),
+                    url('/static/css/fonts/consola/consolamono-webfont.woff') format('woff'),
+                    url('/static/css/fonts/consola/consolamono-webfont.ttf') format('truetype'),
+                    url('/static/css/fonts/consola/consolamono-webfont.svg#ConsolaMonoBook') format('svg');
                 font-weight: normal;
                 font-style: normal;
             }
             @font-face {
                 font-family: 'LiberationMonoRegular';
-                src: url('../static/fonts/liberation/LiberationMono-Regular-webfont.eot');
-                src: url('../static/fonts/liberation/LiberationMono-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-                    url('../static/fonts/liberation/LiberationMono-Regular-webfont.woff') format('woff'),
-                    url('../static/fonts/liberation/LiberationMono-Regular-webfont.ttf') format('truetype'),
-                    url('../static/fonts/liberation/LiberationMono-Regular-webfont.svg#LiberationMonoRegular') format('svg');
+                src: url('fonts/liberation/LiberationMono-Regular-webfont.eot');
+                src: url('fonts/liberation/LiberationMono-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+                    url('fonts/liberation/LiberationMono-Regular-webfont.woff') format('woff'),
+                    url('fonts/liberation/LiberationMono-Regular-webfont.ttf') format('truetype'),
+                    url('fonts/liberation/LiberationMono-Regular-webfont.svg#LiberationMonoRegular') format('svg');
                 font-weight: normal;
                 font-style: normal;
             }
@@ -54,64 +44,60 @@
             .username {
                 margin-left: 18%;
                 margin-right: -36%;
+                text-transform: uppercase;
+                letter-spacing: 2px;
             }
             .ivan {
-                color: #008000;
+                color: Gray;
             }
             .message, .message.ivan {
                 margin-left: 36%;
                 width: 60%;
             }
             .message.ivan, .username.ivan {
-                font-family: "LiberationMonoRegular";
-                font-size: 13px;
                 line-height: 1.5;
             }
-            div#container h1, div#container h2, div#container h3, div#container h4, div#container h5, div#container h6 {
+            div#container h1, div#container h2, div#container h3, div#container h4, div#container h5, div#container h5 {
                 margin-left: 18%;
-                font-family: "Consola Mono";
+                font-family: "ConsolaMonoBook";
                 text-transform: uppercase;
             }
             div#container h1 {
                 font-size: 40px;
-                margin-top: 100px;
+                padding-top: 1.5em;
+                margin-bottom: 1em;
             }
             div#container h2 {
                 margin-top: 40px;
             }
-            div#container h5 {
-                margin: 10px 0 5px 36%;
+            div#container h4 {
+                margin: 40px 0 -12px 36%;
                 font-size: 16px;
             }
-            div#container h6 {
-                margin-top: 15px;
+            div#container h5 {
+                margin-top: 3em;
                 margin-bottom: 10px;
                 font-size: 14px;
             }
-            div#container p {
-                margin: 0;
-            }
             div#container p, .message {
-                font-family: "Libertinagec";
-                font-size: 16px;
-                line-height: 1.3;
-                background-color: white;
-            }
-            div#container p.text {
-                margin-left: 18%;
-            }
-            .header.ivan {
-                display: inline-block;
-                margin-left: 50px;
+                font-family: "Linux Libertine";
             }
             .system_message {
-                font-family: "LiberationMonoRegular";
-                font-size: 13px;
+                font-family: "ConsolaMonoBook";
+                font-style: italic;
                 margin-left: 36%;
-                color: #999;
+                font-size: 12px;
             }
             div#container {
                 background-color: white;
+                height: auto;
+            }
+            p.didascalie {
+                font-style: italic;
+                margin-left: 18%;
+            }
+            div#container li {
+                display: block;
             }
         </style>
 %end
@@ -120,24 +106,38 @@
 %rebase templates/base background=background, extrahead=extrahead, title='Fit the Annual Report for Purpose', oneliner='A conversation between Ivan Monroy Lopez\'s <a href="http://constantvzw.org/verlag/spip.php?page=article&id_article=123&mot_filtre=5&id_lang=0" target="_blank">Soap Box Annual Report</a> and <a href="http://constantvzw.org/verlag/spip.php?page=article&id_article=121&mot_filtre=5&id_lang=0" target="_blank">Fit for Purpose</a> filtered by Donatella Portoghese.'
 
     <div id="container">
-        <h1>Fit <span class="header ivan">the annual report</span><br /> for purpose</h1>
-        <p class="text">
+        <h1>Fit <span class="header ivan"> &nbsp;the annual report</span><br /> for purpose</h1>
+        <p class="didascalie">
             A software testers day in 3 acts :<br />
             10 deploys, 10 bugs and the team
         </p>
-        <p class="text">
+        <p class="didascalie">
             Fit for purpose is a principle included in Quality Assurance.<br />
             The product should be suitable for the intended purpose.<br />
             Quality is determined by the product user.
         </p>
+        <p class="line">
+        <h2>Characters</h2>
+        <ul>
+            <li class="username">IVAN, <em style="letter-spacing: 0; text-transform: lowercase">the voice-over</em></li>
+            <li class="username">ANDY</li>
+            <li class="username">MICHAEL</li>
+            <li class="username">JOHN</li>
+            <li class="username">MARK</li>
+            <li class="username">CLAUDIA</li>
+            <li class="username">MARTIN</li>
+            <li class="username">BOJAN</li>
+            <li class="username">SANDY</li>
+        </ul>
+        </p>
 
-        <h2>I ACT</h2>
+        <h2>ACT I</h2>
 
         <h3>A day in 10 deployments</h3>
 
-        <h5>Loops </h5>
+        <h4>Loops </h4>
 
-        <h6>Deploy 1</h6>
+        <h5>Deploy 1</h5>
         <p>
             <span class="line"><span class="username ivan">Ivan:</span><span class="message ivan">
                 '\"&nbsp;t<br />
@@ -162,7 +162,7 @@
             <span class="line"><span class="username">John:</span><span class="message">Good morning!</span></span>
             <span class="line"><span class="username">Andy:</span><span class="message">hi guys</span></span>
         </p>
-        <h6>Deploy 2</h6>
+        <h5>Deploy 2</h5>
         <p>
         <span class="line"><span class="username ivan">Ivan:</span><span class="message ivan">
             The&nbsp;following&nbsp;is&nbsp;also&nbsp;from&nbsp;the&nbsp;fanzine&nbsp;I'm&nbsp;talking&nbsp;about.&nbsp;It's&nbsp;a&nbsp;perhaps<br />
@@ -188,7 +188,7 @@
             <span class="line"><span class="message">as for whatever reason it build but doesn't work</span></span>
             <span class="line"><span class="username">Claudia:</span><span class="message">oh understood.... he is in this chat. ((wave)) Hi John!</span></span>
         </p>
-        <h6>Deploy 3</h6>
+        <h5>Deploy 3</h5>
         <p>
             <span class="line"><span class="username ivan">Ivan:</span><span class="message ivan">
                 .I&nbsp;in&nbsp;the&nbsp;gnu&nbsp;coding&nbsp;standards,&nbsp;the&nbsp;terms&nbsp;documentation&nbsp;and&nbsp;manual&nbsp;practically<br />
@@ -202,7 +202,7 @@
                 .I&nbsp;pages,&nbsp;one&nbsp;for&nbsp;each&nbsp;command.</span></span>
             <span class="line"><span class="username">Andy:</span><span class="message">right. sorry i got *severly* sidetracked. Okay, i'm going to start the restore of the dbases to the qa env. Means qa goes offline for 20 mins. everyone okay for that to happen now?</span></span>
         </p>
-        <h6>Deploy 4</h6>
+        <h5>Deploy 4</h5>
         <p>
             <span class="line"><span class="username">Ivan:</span><span class="message ivan">
                 I&nbsp;think&nbsp;that&nbsp;it's&nbsp;funny&nbsp;that&nbsp;they&nbsp;write&nbsp;implementation&nbsp;does&nbsp;not&nbsp;equal<br />
@@ -227,9 +227,9 @@
             <span class="line"><span class="username">Andy:</span><span class="message">you english QA ppl are funny</span></span></span>
             <span class="line"><span class="message">like funny in the head</span></span>
         </p>
-        <h5>loops</h5>
+        <h4>loops</h4>
         </p>
-        <h6>Deploy 5</h6>
+        <h5>Deploy 5</h5>
         <p>
             <span class="line"><span class="username">John:</span><span class="message">we have a build update to QA we would like to do</span></span>
             <span class="line"><span class="username">Andy:</span><span class="message">rightio...</span></span>
@@ -248,7 +248,7 @@
             <span class="line"><span class="username">John:</span><span class="message">thank you</span></span>
             <span class="line"><span class="username">Andy:</span><span class="message">qa env is up</span></span>
         </p>
-        <h6>Deploy 6</h6>
+        <h5>Deploy 6</h5>
         <p>
             <span class="line"><span class="username ivan">Ivan:</span><span class="message ivan">
                 .I&nbsp;the&nbsp;people&nbsp;of&nbsp;gnu&nbsp;distinguish&nbsp;between&nbsp;the&nbsp;way&nbsp;in&nbsp;which&nbsp;a&nbsp;program&nbsp;was&nbsp;built,<br />
@@ -282,8 +282,8 @@
             <span class="line"><span class="username">Michael:</span><span class="message">ok the values will be in the next QA DB deploy</span></span>
             <span class="line"><span class="message">they're fine now for QA</span></span>
         </p>
-        <h5>loops</h5>
-        <h6>Redeploy</h6>
+        <h4>loops</h4>
+        <h5>Redeploy</h5>
         <p>
             <span class="line"><span class="username">John:</span><span class="message">Redeploying the build</span></span>
             <span class="line"><span class="username">Michael:</span><span class="message">Last night I did a deploy  if that is anything to go by</span></span>
@@ -300,7 +300,7 @@
             <span class="line"><span class="username">Mark:</span><span class="message">tnx !</span></span>
             <span class="line"><span class="username">John:</span><span class="message">Sorry for the breakage</span></span>
         </p>
-        <h6>Deploy 7</h6>
+        <h5>Deploy 7</h5>
         <p>
             <span class="line"><span class="username">Andy:</span><span class="message">Data base backups starting</span></span>
             <span class="line"><span class="message">qa environment offline in 10 mins</span></span>
@@ -315,7 +315,7 @@
             <span class="line"><span class="message">it's up</span></span>
             <span class="line"><span class="message">enjoy...  tell your friends.</span></span>
         </p>
-        <h6>Deploy 8</h6>
+        <h5>Deploy 8</h5>
         <p>
             <span class="line"><span class="username ivan">Ivan:</span><span class="message ivan">
                 .B&nbsp;programmers&nbsp;tend&nbsp;to&nbsp;carry&nbsp;over&nbsp;the&nbsp;structure&nbsp;of&nbsp;the&nbsp;program&nbsp;as&nbsp;the<br />
@@ -331,7 +331,7 @@
             <span class="line"><span class="message">qa environment is up</span></span>
             <span class="line"><span class="message">Integral database backup started. ~10 mins till qa goes offline</span></span>
         </p>
-        <h6>Deploy 9</h6>
+        <h5>Deploy 9</h5>
         <p>
             <span class="line"><span class="username">Andy:</span><span class="message">qa environment going offline for deploy and data base restore</span></span>
             <span class="line"><span class="message">Data base 3/4 started. code deploy starting. qa environment online in 20 mins</span></span>
@@ -341,7 +341,7 @@
             <span class="line"><span class="message">sorry... I misunderstood tudor.  he is importing some stuff into qa env for us to enable the browser detection to work.  He is working on it now, but it's not ready.  I'll notify when that's done</span></span>
             <span class="line"><span class="username">Michael:</span><span class="message">importing stuff...  back from prodn to integ then to QA</span></span>
         </p>
-        <h6>Deploy 10</h6>
+        <h5>Deploy 10</h5>
         <p>
             <span class="line"><span class="username ivan">Ivan:</span><span class="message ivan">
                 .I&nbsp;the&nbsp;coding&nbsp;standards&nbsp;advise&nbsp;authors&nbsp;to&nbsp;approach&nbsp;users&nbsp;pedagogically,&nbsp;thinking<br&nbsp;/>
@@ -367,14 +367,14 @@
             <span class="line"><span class="username">Michael:</span><span class="message">it's up now, it reported an error (i.e. went to Page Not Found)</span></span>
             <span class="line"><span class="message">very strange</span></span>
         </p>
-        <h2>II ACT</h2>
+        <h2>ACT II</h2>
 
         <h3>Software failure (real or perceived) &ndash; a day in 10 bugs</h3>
-        <p class="text">
+        <p class="didascalie">
             Description of the problem: <br />
             Usually, quality is constrained to such topics as correctness, completeness, security, but can also include more technical requirements as described under the ISO standard ISO/IEC 9126, such as capability, reliability, efficiency, portability, maintainability, compatibility, and Usability.
         </p>
-        <h5>Walkthrough</h5>
+        <h4>Walkthrough</h4>
         <p>
             <span class="line"><span class="username ivan">Ivan:</span><span class="message ivan">
                 in&nbsp;this&nbsp;essay,&nbsp;code&nbsp;is&nbsp;the&nbsp;textual&nbsp;aspect&nbsp;of&nbsp;computer&nbsp;technology&nbsp;that&nbsp;may&nbsp;be<br />
@@ -408,8 +408,8 @@
             <span class="line"><span class="message">just checked</span></span>
             <span class="line"><span class="username">Andy:</span><span class="message">okay, cool</span></span>
         </p>
-        <h6>Bug 1</h6>
-        <p class="text">
+        <h5>Bug 1</h5>
+        <p class="didascalie">
             Sources of system failure
         </p>
         <p>
@@ -419,8 +419,8 @@
 
             <span class="line"><span class="timecode">[13:54:50]</span></span>
         </p>
-        <h6>Bug 2</h6>
-        <p class="text">
+        <h5>Bug 2</h5>
+        <p class="didascalie">
             Description of the problem: <br />
             Error, defect, failure
         </p>
@@ -429,8 +429,8 @@
             <span class="line"><span class="timecode">[13:55:02]</span><span class="message">the comment isn't something actionable by the devs just yet</span></span>
             <span class="line"><span class="timecode">[13:55:21]</span><span class="message">just copy paste that into a new defect report in that story and assign that to Lucci</span></span>
         </p>
-        <h6>Bug 3</h6>
-        <p class="text">
+        <h5>Bug 3</h5>
+        <p class="didascalie">
             Description of the problem: <br />
             Error, defect, failure
         </p>
@@ -451,8 +451,8 @@
             <span class="line"><span class="timecode">[14:38:57]</span><span class="username">Andy:</span><span class="message">yeah. that's strange</span></span>
             <span class="line"><span class="timecode">[14:39:18]</span><span class="username">John:</span><span class="message">thats been corrected</span></span>
         </p>
-        <h6>Bug 4</h6>
-        <p class="text">
+        <h5>Bug 4</h5>
+        <p class="didascalie">
             Description of the problem: <br />
             Error, defect, failure
         </p>
@@ -476,8 +476,8 @@
             <span class="line"><span class="timecode">[14:52:36]</span><span class="username">Andy:</span><span class="message">john with this explanation, i'm closing out</span></span>
             <span class="line"><span class="timecode">[14:52:47]</span><span class="message">mike,  ignore my last email,  brainfart</span></span>
         </p>
-        <h6>Bug 5</h6>
-        <p class="text">
+        <h5>Bug 5</h5>
+        <p class="didascalie">
             Description of the problem: <br />
             Error, defect, failure
         </p>
@@ -487,8 +487,8 @@
             <span class="line"><span class="timecode">[15:36:47]</span><span class="message">it is smoothe opening until about 90% open, then it jumps to 100%</span></span>
             <span class="line"><span class="timecode">[15:37:03]</span><span class="message">observed in IE8</span></span>
         </p>
-        <h6>Bug 6</h6>
-        <p class="text">
+        <h5>Bug 6</h5>
+        <p class="didascalie">
             Description of the problem: <br />
             Error, defect, failure
         </p>
@@ -502,8 +502,8 @@
             <span class="line"><span class="timecode">[15:29:11]</span><span class="message">not going to Obsolete</span></span>
             <span class="line"><span class="timecode">[15:30:08]</span><span class="message">where did the link to Obsolete appear from? Which item took you to that page?</span></span>
         </p>
-        <h6>Bug 7</h6>
-        <p class="text">
+        <h5>Bug 7</h5>
+        <p class="didascalie">
             Description of the problem: <br />
             Error, defect, failure
         </p>
@@ -515,8 +515,8 @@
             <span class="line"><span class="timecode">[15:55:28]</span><span class="message">go ahead. he's not ready to commit his work yet</span></span>
             <span class="line"><span class="timecode">[15:55:43]</span><span class="username">Michael:</span><span class="message">: k</span></span>
         </p>
-        <h6>Bug 8</h6>
-        <p class="text">
+        <h5>Bug 8</h5>
+        <p class="didascalie">
             Description of the problem: <br />
             Error, defect, failure
         </p>
@@ -525,8 +525,8 @@
             <span class="line"><span class="timecode">[16:16:15]</span><span class="username">Mark:</span><span class="message">Is there a problem with the double optin?</span></span>
             <span class="line"><span class="timecode">[16:16:26]</span><span class="username">Michael:</span><span class="message">basically we just got a defect saying that the double opt-in URL is an invalid link</span></span>
         </p>
-        <h6>Bug 9</h6>
-        <p class="text">
+        <h5>Bug 9</h5>
+        <p class="didascalie">
             Description of the problem: <br />
             Error, defect, failure
         </p>
@@ -544,8 +544,8 @@
             <span class="line"><span class="timecode">[16:47:38]</span><span class="message">let them come back to us if not</span></span>
             <span class="line"><span class="timecode">[16:47:45]</span><span class="username">John:</span><span class="message">ya</span></span>
         </p>
-        <h6>Bug 10</h6>
-        <p class="text">
+        <h5>Bug 10</h5>
+        <p class="didascalie">
             Description of the problem: <br />
             Error, defect, failure
         </p>
@@ -560,7 +560,7 @@
             <span class="line"><span class="timecode">[16:49:38]</span><span class="username">Andy:</span><span class="message">yeah</span></span>
         </p>
 
-        <h2>III ACT</h2>
+        <h2>ACT III</h2>
 
         <h3>The software tasting team</h3>
         <p>
@@ -574,7 +574,7 @@
                 </span>
             </span>
         </p>
-        <h5>QA chat</h5>
+        <h4>QA chat</h4>
         <p>
             <span class="line"><span class="timecode">[11:27:34]</span><span class="username">Andy:</span><span class="message">hey mike  we've just deployed to cms-test</span></span>
             <span class="line"><span class="timecode">[11:29:43]</span><span class="username">Martin:</span><span class="message">London office! Official pictures!</span></span>
@@ -640,7 +640,7 @@
             <span class="line"><span class="timecode">[12:31:53]</span><span class="message">I found it funny in my last co that our ex-Yugoslavs used to say "vee hev problem"</span></span>
             <span class="line"><span class="timecode">[12:32:19]</span><span class="username">Andy:</span><span class="message">russians especially</span></span>
         </p>
-        <h5>the non working chat</h5>
+        <h4>the non working chat</h4>
         <p>
             <span class="line"><span class="username ivan">Ivan:</span><span class="message ivan">
                 it's&nbsp;depressing&nbsp;to&nbsp;see&nbsp;that&nbsp;some&nbsp;cliches&nbsp;are&nbsp;true.&nbsp;the&nbsp;offices&nbsp;of&nbsp;lab&nbsp;rats<br />

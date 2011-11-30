@@ -54,6 +54,10 @@ def kaleidosmatch():
 def fit_the_annual_report_for_purpose():
     return template('templates/fit_the_annual_report_for_purpose', background = pick_ascii())
 
+@route('/macro/')
+def macro():
+    return template('templates/macro')
+
 @route('/micro/')
 def micro():
     return template('templates/micro', background = pick_ascii())

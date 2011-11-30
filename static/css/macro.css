@@ -1,0 +1,132 @@
+div#outer ul {
+  width: 3500px;  
+  position: relative;
+  top: 100px;
+  left: 100px;
+}
+
+
+div#outer li {
+    display: block;
+    float: left;
+    width: 20px;
+    position: relative;
+    /*border-left: 1px dotted lightgray;*/
+}
+body.shadow li img {
+    -moz-box-shadow: -3px 3px 6px #CCC;
+    -webkit-box-shadow: -3px 3px 6px #CCC;
+    box-shadow: -3px 3px 6px #CCC;
+    /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+    /* For IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000');
+}
+div#outer li:hover {
+    /*width: auto;*/
+    z-index: 2;
+    position: relative;
+    /*top: -30px;*/
+    /*border: 1px solid black;*/
+    /*top: -20px;*/
+}
+
+
+.tag2 {
+    font-family: monospace;
+    background-color: gray;
+    letter-spacing: 1px;
+    color: white;
+    padding: 3px;
+    font-weight: bold;
+    font-size: 9px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*width: 100px;*/
+    /*transform-origin: right bottom;*/
+    /*-webkit-transform-origin: right bottom;*/
+    /*-webkit-transform: rotate(-90deg); */
+    /*-moz-transform: rotate(-90deg);	*/
+    /*filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);*/
+    /*position: absolute;*/
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.tag {
+    font-family: monospace;
+    background-color: gray;
+    letter-spacing: 1px;
+    color: white;
+    padding: 3px;
+    font-weight: bold;
+    font-size: 9px;
+    position: absolute;
+    top: -10px;
+    /*width: 100px;*/
+    transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    -webkit-transform: rotate(-90deg); 
+    -moz-transform: rotate(-90deg);	
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    /*position: absolute;*/
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+div.email {
+    white-space: pre-line;
+    font-family: monospace;
+    font-size: 5px;
+    width: 160px;
+    height: 220px;
+    overflow: hidden;
+    border: 1px solid black;
+    padding: 0 1em;
+    background-color: white;
+}
+dl#infos {
+    z-index: 2;
+    position: fixed;
+    bottom: 1em;
+    left: 1em;
+    font-family: monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 1.3;
+    width: 220px;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+dl#infos dt {
+    float: left;
+}
+dl#infos dt:after {
+    content: ":  ";
+}
+dl#infos dd {
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+div#outer img {
+    max-width: 500px;
+}
+div#outer img:hover {
+    /*width: 300px;*/
+}
+div#outer nav {
+    position: fixed;
+
+}
+div#outer a, div#outer img {
+    border: 0px solid black;
+}
+
+/*div#bla {*/
+    /*position: absolute;*/
+    /*top: 0,*/
+    /*left: 0,*/
+    /*height: 500px;*/
+    /*width: 500px;*/
+/*}*/
