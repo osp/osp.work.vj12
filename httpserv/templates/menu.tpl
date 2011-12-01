@@ -44,11 +44,11 @@
 </dl>
 
 <dl>
-    <dt><a href="http://127.0.0.1:5984/vj12/_design/paracode/index.html">Paracode</a></dt>
+    <dt><a href="/paracode/_design/paracode/index.html/paracode/_design/paracode/index.html">Paracode</a></dt>
     <dd>A close-reading of a piece of software written by Anne-Laure Buisson.</dd>
 </dl>
 
 <dl>
-    <dt><a href="http://activearchives.org/demo/">Active Archives</a></dt>
+    <dt><a href="http://activearchives.org/demo/" target="_blank">Active Archives</a></dt>
     <dd>Michael Moss uses the poem «&#x202F;The Walrus and the Carpenter&#x202F;» to speak about Digital Archiving<dd>
 </dl>

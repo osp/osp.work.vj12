@@ -29,8 +29,11 @@ PROJECT_DIR = os.path.abspath(os.path.dirname(__file__))
 CORPUS_ROOT = os.path.join(PROJECT_DIR, 'texts')
 STATIC_DIR = os.path.join(PROJECT_DIR, '..', 'static')
 
-def pick_ascii():
-    fn = random.choice(["ascii.tpl", "ascii2.tpl", "ascii3.tpl", "ascii4.tpl", "ascii5.tpl"])
+def pick_ascii(light=False):
+    if light:
+        fn = 'ascii-simple.tpl'
+    else:
+        fn = random.choice(["ascii.tpl", "ascii2.tpl", "ascii3.tpl", "ascii4.tpl", "ascii5.tpl"])
     f = open("templates/ascii/%s" % fn, "r") 
     background = f.read()
     f.close()
@@ -56,7 +59,7 @@ def fit_the_annual_report_for_purpose():
 
 @route('/macro/')
 def macro():
-    return template('templates/macro', background=pick_ascii())
+    return template('templates/macro', background=pick_ascii(light=True))
 
 @route('/micromacro/')
 def micromacro():
