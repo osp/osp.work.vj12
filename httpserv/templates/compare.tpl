@@ -78,15 +78,15 @@
 
             function loadText () {
                 if ($('#file_list').val() != 'null') {
-		    var texts = $('#file_list').val().split ('|');
-		    
-		    for (var i = 0; i < texts.length; i++) {
-		        window.top.frames[i].getText (texts[i].replace (/[^a-zA-Z0-9_\(\),\.-]/g, ''));   
-		    }
-		}
+                    var texts = $('#file_list').val().split ('|');
+                    
+                    for (var i = 0; i < texts.length; i++) {
+                        window.top.frames[i].getText (texts[i].replace (/[^a-zA-Z0-9_\(\),\.-]/g, ''));   
+                    }
+                }
             }
 
-            window.setTimeout(function(){loadText();}, 2000);
+            window.setTimeout(function(){loadText();}, 2500);
         });
         
         function setHeight () { $('#texts, .text').height ($(window).height() - $('#texts').offset().top); }
