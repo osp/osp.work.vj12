@@ -55,7 +55,6 @@
     
         #texts {
             width: 95%;
-            padding: 0 2em 0 1em;
             height: 100%;
             overflow: hidden;
         }
@@ -70,7 +69,6 @@
         
         #controls {
             width: 95%;
-            padding: 0 2em 0 1em;
             display: block;
             text-align: right;
         }
