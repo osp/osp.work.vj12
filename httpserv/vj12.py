@@ -165,6 +165,35 @@ def collocations(text):
     #return template('templates/split', text=source, word_list=foo)
     return dumps ({'name': text, 'bigrams': bigrams})
 
+@route('/similar/:text/:word/')
+def similar (text, word):
+    if re.match ("^[a-zA-Z0-9_\(\),\.]+$", text) and re.match ("^[a-zA-Z0-9_]+$", word):
+        text = '%s.txt' % text
+        
+        f = open(os.path.join(CORPUS_ROOT, text), 'r')
+        source = f.read()
+        f.close()
+        
+        corpus = PlaintextCorpusReader(CORPUS_ROOT, [text])
+        n_text = nltk.text.Text(corpus.words(text))
+        context_index = nltk.text.ContextIndex(n_text.tokens, filter=lambda x:x.isalpha(), key=lambda s:s.lower())
+        word = word.lower()
+        wci = context_index._word_to_contexts
+        result = []
+        
+        if word in wci.conditions():
+            contexts = set(wci[word])
+            fd = nltk.probability.FreqDist(w for w in wci.conditions() for c in wci[w] if c in contexts and not w == word)
+            words = nltk.util.tokenwrap(fd.keys()[:20])
+            
+            for middle_word in words.split(' '):
+                for context in contexts:
+                    if re.search ("/" + context[0] + "(\W|\s)+" + middle_word + "(\W|\s)+" + context[1] + "/i", source) != 'none':
+                        print (context[0], middle_word, context[1])
+                        result.append ({'word': word, 'context_left': context[0], 'context_right': context[1]})
+            
+        return dumps ({'name': text, 'word': word, 'result': result})    
+    
 @route('/word_list/:text')
 def word_list(text):
     """Returns an alphabetical list of words for the given text."""
