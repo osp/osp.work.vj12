@@ -8,13 +8,15 @@
     <link rel="stylesheet" href="/static/css/vj12.css" type="text/css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="/static/css/kaleidoscope.css" type="text/css" media="screen" charset="utf-8">
     <style type="text/css" media="screen">
-        body {
-            margin: 2em;
-        }
+        html, body { margin: 0; padding: 0;}
         body, .text {
             width: auto;
             line-height: 1.2 !important;
             font-family: "Linux Libertine", "Liberation Serif", "Hoefler Text", Georgia, serif !important; 
+        }
+        div#text {
+            padding: 0em 2em;
+            overflow: auto;
         }
         h3,
         div + div {
@@ -45,6 +47,10 @@
     <script src="/static/js/jquery-1.6.4.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" charset="utf-8">
         $(document).ready(function(){
+            $('#text').height($(window).height());
+            $(window).resize (function () {
+                $('#text').height($(window).height());
+            });
             $("a").click(function(e){
                 e.preventDefault();
                 src = $(this).attr("href");
@@ -61,6 +67,7 @@
 
 <body>
  
+    <div id="text">
 <h1>Kaleidoscope, a genesis</h1>
 
 <blockquote>"The terms parent and child are specific applications of the terms 
@@ -601,6 +608,6 @@ Score Notation. Hence, the name of the software.</p>
 
 
 
- 
+</div>
 </body>
-</html></style></head><body></body></html>
+</html>
