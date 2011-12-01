@@ -39,6 +39,7 @@ div.annotations {
     line-height: 17px;
 }
 div.comment-entry {
+    background-color: white;
     position: relative;
     z-index: 10;
     float: right;

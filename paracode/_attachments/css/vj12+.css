@@ -1,0 +1,87 @@
+#blocspicture pre {
+   color: Coral !important;
+}
+
+ul, li {
+    list-style: none;
+    padding-left: 0;
+}
+
+div#nav {
+    background-color: black;
+    color: white;
+    padding: 1em;
+    width: 95%;
+    margin-bottom: 1em;
+    padding-right: 2em;
+}
+div#header h3 {
+    font-family: notcouriersans, courier, monospace;
+    text-transform: uppercase;
+    display: inline;
+    margin-right: 4px;
+    font-weight: normal;
+    font-size: 1.4em;
+}
+div#header {
+    margin: 0.5em 0;
+    color: #D9D9D9;
+}
+div#sub-header {
+    display: none;
+    color: #D9D9D9;
+}
+
+/*div#nav h1 {*/
+    /*font-size: 2em;*/
+    /*display: inline;*/
+    /*margin-right: 0.4em;*/
+    /*font-weight: bold;*/
+/*}*/
+div#page {
+    /*width: 750px;*/
+}
+div#header a {
+    color: #D9D9D9;
+}
+#menu {
+    /*width: 350px;*/
+    /*column-count: 2;*/
+    /*-moz-column-count: 2;*/
+    /*-webkit-column-count: 2;*/
+    -column-width: 170px;
+    -moz-column-width: 170px;
+    -webkit-column-width: 170px;
+    -column-gap: 18px;
+    -moz-column-gap: 18px;
+    -webkit-column-gap: 18px;
+    height: 420px;
+}
+ul#menu a {
+    display: block;
+    color: Coral;
+    border-bottom: 0;    
+    font-family: notcouriersans, courier, monospace;
+    text-transform: uppercase;
+}
+ul#menu a:hover {
+    color: #666666;
+}
+ul#menu li {
+    display: inline-block;
+}
+
+dt {
+}
+dt a {
+    font-weight: bold;
+    color: Coral;
+    border-bottom: 2px solid #666666;    
+}
+dd {
+    margin-left: 0;
+    margin-bottom: 18px;
+}
+.clear {
+    clear: both;
+} 

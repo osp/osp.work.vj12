@@ -1,67 +1,85 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-    <title>Verbindingen/Jonctions 12: Paracode</title>
-    <meta charset="utf-8" />
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+<meta charset=utf-8>
+<title>V/J12 - By data we mean, a publication</title>
+<!--[if IE]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script src="js/zoomooz/lib/jquery-1.4.4.js"></script>
+<script src="js/vj12.js"></script>
+<link rel="stylesheet" href="css/reset.css" media="screen">
+<link rel="stylesheet" href="css/vj12.new.css" media="screen">
     <!-- styles -->
     <style type="text/css" media="screen">
-@font-face {
-    font-family: "Linux Libertine";
-    src: url("/vj12/_design/paracode/css/fonts/LinLibertine_Re-4.7.5.ttf") format("truetype"); 
- }
-@font-face {
-    font-family: "Linux Biolinum";
-    src: url("css/fonts/LinBiolinum_Re-0.6.4.otf") format("opentype"); 
- }
-@font-face { 
-    font-family: "NotCourierSans";
-    src: url("css/fonts/NotCourierSans.otf") format("opentype"); 
-}
-        #blocspicture pre {
-            color: Coral !important;
-        }
         #container {
             width: 60%;
             background-color: white;
-            margin-left: 2em;
-            padding: 1em 2em;
         }
     </style>
-    <link rel="stylesheet" href="css/reset.css" type="text/css" /> 
     <link rel="stylesheet" href="css/style.css" type="text/css" />
     <link rel="stylesheet" href="css/syntax.css" type="text/css" />
-    <link rel="stylesheet" href="css/vj12.css" type="text/css" media="screen" charset="utf-8">
-    <link rel="stylesheet" href="css/vj12plus.css" type="text/css" media="screen" charset="utf-8">
-    <script src="js/jquery-1.6.4.min.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/vj12.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
-    <div id="nav">
-        <div id="header">
-            <a href="/"><h1>V/J 12: By data we mean</h1></a>
-                
-                <h3>Paracode</h3> <span>A close-reading initiated by Stéphanie Vilayphiou of a piece of software by Anne-Laure Buisson.</span>
-                <br />
-                <br />
-                <a href="#" id="toc">Table of Contents</a>
-        </div>
-        <div id="sub-header">
-            <ul id="menu">
-                <li><a href="/about/">About</a> Intentions behind this set of prototypes and experiments.</li>
-                <li><a href="macro/macro.html">Macro</a> (Almost) all the grey literature produced by the festival V/J12.</li>
-                <li><a href="/micro/">Micro</a> The grey literature necessary to produce the text «&#x202F;To Talk of Many Things&#x202F;».</li>
-                <li><a href="/moss_ambiguity/">To Talk of&nbsp;Many Systemic Ambiguity</a> A remix between «&#x202F;To Talk of Many Things&#x202F;» and «&#x202F;Systemic Ambiguity&#x202F;».</li>
-                <li><a href="/kaleidosmatch/">KaleidoSmatch</a>A parallel between «&#x202F;Kaleidoscope, a genesis&#x202F;» and «&#x202F;Smatch(1)&#x202F;».</li>
-                <li><a href="/fit_the_annual_report_for_purpose/">Fit the Annual Report on&nbsp;Purpose</a> A conversation between «&#x202F;Soap Box Annual Report&#x202F;» and «&#x202F;Fit for Purpose&#x202F;».</li>
-                <li><a href="/compare/">Concordances</a> View in what context a word appears in a text.</li>
-                <li><a href="#">Similar Contexts</a> Finding words sharing the same context in a text.</li>
-                <li><a href="#">Collocations</a> Finding couples in a text.</li>
-                <li><a href="http://127.0.0.1:5984/vj12/_design/paracode/index.html">Paracode</a> A close-reading of a piece of software written by Anne-Laure Buisson.</li>
-            </ul>
-        </div>
-        <div class="clear"></div>
-    </div>
-    <div id="container">
+<section id="foreground">
+
+<section id="foo" class="compact">
+<header>
+<h2><a href="/">Verbindingen/Jonctions 12</a></h2>
+<h1><a href="/">By data we mean</a></h1>
+<a href="#" id="toc" style="float: right; margin-top: 6px">Table of Contents</a>
+<h3>By data we mean, a publication</h3> Intentions behind this set of prototypes and experiments.
+</header> 
+
+<nav role="navigation" style="display: none; ">
+<dl>
+    <dt><a href="/about/">About</a></dt>
+    <dd>Intentions behind this set of prototypes and experiments.</dd>
+</dl>
+
+<dl>
+    <dt><a href="/macro/">Macro</a></dt>
+    <dd>(Almost) all the grey literature produced by the festival V/J12.</dd>
+</dl>
+
+<dl>
+    <dt><a href="/micromacro/">Micro/Macro</a></dt>
+    <dd>The grey literature necessary to produce the text «To Talk of Many Things».</dd>
+</dl>
+
+<dl>
+    <dt><a href="/moss_ambiguity/">To Talk of&nbsp;Many Systemic Ambiguity</a></dt>
+    <dd>A remix between «To Talk of Many Things» and «Systemic Ambiguity».</dd>
+</dl>
+
+<dl>
+    <dt><a href="/kaleidosmatch/">KaleidoSmatch</a></dt>
+    <dd>A parallel between «Kaleidoscope, a genesis» and «Smatch(1)».</dd>
+</dl>
+
+<dl>
+    <dt><a href="/fit_the_annual_report_for_purpose/">Fit the Annual Report on&nbsp;Purpose</a></dt>
+    <dd>A conversation between «Soap Box Annual Report» and «Fit for Purpose».</dd>
+</dl>
+
+<dl>
+    <dt><a href="/compare/">Natural Language ToolKit Experiments</a></dt>
+    <dd>Experimenting with computed data analysis of texts.</dd>
+</dl>
+
+<dl>
+    <dt><a href="/paracode/_design/paracode/index.html">Paracode</a></dt>
+    <dd>A close-reading of a piece of software written by Anne-Laure Buisson.</dd>
+</dl>
+
+<dl>
+    <dt><a href="http://activearchives.org/demo/" target="_blank">Active Archives</a></dt>
+    <dd>Michael Moss uses the poem «The Walrus and the Carpenter» to speak about Digital Archiving</dd><dd>
+</dd></dl>
+</nav>
+</section>
+    <div id="container" style="font-family: monospace">
         <div id="text">
             
 
@@ -365,14 +383,14 @@
             </div>
             <div class="clear"></div>
         </form>
-    </div>
+    </section>
 </body>
 <!-- scripts -->
 <script src="vendor/couchapp/loader.js" charset="utf-8"></script>
 <script src="lib/js/rangy-1.1/rangy-core.js" type="text/javascript" charset="utf-8"></script>
 <script src='js/humane.js' type="text/javascript" charset="utf-8"></script>
 <script src='js/paracode.js' type="text/javascript" charset="utf-8"></script>
-<div id="blocspicture"><pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+<pre id="background"><code>
                                                                                                                                                                 .                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
                                                                                                                                                            ..//./11/.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
                                                                                                                                                        /▋JVV▉▍▉▉▉▏▏▉▉▋...                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
@@ -971,5 +989,5 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           /V▏▏▌▌▌▌▌▌▌▌▌V.                                                       
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            .▋▉▉▍▏▏▏▏▏▏▉1                                                        
 
-</pre> </div>
+</code> </pre>
 </html>
