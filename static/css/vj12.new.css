@@ -119,6 +119,7 @@ header h2 a {
 
 article {
     margin-right: 25em;
+    margin-top: 2em;
 }
 
 article p {
@@ -136,6 +137,7 @@ nav[role="navigation"] {
 #foo.normal nav[role="navigation"] {
     float: right;
     width: 24em;
+    margin-top: 2em;
 }
 #foo.compact nav[role="navigation"] {
     margin-top: 2.666em;
