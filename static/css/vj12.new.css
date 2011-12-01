@@ -212,3 +212,7 @@ select {
     border: 1px solid #D9D9D9;
     font-family: notcouriersans, monospace;
 }
+
+img#timeline {
+    border: 1px solid black;
+}
