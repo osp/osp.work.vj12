@@ -1,12 +1,7 @@
 De manière générale, avoir un one liner pour chaque expérimentation et ajouter
 un bouton "voir plus" pour afficher les textes plus complets de Donatella.
 
-# Micro/Macro
-- Steph
-  - Add Nicolas' timeline
-
 # Macro
-- Alex
   - Integrate emails in it
   - Filters: show/hide by type?
   - Classement par date: espacement qui représente le temps?
@@ -16,11 +11,9 @@ un bouton "voir plus" pour afficher les textes plus complets de Donatella.
   - make them clickable ? even manually?
 
 # Paracode
-- Steph
   - finir les commentaires
 
 # KaleidoSmatch
-- Steph
   - images ne doit pas appeler d'iframe
   - being able to navigate the sites
     - by zooming in the frames;
@@ -33,7 +26,3 @@ un bouton "voir plus" pour afficher les textes plus complets de Donatella.
 ## Collocations
 - doesn't work online
 
-## kaleidosmatch
-- iframe scales strangely
-
- 
