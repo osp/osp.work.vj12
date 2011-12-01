@@ -34,7 +34,7 @@
 </dl>
 
 <dl>
-    <dt><a href="/paracode/_design/paracode/index.html/paracode/_design/paracode/index.html">Paracode</a></dt>
+    <dt><a href="/paracode/_design/paracode/index.html">Paracode</a></dt>
     <dd>A close-reading of a piece of software written by Anne-Laure Buisson.</dd>
 </dl>
 
