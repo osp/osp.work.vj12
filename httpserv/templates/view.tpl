@@ -83,7 +83,8 @@
             }
             
             #result pre {
-                    margin: 4px 0px 4px 20px;
+                    margin: 4px 0px 4px 0px;
+                    padding: 0px 0px 0px 20px;
             }
             
             div#center {
@@ -108,6 +109,7 @@
         
             function getText (name) { 
                 CURTEXT = name;
+                hideContext ();
                 $.get ('/text/' + name, function (data, status) {
                     file = $.parseJSON (data)
                     if (status == 'success') {
@@ -207,21 +209,21 @@
                                 result = '';
                                 
                                 for (var i = 0; i < data.bigrams.length; i++) {
-                                    occurences = $('._keyword.' + data.bigrams[i][0] + ' + ._keyword.' + data.bigrams[i][1]).length;
-                                    result += '<span class="_line"><pre><span class="_line_bigram">' + data.bigrams[i].join (' ') + '</span>'
-                                    for (var c = 1; c <= occurences; c++) {
-                                        result += ' <span class="_line_sublink">(' + c + ')</span>'
+                                    if (data.bigrams[i][0].match (/^[a-zA-Z0-9]+$/) && data.bigrams[i][1].match (/^[a-zA-Z0-9]+$/)) {
+                                        occurences = $('._keyword.' + data.bigrams[i][0] + ' + ._keyword.' + data.bigrams[i][1]).length;
+                                        result += '<span class="_line"><pre><span class="_line_bigram">' + data.bigrams[i].join (' ') + '</span>'
+                                        for (var c = 1; c <= occurences; c++) {
+                                            result += ' <span class="_line_sublink">(' + c + ')</span>'
+                                        }
+                                        result += '</pre></span>';
                                     }
-                                    result += '</pre></span>';
                                 }
                                 
                                 putResult (result);
                                 
-                                // TODO: almost working
-                                
-                                $('._line_bigram').click (function () {
+                                $('._line').click (function () {
                                     $('._search_active').removeClass ('_search_active');
-                                    bigrams = $(this).text().split(' ');
+                                    bigrams = $(this).children('pre').children ('._line_bigram').text().split(' ');
                                     $('._keyword.' + bigrams[0] + ' + ._keyword.' + bigrams[1]).addClass ('_search_active').each (function () {$(this).prev ('._keyword').addClass ('_search_active');});
                                 });
                                 
@@ -254,26 +256,26 @@
             
             function hideContext (force) {
                 if (window == top.window || force == true) {
+                    $('._search_active').removeClass ('_search_active');
                     $('#result').hide().empty();
                     setHeight();
                 } else {
                     for (var i = 0; i < window.top.frames.length; i++) {
+                        window.top.frames[i].hideContext (true);
                     }
                 }
-                        window.top.frames[i].hideContext (true);
             }
             
             function goToWord (word, index) {
-                goTo ($('span._keyword.' + word + ':eq(' + index + ')'));
+                $('._search_active').removeClass ('_search_active');
+                goTo ($('span._keyword.' + word + ':eq(' + index + ')').addClass ('_search_active'));
             }
             
             function goTo (jqueryObject) {
                 var distance = jqueryObject.position().top - $('#text').height() / 2;
                 var duration = (Math.abs (distance) > 1000) ? 500 : Math.abs(distance) / 2;
                 
-                $('._search_active').removeClass ('_search_active');
                 $('#text').animate ({'scrollTop': $('#text').scrollTop() + distance}, duration);
-                jqueryObject.addClass ('_search_active');
             }
             
             function setFilter () {

@@ -39,11 +39,12 @@
             $('#filter_list').change (function () {
                 for (var i = 0; i < window.top.frames.length; i++) {
                     window.top.frames[i].setFilter();
+                    window.top.frames[i].hideContext(true);
                 }
             });
         });
         
-        function setHeight () { $('#texts, .text').height ($(window).height() - (30 + $('#nav').height() + 42 + $('#controls').height() + 14)); }
+        function setHeight () { $('#texts, .text').height ($(window).height() - $('#texts').offset().top); }
     </script>
     <!--<link rel="stylesheet" href="http://meyerweb.com/eric/tools/css/reset/reset.css" type="text/css" media="screen" charset="utf-8">-->
     <style>
