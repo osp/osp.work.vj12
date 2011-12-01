@@ -121,22 +121,22 @@
 
                         // CURATION OF WORDS PER TEXT
                         if (CURTEXT == "Fit_for_purpose") {
-                            markWord (['qa','QA','environment', 'data', 'chat', 'offline', 'today', 'done', 'test', 'problem', 'mins', 'email', 'page', 'bug', 'team', 'user', 'work']);
+                            markWord (['data', 'qa','QA','environment', 'data', 'chat', 'offline', 'today', 'done', 'test', 'problem', 'mins', 'email', 'page', 'bug', 'team', 'user', 'work']);
                         }
                         if (CURTEXT == "The_man_pages") {
-                            markWord (['man','documentation','software', 'code', 'text', 'computer', 'manual']);
+                            markWord (['man','data', 'documentation','software', 'code', 'text', 'computer', 'manual']);
                         }
                         if (CURTEXT == "To_talk_of_many_things") {
-                            markWord (['environment', 'nonsense', 'information', 'reference', 'tokens', 'systems', 'digital', 'analogue']);
+                            markWord (['environment', 'data', 'nonsense', 'information', 'reference', 'tokens', 'systems', 'digital', 'analogue']);
                         }
                         if (CURTEXT == "Systemic_ambiguity") {
                             markWord (['data','grey','literature', 'relation', 'user', 'error', 'value', 'other', 'systems', 'formal', 'ambiguity', 'intelligence', 'world', 'media', 'deception', 'conflict', 'failure', 'communication', 'human', 'machine']);
                         }
                         if (CURTEXT == "Kaleidoscope,_a_genesis") {
-                            markWord (['together','performance','space', 'time', 'together', 'audience', 'learn', 'project', 'live', 'work', 'play', 'software', 'games', 'performances', 'computer', 'improvisation', 'scores', 'games', 'methods', 'machine', 'computer', 'participants', 'workshop']);
+                            markWord (['together','performance', 'data', 'space', 'time', 'together', 'audience', 'learn', 'project', 'live', 'work', 'play', 'software', 'games', 'performances', 'computer', 'improvisation', 'scores', 'games', 'methods', 'machine', 'computer', 'participants', 'workshop']);
                         }
                         if (CURTEXT == "Smatch_(1)") {
-                            markWord (['show','performance','wanted', 'Wallonia', 'together', 'audience', 'place', 'actors', 'social', 'life', 'expectation', 'children', 'wanted', 'problems', 'sheep', 'poetic', 'power', 'work', 'animals', 'play']);
+                            markWord (['show','performance','wanted', 'data', 'Wallonia', 'together', 'audience', 'place', 'actors', 'social', 'life', 'expectation', 'children', 'wanted', 'problems', 'sheep', 'poetic', 'power', 'work', 'animals', 'play']);
                         }
                         
                         setFilter ();
