@@ -1,7 +1,7 @@
 De manière générale, avoir un one liner pour chaque expérimentation et ajouter
 un bouton "voir plus" pour afficher les textes plus complets de Donatella.
 
-# Menu
+# Micro/Macro
 - Steph
   - Add Nicolas' timeline
 
@@ -15,7 +15,6 @@ un bouton "voir plus" pour afficher les textes plus complets de Donatella.
   - si metadonné absente, traiter differament (eg. mettre à part ou griser)
 
 # Concordances, Similar, Collocations
-- marked words for Kaleidosmatch
 - put NLTK graphs in the webpage
   - make them clickable ? even manually?
 
@@ -31,9 +30,14 @@ un bouton "voir plus" pour afficher les textes plus complets de Donatella.
     - or by opening them in a new window
 
 # New problems:
+## GENERAL
+- no more descriptions on the page?
+- no more rollovers on the experiment titles
+
 ## Collocations
 - doesn't work online
 
 ## kaleidosmatch
 - iframe scales strangely
+
  

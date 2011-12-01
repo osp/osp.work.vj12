@@ -107,7 +107,7 @@ def view():
     
 @route('/text/pair_list/')
 def pairList ():
-    return dumps (['Fit_for_purpose|The_man_pages', 'To_talk_of_many_things|Systemic_ambiguity', 'Kaleidscope,_a_genesis|Smatch_(1)'])
+    return dumps (['Fit_for_purpose|The_man_pages', 'To_talk_of_many_things|Systemic_ambiguity', 'Kaleidoscope,_a_genesis|Smatch_(1)'])
     
 @route('/text/list/')
 def textlist ():

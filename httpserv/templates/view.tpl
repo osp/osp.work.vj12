@@ -110,7 +110,6 @@
                 CURTEXT = name;
                 $.get ('/text/' + name, function (data, status) {
                     file = $.parseJSON (data)
-                    console.log(name)
                     if (status == 'success') {
                         formatted_text = '<p>' + file.data.replace (/(\w+)/ig,'<span class="_keyword $1">$1</span>').replace(/\n{2,}/g, '</p><p>').replace (/\n/g, '<br />').replace (/\s{3,}/g, '&nbsp;&nbsp;&nbsp;&nbsp;') + '</p>'
                         
@@ -131,11 +130,11 @@
                         if (CURTEXT == "Systemic_ambiguity") {
                             markWord (['data','grey','literature', 'relation', 'user', 'error', 'value', 'other', 'systems', 'formal', 'ambiguity', 'intelligence', 'world', 'media', 'deception', 'conflict', 'failure', 'communication', 'human', 'machine']);
                         }
-                        if (CURTEXT == "Kaleidoscope,a_genesis") {
-                            markWord (['the','notice','and']);
+                        if (CURTEXT == "Kaleidoscope,_a_genesis") {
+                            markWord (['together','performance','space', 'time', 'together', 'audience', 'learn', 'project', 'live', 'work', 'play', 'software', 'games', 'performances', 'computer', 'improvisation', 'scores', 'games', 'methods', 'machine', 'computer', 'participants', 'workshop']);
                         }
                         if (CURTEXT == "Smatch_(1)") {
-                            markWord (['the','notice','and']);
+                            markWord (['show','performance','wanted', 'Wallonia', 'together', 'audience', 'place', 'actors', 'social', 'life', 'expectation', 'children', 'wanted', 'problems', 'sheep', 'poetic', 'power', 'work', 'animals', 'play']);
                         }
                         
                         setFilter ();
