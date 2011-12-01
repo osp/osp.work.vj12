@@ -41,21 +41,19 @@ iframe {
 </div>
 
 <script type="text/javascript">
-    $(document).ready(function(){
+    function syncscroll() {
         // SYNCHRONIZES SCROLL OF BOTH IFRAMES.
-console.log($("#text", $("iframe#kaleidoscope").contents()))
-        $("#text", $("iframe#kaleidoscope").contents()).scroll(function(){
-            console.log("bla")
-        })
-
-        //$("#text", $("iframe#kaleidoscope").contents()).scroll(function(){
-        //    y = $("#text", $("iframe#kaleidoscope").contents()).scrollTop();
-        //    console.log(y)
-        //    $("#text", $("iframe#smatch").contents()).scrollTop(y);
-        //});
-        $("#text", $("iframe#smatch").contents()).scroll(function(){
-            y = $("#text", $("iframe#smatch").contents()).scrollTop();
-            $("#text", $("iframe#kaleidoscope").contents()).scrollTop(y);
+        var kaleidoscope = $("#text", $("iframe#kaleidoscope").contents());
+        var smatch = $("#text", $("iframe#smatch").contents());
+        $(kaleidoscope).scroll(function(){
+            $(smatch).scrollTop($(kaleidoscope).scrollTop());
         });
+        $(smatch).scroll(function(){
+            $(kaleidoscope).scrollTop($(smatch).scrollTop());
+        });
+    }
+    $(document).ready(function(){
+        // put a delay to wait iframes loading
+        window.setTimeout(function(){syncscroll()}, 3000);
     });
 </script>
