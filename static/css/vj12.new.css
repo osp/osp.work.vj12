@@ -180,7 +180,12 @@ nav#toc {
     right: 1em;
     top: 1em;
 }
+
+label {
+    font-family: notcouriersans, monospace;
+}
 select {
     background-color: white;
     border: 1px solid #D9D9D9;
+    font-family: notcouriersans, monospace;
 }

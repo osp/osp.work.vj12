@@ -87,9 +87,6 @@ div.email {
 }
 dl#infos {
     z-index: 2;
-    position: fixed;
-    bottom: 1em;
-    left: 1em;
     font-family: monospace;
     font-size: 11px;
     letter-spacing: 1px;
@@ -117,10 +114,23 @@ div#outer img:hover {
 }
 div#outer nav {
     position: fixed;
-
+    bottom: -22px;
+    left: 5px;
+    z-index: 1000;
 }
 div#outer a, div#outer img {
     border: 0px solid black;
+}
+div#axisX {
+    margin-left: 24px;
+    background-color: white;
+    padding: 5px;
+}
+div#axisY {
+    -moz-transform: rotate(-90deg);
+    background-color: white;
+    padding: 5px;
+    padding-left: 30px;
 }
 
 /*div#bla {*/
