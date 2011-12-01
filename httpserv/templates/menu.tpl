@@ -9,7 +9,7 @@
 </dl>
 
 <dl>
-    <dt><a href="/micro/">Micro</a></dt>
+    <dt><a href="/micromacro/">Micro/Macro</a></dt>
     <dd>The grey literature necessary to produce the text «&#x202F;To Talk of Many Things&#x202F;».</dd>
 </dl>
 
@@ -50,5 +50,5 @@
 
 <dl>
     <dt><a href="http://activearchives.org/demo/">Active Archives</a></dt>
-    <dd>Michael Moss uses the poem The Walrus and the Carpenter to speak about Digital Archiving<dd>
+    <dd>Michael Moss uses the poem «&#x202F;The Walrus and the Carpenter&#x202F;» to speak about Digital Archiving<dd>
 </dl>

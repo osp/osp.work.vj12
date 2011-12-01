@@ -21,9 +21,68 @@
 %rebase templates/compact extrahead=extrahead, title='Macro', oneliner='Description to come', background=background
 
 
-<dl id="infos"></dl>
+<div style="width: 100%; text-align: center; position: fixed; bottom: 1em;">
+    <dl id="infos" style="text-align: left; margin: auto;"></dl>
+</div>
 
 <div id="outer">
+
+<nav>
+    <div id="axisX">
+        <label for="sort_by">Sort by</label>
+        <select name="sort_by">
+            <option value="data-caption">data-caption</option>
+            <option value="data-source">data-source</option>
+            <option value="data-objectname">data-objectname</option>
+            <option value="data-keywords">data-keywords</option>
+            <option value="data-language">data-language</option>
+            <option value="data-destination">data-destination</option>
+            <option value="data-datetime">data-datetime</option>
+            <option value="data-id">data-id</option>
+            <!-- <option value="id">id</option> -->
+            <option value="data-countryname">data-countryname</option>
+            <option value="data-city">data-city</option>
+            <!-- <option value="data-colorspace">data-colorspace</option> -->
+            <!-- <option value="data-flashpixversion">data-flashpixversion</option> -->
+            <!-- <option value="data-componentsconfiguration">data-componentsconfiguration</option> -->
+            <!-- <option value="data-exifversion">data-exifversion</option> -->
+            <!-- <option value="data-exiftag">data-exiftag</option> -->
+            <!-- <option value="data-ycbcrpositioning">data-ycbcrpositioning</option> -->
+            <!-- <option value="data-software">data-software</option> -->
+            <!-- <option value="data-resolutionunit">data-resolutionunit</option> -->
+            <!-- <option value="data-xresolution">data-xresolution</option> -->
+            <option value="data-usercomment">data-usercomment</option>
+        </select>
+    </div>
+    <div id="axisY">
+        <label for="spread_by">Spread by</label>
+        <select name="spread_by">
+            <option value="data-caption">data-caption</option>
+            <option value="data-source">data-source</option>
+            <option value="data-objectname">data-objectname</option>
+            <option value="data-keywords">data-keywords</option>
+            <option value="data-language">data-language</option>
+            <option value="data-destination">data-destination</option>
+            <option value="data-datetime">data-datetime</option>
+            <option value="data-id">data-id</option>
+            <!-- <option value="id">id</option> -->
+            <option value="data-countryname">data-countryname</option>
+            <option value="data-city">data-city</option>
+            <!-- <option value="data-colorspace">data-colorspace</option> -->
+            <!-- <option value="data-flashpixversion">data-flashpixversion</option> -->
+            <!-- <option value="data-componentsconfiguration">data-componentsconfiguration</option> -->
+            <!-- <option value="data-exifversion">data-exifversion</option> -->
+            <!-- <option value="data-exiftag">data-exiftag</option> -->
+            <!-- <option value="data-ycbcrpositioning">data-ycbcrpositioning</option> -->
+            <!-- <option value="data-software">data-software</option> -->
+            <!-- <option value="data-resolutionunit">data-resolutionunit</option> -->
+            <!-- <option value="data-xresolution">data-xresolution</option> -->
+            <option value="data-usercomment">data-usercomment</option>
+        </select>
+    </div>
+</nav>
+
+
 <div id="container">
 <ul>
 
@@ -94,7 +153,7 @@
     data-destination="-"
     data-city="Brussels"
     data-countryname="Belgium"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-language="FR"
     data-objectname="Notes"
     data-source="Constant"
@@ -131,7 +190,7 @@
     data-destination="-"
     data-city="Brussels"
     data-countryname="Belgium"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-language="FR"
     data-objectname="Schéma"
     data-source="Constant"
@@ -526,7 +585,7 @@
     data-destination="-"
     data-city="Brussels"
     data-countryname="Belgium"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-language="FR"
     data-objectname="Notes"
     data-source="Constant"
@@ -540,7 +599,7 @@
     data-datetime="2009:11:29"
     data-destination="Michael"
     data-language="FR"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-objectname="Ticket"
     data-source="Eurostar"
     data-caption="ticket">
@@ -579,7 +638,7 @@
     data-datetime="2009:09:02"
     data-destination="Constant"
     data-language="NL"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-objectname="Facture"
     data-source="Vlaamse"
     data-caption="location">
@@ -605,7 +664,7 @@
     data-datetime="2009:11:28"
     data-destination="Constant"
     data-language="FR"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-objectname="Ticket"
     data-source="Bio"
     data-caption="catering">
@@ -657,7 +716,7 @@
     data-datetime="2009:11:30"
     data-destination="-"
     data-language="FR"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-objectname="Facture"
     data-source="Constant"
     data-caption="facture">
@@ -706,7 +765,7 @@
     data-destination="-"
     data-city="Brussels"
     data-countryname="Belgium"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-language="FR"
     data-objectname="Notes"
     data-source="Constant"
@@ -720,7 +779,7 @@
     data-datetime="2009:11:20"
     data-destination="Michael"
     data-language="EN"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-objectname="Formulaire"
     data-source="Constant"
     data-caption="per">
@@ -814,7 +873,7 @@
     data-destination="-"
     data-city="Brussels"
     data-countryname="Belgium"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-language="FR"
     data-objectname="Liste"
     data-source="Constant"
@@ -852,7 +911,7 @@
     data-datetime="2009:11:04"
     data-destination="Constant"
     data-language="NL"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-objectname="Facture"
     data-source="Vlaamse"
     data-caption="location">
@@ -982,7 +1041,7 @@
     data-datetime="2009:11:26"
     data-destination="Constant"
     data-language="FR"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-objectname="Ticket"
     data-source="Dynaprints"
     data-caption="copies">
@@ -1047,7 +1106,7 @@
     data-datetime="2009:09:02"
     data-destination="Constant"
     data-language="NL"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-objectname="Facture"
     data-source="Vlaamse"
     data-caption="location">
@@ -1096,7 +1155,7 @@
     data-destination="-"
     data-city="Brussels"
     data-countryname="Belgium"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-language="FR"
     data-objectname="Notes"
     data-source="Constant"
@@ -1159,7 +1218,7 @@
     data-destination="-"
     data-city="Brussels"
     data-countryname="Belgium"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-language="FR"
     data-objectname="Schéma"
     data-source="Constant"
@@ -1400,7 +1459,7 @@
     data-datetime="2009:11:26"
     data-destination="Constant"
     data-language="FR"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-objectname="Ticket"
     data-source="Delhaize"
     data-caption="achat">
@@ -1635,7 +1694,7 @@
     data-destination="-"
     data-city="Brussels"
     data-countryname="Belgium"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-language="FR"
     data-objectname="Schéma"
     data-source="Constant"
@@ -1740,7 +1799,7 @@
     data-datetime="2009:11:28"
     data-destination="Constant"
     data-language="FR"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-objectname="Ticket"
     data-source="Prima-Hemmat"
     data-caption="catering">
@@ -1842,7 +1901,7 @@
     data-datetime="2009:08:11"
     data-destination="Constant"
     data-language="NL"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-objectname="Facture"
     data-source="Vlaamse"
     data-caption="location">
@@ -1907,7 +1966,7 @@
     data-datetime="2009:11:28"
     data-destination="Michael"
     data-language="FR"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-objectname="Ticket"
     data-source="Eurostar"
     data-caption="ticket">
@@ -1959,7 +2018,7 @@
     data-datetime="2009:11:29"
     data-destination="Michael"
     data-language="EN"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-objectname="Formulaire"
     data-source="Constant"
     data-caption="honoraire">
@@ -1985,7 +2044,7 @@
     data-datetime="2009:11:27"
     data-destination="Constant"
     data-language="FR"
-    data-keywords="MM"
+    data-keywords="Michael Moss"
     data-objectname="Ticket"
     data-source="Gécé"
     data-caption="achat">

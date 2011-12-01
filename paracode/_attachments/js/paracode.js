@@ -73,7 +73,7 @@ $(document).ready(function() {
     }
 
     function getLinks (id) {
-        db.view('vj12/foo?startkey=["' + id + '"]&endkey=["' + id + '", {}]', {  
+        db.view('paracode/foo?startkey=["' + id + '"]&endkey=["' + id + '", {}]', {  
             success: function(data) {  
                 // appends links/comments if any
                 if (data.rows.length !== 0) {
@@ -216,7 +216,7 @@ $(document).ready(function() {
             {
             success: function() { 
                 // Updates the color on the commented elements
-                db.view('vj12/bar?group=true&startkey="' + ids[0] + '"&endkey="' + ids[(ids.length - 1)] + '"', {  
+                db.view('paracode/bar?group=true&startkey="' + ids[0] + '"&endkey="' + ids[(ids.length - 1)] + '"', {  
                     success: function(data) {  
                         for (i in data.rows) {
                             var key = data.rows[i].key;
@@ -235,7 +235,7 @@ $(document).ready(function() {
     });
 
     // puts the color on all the elements 
-    db.view('vj12/bar?group=true', {  
+    db.view('paracode/bar?group=true', {  
         success: function(data) {  
             // Sets tint
             for (i in data.rows) {
@@ -246,7 +246,7 @@ $(document).ready(function() {
             }
         }
     });  
-    db.view('vj12/count_links?group=true', {  
+    db.view('paracode/count_links?group=true', {  
         success: function(data) {  
             $("p#comment_count span").html(data.rows.length);
         }

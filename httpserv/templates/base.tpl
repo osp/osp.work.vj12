@@ -2,7 +2,7 @@
 <html lang="en"> 
 <head> 
 <meta charset=utf-8>
-<title>VJ 12 | {{title}}</title>
+<title>V/J12 - {{title}}</title>
 <!--[if IE]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
