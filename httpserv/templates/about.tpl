@@ -1,10 +1,39 @@
 %def extrahead():
-
+    <style type="text/css" media="screen">
+        div#container {
+            width: 100%;
+        }
+        div#intro {
+            padding: 1em;
+            background-color: white;
+            float: left;
+            width: 30em;
+            margin-right: 1em;
+margin-top: 1em;
+        }
+        div#experiments {
+            padding: 1em;
+            background-color: white;
+            float: left;
+            width: 30em;
+            margin-right: 1em;
+margin-top: 1em;
+        }
+        div#colophon {
+            width: 30em;
+            float: left;
+            padding: 1em;
+            background-color: white;
+            float: left;
+        }
+    </style>
 %end
 
 
 %rebase templates/compact background=background, extrahead=extrahead, title='By data we mean, a publication', oneliner='Intentions behind this set of prototypes and experiments.'
 
+
+<div id="container">
 <div id="intro">
     <h1 id="by-data-we-mean-a-publication">By data we mean, a publication</h1>
     <h2 id="the-facts">The facts</h2>
@@ -88,12 +117,13 @@
 <div id="colophon">
     <h2>Colophon</h2>
     <p>
-    Editorial work and experiments: Nicolas Malevé, Donatella Portoghese, <a href="http://osp.constantvzw.org/">OSP</a> (Alexandre Leray, Stéphanie Vilayphiou, Gijs de Heij)
+    <h3>Editorial work and experiments</h3> Nicolas Malevé, Donatella Portoghese, <a href="http://osp.constantvzw.org/">OSP</a> (Alexandre Leray, Stéphanie&nbsp;Vilayphiou, Gijs de Heij)
     </p>
     <p>
-    Visual identity of V/J12: <a href="http://osp.constantvzw.org/" target="_blank">OSP</a> (Ludivine Loiseau, Ivan Monroy Lopez, Pierre Marchand)
+    <h3>Visual identity of V/J12</h3> <a href="http://osp.constantvzw.org/" target="_blank">OSP</a> (Ludivine Loiseau, Ivan Monroy Lopez, Pierre Marchand)
     </p>
 </div>
 
+</div>
 
 
