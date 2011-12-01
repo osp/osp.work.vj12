@@ -8,10 +8,15 @@
     <link rel="stylesheet" href="/static/css/vj12.css" type="text/css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="/static/css/kaleidoscope.css" type="text/css" media="screen" charset="utf-8">
     <style type="text/css" media="screen">
+        html, body { margin: 0; padding: 0;}
         body, .text {
             width: auto;
             line-height: 1.2 !important;
             font-family: "Linux Libertine", "Liberation Serif", "Hoefler Text", Georgia, serif !important; 
+        }
+        div#text {
+            padding: 0em 2em;
+            overflow: auto;
         }
         h3,
         div + div {
@@ -42,6 +47,10 @@
     <script src="/static/js/jquery-1.6.4.min.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" charset="utf-8">
         $(document).ready(function(){
+            $('#text').height($(window).height());
+            $(window).resize (function () {
+                $('#text').height($(window).height());
+            });
             $("a").click(function(e){
                 e.preventDefault();
                 src = $(this).attr("href");
@@ -58,6 +67,7 @@
 
 <body>
  
+    <div id="text">
 <h1>Kaleidoscope, a genesis</h1>
 
 <blockquote>"The terms parent and child are specific applications of the terms 
@@ -135,8 +145,8 @@ you can copy, distribute, and modify it under the terms of the
 
 
 
-<h6><a target="_blank" href="kaleidoscope/kal.html" style="color:##8B002A;">Performance-Installation Kaleidoscope: 
-credits, games, questions, problems, reactions</a></h6>
+<h6>Performance-Installation Kaleidoscope: 
+credits, games, questions, problems, reactions</h6>
 
 <p class="text"><a href="http://www.adashboard.org/kaleidoscope">Kaleidoscope</a> was presented in La Bellone 
 on 25, 27 & 28 November 2009, each night from 18:00 till 22:00.
@@ -202,8 +212,8 @@ Verbinding/Jonctions 12. </p>
 
 
 
-<h5><a target="_blank" href="bell.html" style="color:#CD003F;">Residency in Maison de La Bellone: 
-impressive set-up, first rehearsal!</a></h5>
+<h5>Residency in Maison de La Bellone: 
+impressive set-up, first rehearsal!</h5>
 
 <p class="text">From 2-11 till 6-11 we rehearsed in Maison de la Bellone. For 
 lighting reasons we only could use the space after 5pm. For the first time we rehearsed all 
@@ -230,8 +240,8 @@ in terms of sound, space, lights, mouvement...</p>
 
 
 
-<h5><a target="_blank" href="raff.html" style="color:#CD003F;">Residency in Charleroi-Danses/La Raffinerie: 
-let's turn this into a modular game!, creation program, finalisation of the games</a></h5>
+<h5>Residency in Charleroi-Danses/La Raffinerie: 
+let's turn this into a modular game!, creation program, finalisation of the games</h5>
 
 <div class="text">
 <p>From 19-9-9 till 31-10-9 we worked in La Raffinerie. Here we felt the rush of going into production
@@ -280,9 +290,9 @@ Repause</a></span>.</p>
 
 
 
-<h5><a target="_blank" href="dpf.html" style="color:#CD003F;">Residency in De Pianofabriek: 
+<h5>Residency in De Pianofabriek: 
 introduction into each other's methodologies, collective improvisations, retreat into individual
-universes, emergencies (theft & universe)</a></h5>
+universes, emergencies (theft & universe)</h5>
 
 <div class="text">
 <p>De Pianofabriek KWP hosted us from 14-9-9 till 11-10-9 and from 17-11-9 till 22-11-9.
@@ -350,7 +360,7 @@ They also defined their own games - by then still called <span class="it">univer
 
 
 
-<h4><a target="_blank" href="brig.html" style="color:#FF007F;">Residency in Les Brigittines: it works!</a></h4>
+<h4>Residency in Les Brigittines: it works!</h4>
 
 <div class="text">
 <p>From the 23rd till the 31st January 2009 we were in residency in Les Brigittines. The overall 
@@ -367,8 +377,8 @@ this work together.
 
 
 
-<h3><a target="_blank" href="claus.html" style="color:#FF3FC8;">Residency in Ateliers Claus: 
-testing & experiencing the software</a></h3>
+<h3>Residency in Ateliers Claus: 
+testing & experiencing the software</h3>
 
 <div class="text">
 <p>The first test case was done in Ateliers Claus on 12-13-14 December 2008. Laia, Dorothe,
@@ -384,8 +394,8 @@ only archived material that has survived. It reads like poetry!</p>
 
 
 
-<h2><a target="_blank" href="okno.html" style="color:#FF3FC8;">CIAO/CU & Performance OKNO 'Karass-Suite': 
-or how we would love to not be sitting in front of a computer while performing</a></h2>
+<h2>CIAO/CU & Performance OKNO 'Karass-Suite': 
+or how we would love to not be sitting in front of a computer while performing</h2>
 
 <div class="text">
 <p>As part of the program of the <a target="_blank" 
@@ -434,9 +444,9 @@ collaborators through mail, chat and voip.</p>
 
 
 
-<h2><a target="_blank" href="apt_trans.html" style="color:#FF7FF3;">Advanced Performance Training Antwerp -
+<h2>Advanced Performance Training Antwerp -
 Workshop Transdisciplinary Improvisation: 4 members meet & decide to 
-continue working together</a></h2>
+continue working together</h2>
 
 <div class="text">
 <p>From 3 till 7 November 2008 Matthias Koole, Dorothe Depeauw, Rebecca Lenaerts
@@ -510,8 +520,8 @@ televisie, computer, live-cam ... </span></p>
 
 
 
-<h2><a target="_blank" href="apt_objscrs.html" style="color:#FF7FF3;">Advanced Performance Training Antwerp - 
-Workshop Object Score Notations: 1st version of software objscrs is developed, try-out</a></h2>
+<h2>Advanced Performance Training Antwerp - 
+Workshop Object Score Notations: 1st version of software objscrs is developed, try-out</h2>
 
 <div class="text">
 <p>For the first trimester of 2008 Constant was invited to participate to the 
@@ -551,8 +561,8 @@ the set-up after the performance.</p>
 
 
 
-<h1><a target="_blank" href="vj10.html" style="color:#FFBFFF;">VJ10: Tracks in electr(on)ic fields: Simon Yuill
-presents his lecture 'All problems of notation will be solved by the masses'</a></h1>
+<h1>VJ10: Tracks in electr(on)ic fields: Simon Yuill
+presents his lecture 'All problems of notation will be solved by the masses'</h1>
 
 <blockquote>"Whether we operate a computer with the help of a command line interface, 
 or by using buttons, switches and clicks, the exact location of interaction 
@@ -598,6 +608,6 @@ Score Notation. Hence, the name of the software.</p>
 
 
 
- 
+</div>
 </body>
-</html></style></head><body></body></html>
+</html>

@@ -58,8 +58,8 @@ def fit_the_annual_report_for_purpose():
 def macro():
     return template('templates/macro', background=pick_ascii())
 
-@route('/micro/')
-def micro():
+@route('/micromacro/')
+def micromacro():
     return template('templates/micro', background = pick_ascii())
 
 @route('/moss_ambiguity/')
@@ -107,7 +107,7 @@ def view():
     
 @route('/text/pair_list/')
 def pairList ():
-    return dumps (['Fit_for_purpose|The_man_pages', 'To_talk_of_many_things|Systemic_ambiguity', 'Kaleidscope,_a_genesis|Smatch_(1)'])
+    return dumps (['Fit_for_purpose|The_man_pages', 'To_talk_of_many_things|Systemic_ambiguity', 'Kaleidoscope,_a_genesis|Smatch_(1)'])
     
 @route('/text/list/')
 def textlist ():

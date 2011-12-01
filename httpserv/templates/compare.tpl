@@ -54,8 +54,7 @@
         }
     
         #texts {
-            width: 95%;
-            padding: 0 2em 0 1em;
+            width: 100%;
             height: 100%;
             overflow: hidden;
         }
@@ -69,14 +68,13 @@
         }
         
         #controls {
-            width: 95%;
-            padding: 0 2em 0 1em;
+            width: 100%;
             display: block;
-            text-align: right;
+            margin: 1em 0;
         }
         
         #controls select {
-            margin: 5px 0px 5px 5px;
+            margin: 0px 5px 0px 0px;
         }    
     </style>
 %end
