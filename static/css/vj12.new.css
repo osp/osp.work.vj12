@@ -93,7 +93,11 @@ a {
     color: inherit;
     text-decoration: none;
     color: #666;
-    border-bottom: 1px solid #666;
+    border-bottom: 2px solid #666;
+}
+a:hover {
+    border-bottom: 1px solid #d9d9d9; 
+    color: #d9d9d9;
 }
 
 sup {
@@ -158,6 +162,9 @@ nav[role="navigation"] dt {
 nav[role="navigation"] dt a {
     color: inherit;
     border-bottom: none;
+}
+nav[role="navigation"] dt a:hover {
+    color: #666666;
 }
 nav[role="navigation"] dd {
     margin-bottom: 1.33em;

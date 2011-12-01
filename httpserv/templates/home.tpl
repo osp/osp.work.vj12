@@ -8,7 +8,7 @@
 
 <p>Presentation of an on-line edition of texts, images and reflections that
 followed from the previous edition of <a href="http://constantvzw.org/vj12/"
-    target="_blank">Jonctions/Verbindingen&nbsp;12: By Data We Mean.</a>.</p>
+    target="_blank">Jonctions/Verbindingen&nbsp;12: By Data We Mean</a>.</p>
             
 <p>This publication collects the different texts that were produced for the
 lectures and presentation of VJ12. It also constitutes a platform for
