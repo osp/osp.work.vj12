@@ -4,20 +4,14 @@ un bouton "voir plus" pour afficher les textes plus complets de Donatella.
 # Menu
 - Steph
   - Add Nicolas' timeline
-  - Add a link to Michael Moss in Active Archives
-
-# About
-- Alex
-  - NLTK descriptions: machine comparison vs human comparison
-- Stéphanie
-  - Put back the definitive text
 
 # Macro
 - Alex
+  - enlever images haute-def en zoom
+  - enlever du drop-down métadonnées inutiles
   - Integrate emails in it
   - Filters: show/hide by type?
   - Classement par date: espacement qui représente le temps?
-  - image haute-def en zoom
   - si metadonné absente, traiter differament (eg. mettre à part ou griser)
 
 # Concordances, Similar, Collocations
@@ -28,9 +22,6 @@ un bouton "voir plus" pour afficher les textes plus complets de Donatella.
 # Paracode
 - Steph
   - finir les commentaires
-- Alex
-  - mettre en ligne
-  - proxy nginx
 
 # KaleidoSmatch
 - Steph

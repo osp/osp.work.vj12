@@ -58,8 +58,8 @@ def fit_the_annual_report_for_purpose():
 def macro():
     return template('templates/macro', background=pick_ascii())
 
-@route('/micro/')
-def micro():
+@route('/micromacro/')
+def micromacro():
     return template('templates/micro', background = pick_ascii())
 
 @route('/moss_ambiguity/')

@@ -9,7 +9,7 @@
 </dl>
 
 <dl>
-    <dt><a href="/micro/">Micro</a></dt>
+    <dt><a href="/micromacro/">Micro/Macro</a></dt>
     <dd>The grey literature necessary to produce the text «&#x202F;To Talk of Many Things&#x202F;».</dd>
 </dl>
 
