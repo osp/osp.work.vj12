@@ -1,7 +1,8 @@
 $(document).ready(function(){
     $("#toc").toggle(function(){
-        $("#sub-header").show();
+        console.log('ok');
+        $('nav[role="navigation"]').show();
     }, function(){
-        $("#sub-header").hide();
+        $('nav[role="navigation"]').hide();
     });
 });

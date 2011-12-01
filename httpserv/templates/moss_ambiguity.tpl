@@ -1,41 +1,51 @@
 %def extrahead():
     <style>
-    div#container {
+    article {
         width: 40em;
-        margin: 2em;
+        margin-top: 2em;
+        padding: 1em;
         font-size: 16px;
         background-color: white;
     }
-    .moss {
+
+    article h1 {
+        font-size: 5em;
+        line-height: 1.1;
+    }
+    blockquote {
+        display: block;
+        margin: 2.666em;
+    }
+    article .moss {
         font-family: "Linux Libertine", Liberation Serif, Serif;
         background-color: white;
     }
-    .ambiguity {
+    article .ambiguity {
         font-family: Liberation Sans, Sans Serif;
         background-color: white;
     }
-    .insertion {
+    article .insertion {
         font-family: "NotCourierSans", Liberation Mono, Courier, Monospace;
         margin: 2em;
         font-size: 13px;
         background-color: white;
     }
-    .note_donatella {
+    article .note_donatella {
         font-family: "NotCourierSans", Liberation Mono, Courier, Monospace;
         font-size: 11px;
         margin: 2em;
         background-color: white;
     }
-    p + p {
+    article p + p {
         margin-top: 2em;
     }
-    pre {
+    article pre {
         font-family: "NotCourierSans", Liberation Mono, Courier, Monospace;
         margin: 2em;
         font-size: 13px;
         background-color: white;
     }
-    table pre {
+    article table pre {
         font-family: Liberation Mono, Courier, Monospace;
     }
     </style>
@@ -43,7 +53,7 @@
     
 %rebase templates/compact background=background, extrahead=extrahead, title='To Talk of Many Systemic Ambiguity', oneliner='A remix by Donatella Portoghese between Michael Moss\' <a href="http://constantvzw.org/verlag/spip.php?page=article&id_article=131&mot_filtre=5&id_lang=0" target="_blank">To Talk of Many Things</a> and Andrew Goffey and Matthew&nbsp;Fuller\'s <a href="http://constantvzw.org/verlag/spip.php?page=article&id_article=130&mot_filtre=5&id_lang=0" target="_blank">Systemic Ambiguity</a>.'
 
-<div id="container">
+<article>
 <h1><span class="moss">To Talk of Many</span> <span class="ambiguity">Systemic Ambiguity</span></h1>
     <blockquote class="ambiguity">
 	“With most species of orchids, it is not the fittest 
@@ -453,4 +463,4 @@ They'd eaten every one.
 <p class="moss">
 There is no more to say – this is systemic risk to a fault and all that is left for providers to do is to provide for themselves, as the users have all fled or possibly become providers.
 </p>
-</div>
+</article>

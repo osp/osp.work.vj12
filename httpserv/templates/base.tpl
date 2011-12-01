@@ -7,7 +7,8 @@
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
-<script type="text/javascript" src="/static/js/zoomooz/lib/jquery-1.4.4.js" charset="utf-8"></script>
+<script src="/static/js/zoomooz/lib/jquery-1.4.4.js"></script>
+<script src="/static/js/vj12.js"></script>
 <link rel="stylesheet" href="/static/css/reset.css" media="screen">
 <link rel="stylesheet" href="/static/css/vj12.new.css" media="screen">
 

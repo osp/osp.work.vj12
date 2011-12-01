@@ -2,6 +2,10 @@
 /* filename 'sheet1.css' */
 /* NO html markup allowed*/
 
+body {
+    overflow: hidden;
+}
+
 body {font-family: Arial, sans-serif; width: 800px; margin: 15px; background-color: white}
 h1 {color: #FFBFFF;}
 h2 {color: #FF7FF3;}
@@ -9,7 +13,7 @@ h3 {color: #FF3FC8;}
 h4 {color: #FF007F;}
 h5 {color: #CD003F;}
 h6 {color: #8B002A;}
-h1, h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6 {
 	margin-top: 3em;
 	clear: both;
 }
