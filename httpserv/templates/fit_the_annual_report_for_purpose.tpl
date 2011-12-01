@@ -74,6 +74,7 @@
                 background-color: white;
                 height: auto;
                 line-height: 1.3;
+                margin-top: 1em;
             }
             p.didascalie {
                 font-style: italic;

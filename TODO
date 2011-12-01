@@ -1,6 +1,3 @@
-De manière générale, avoir un one liner pour chaque expérimentation et ajouter
-un bouton "voir plus" pour afficher les textes plus complets de Donatella.
-
 # Macro
   - Integrate emails in it
   - Filters: show/hide by type?
@@ -19,9 +16,6 @@ un bouton "voir plus" pour afficher les textes plus complets de Donatella.
     - by zooming in the frames;
     - or by opening them in a new window
 
-# New problems:
-## GENERAL
-- no more descriptions on the page?
 
 ## Collocations
 - doesn't work online

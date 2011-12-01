@@ -1,51 +1,7 @@
 % def extrahead():
     <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>-->
     <script src="/js" type="text/javascript" charset="utf-8"></script>
-    <script type="text/javascript" charset="utf-8">
-        $(document).ready (function () {
-            setHeight ();
-            
-            $(window).resize (function () {
-                setHeight ();
-                
-                for (var i = 0; i < window.top.frames.length; i++) {
-                    window.top.frames[i].setHeight();
-                }
-            });
-        
-            $('#toc').bind ('click', function () { setHeight(); } );
-        
-            $.get ('/text/pair_list/', function (data, status) {
-                if (status == 'success') {
-                    var files = $.parseJSON (data);
-                    $('#file_list').empty ();
-                    $('#file_list').append ('<option value="null" selected="selected">Select a text...</option>');
-                    for (var i = 0; i < files.length; i++) {        
-                        $('#file_list').append ('<option value="' + files[i] + '">' + files[i].replace('|', ' & ').replace (/[-_]/g, ' ') + '</option>');
-                    }
-                    
-                    $('#file_list').change (function () {
-                        if ($(this).val() != 'null') {
-                            var texts = $(this).val().split ('|');
-                            
-                            for (var i = 0; i < texts.length; i++) {
-                                window.top.frames[i].getText (texts[i].replace (/[^a-zA-Z0-9_\(\),\.-]/g, ''));   
-                            }
-                        }
-                    });
-                }
-            })
-            
-            $('#filter_list').change (function () {
-                for (var i = 0; i < window.top.frames.length; i++) {
-                    window.top.frames[i].setFilter();
-                    window.top.frames[i].hideContext(true);
-                }
-            });
-        });
-        
-        function setHeight () { $('#texts, .text').height ($(window).height() - $('#texts').offset().top); }
-    </script>
+ 
     <!--<link rel="stylesheet" href="http://meyerweb.com/eric/tools/css/reset/reset.css" type="text/css" media="screen" charset="utf-8">-->
     <style>
     
@@ -80,18 +36,59 @@
         display: inline;
         text-transform: uppercase;
         font-family: notcouriersans, courier, monospace;
+        color: Coral;
     }
     </style>
 %end
 
-%rebase templates/compact extrahead=extrahead, background=background, title='Natural Language ToolKit', oneliner='<h4>Concordances</h4> View in what context a word appears in a text. <br /><h4>Similar Contexts</h4> Finding words sharing the same context in a text. <br /><h4>Collocations</h4> Finding couples in a text.'
+%rebase templates/compact extrahead=extrahead, background=background, title='Natural Language ToolKit Experiments', oneliner='<h4>Concordances</h4> View in what context a word appears in a text. <h4>Similar Contexts</h4> Finding words sharing the same context in a text. <h4>Collocations</h4> Finding couples in a text. By Nicolas Malevé, Gijs de Heij and Alexandre Leray.'
 
 <div id="controls">
-    <select id="file_list">Loading texts...</select>
+<select id="file_list"><option selected="selected" value="Fit_for_purpose|The_man_pages">Fit for purpose &amp; The man pages</option><option value="To_talk_of_many_things|Systemic_ambiguity">To talk of many things &amp; Systemic ambiguity</option><option value="Kaleidoscope,_a_genesis|Smatch_(1)">Kaleidoscope, a genesis &amp; Smatch (1)</option></select>
     <select id="filter_list"><option value="concordance" selected="selected">Concordance</option><option value="context">Similar context</option><option value="collocations">Collocations</option></select>
 </div>
 <div id="texts">
     <iframe src="/view/" class="text"></iframe>
     <iframe src="/view/" class="text"></iframe>
 </div>
+   <script type="text/javascript" charset="utf-8">
+        $(document).ready (function () {
+            setHeight ();
+            
+            $(window).resize (function () {
+                setHeight ();
+                
+                for (var i = 0; i < window.top.frames.length; i++) {
+                    window.top.frames[i].setHeight();
+                }
+            });
+        
+            $('#toc').bind ('click', function () { setHeight(); } );
+ 
+	    $('#file_list').change (function () {
+		loadText ();
+	    });
+            
+            $('#filter_list').change (function () {
+                for (var i = 0; i < window.top.frames.length; i++) {
+                    window.top.frames[i].setFilter();
+                    window.top.frames[i].hideContext(true);
+                }
+            });
+
+            function loadText () {
+                if ($('#file_list').val() != 'null') {
+                    var texts = $('#file_list').val().split ('|');
+                    
+                    for (var i = 0; i < texts.length; i++) {
+                        window.top.frames[i].getText (texts[i].replace (/[^a-zA-Z0-9_\(\),\.-]/g, ''));   
+                    }
+                }
+            }
+
+            window.setTimeout(function(){loadText();}, 2500);
+        });
+        
+        function setHeight () { $('#texts, .text').height ($(window).height() - $('#texts').offset().top); }
+    </script>
         
