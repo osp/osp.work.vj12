@@ -7,12 +7,9 @@ un bouton "voir plus" pour afficher les textes plus complets de Donatella.
 
 # Macro
 - Alex
-  - enlever images haute-def en zoom
-  - enlever du drop-down métadonnées inutiles
   - Integrate emails in it
   - Filters: show/hide by type?
   - Classement par date: espacement qui représente le temps?
-  - si metadonné absente, traiter differament (eg. mettre à part ou griser)
 
 # Concordances, Similar, Collocations
 - put NLTK graphs in the webpage
