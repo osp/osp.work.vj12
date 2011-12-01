@@ -29,18 +29,8 @@
 </dl>
 
 <dl>
-    <dt><a href="/compare/">Concordances</a></dt>
-    <dd>View in what context a word appears in a text.</dd>
-</dl>
-
-<dl>
-    <dt><a href="#">Similar Contexts</a></dt>
-    <dd>Finding words sharing the same context in a text.</dd>
-</dl>
-
-<dl>
-    <dt><a href="#">Collocations</a></dt>
-    <dd>Finding couples in a text.</dd>
+    <dt><a href="/compare/">Natural Language ToolKit Experiments</a></dt>
+    <dd>Experimenting with computed data analysis of texts.</dd>
 </dl>
 
 <dl>

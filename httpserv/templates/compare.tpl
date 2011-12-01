@@ -76,10 +76,15 @@
         #controls select {
             margin: 0px 5px 0px 0px;
         }    
+    h4 {
+        display: inline;
+        text-transform: uppercase;
+        font-family: notcouriersans, courier, monospace;
+    }
     </style>
 %end
 
-%rebase templates/compact extrahead=extrahead, background=background, title='NLTK', oneliner='NLTK'
+%rebase templates/compact extrahead=extrahead, background=background, title='Natural Language ToolKit', oneliner='<h4>Concordances</h4> View in what context a word appears in a text. <br /><h4>Similar Contexts</h4> Finding words sharing the same context in a text. <br /><h4>Collocations</h4> Finding couples in a text.'
 
 <div id="controls">
     <select id="file_list">Loading texts...</select>
