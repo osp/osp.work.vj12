@@ -18,7 +18,7 @@
 %end
 
 
-%rebase templates/compact extrahead=extrahead, title='Macro', oneliner='Description to come', background=background
+%rebase templates/compact extrahead=extrahead, title='Macro', oneliner='(Almost) all the grey literature produced by the festival V/J12.', background=background
 
 
 <div style="width: 100%; text-align: center; position: fixed; bottom: 1em;">
@@ -27,7 +27,7 @@
 
 <div id="outer">
 
-<nav>
+<nav id='axis'>
     <div id="axisX">
         <label for="sort_by">Sort by</label>
         <select name="sort_by">
@@ -53,6 +53,7 @@
             <!-- <option value="data-xresolution">data-xresolution</option> -->
             <option value="data-usercomment">data-usercomment</option>
         </select>
+        (X axis)
     </div>
     <div id="axisY">
         <label for="spread_by">Spread by</label>
@@ -79,6 +80,7 @@
             <!-- <option value="data-xresolution">data-xresolution</option> -->
             <option value="data-usercomment">data-usercomment</option>
         </select>
+        (Y axis)
     </div>
 </nav>
 

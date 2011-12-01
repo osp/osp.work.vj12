@@ -114,27 +114,30 @@ div#outer img:hover {
 }
 div#outer nav {
     position: fixed;
-    bottom: -22px;
     left: 5px;
     z-index: 1000;
 }
 div#outer a, div#outer img {
     border: 0px solid black;
 }
+nav#axis {
+    font-family: notcouriersans, courier, monospace;
+    position: fixed;
+    bottom: 1em;
+    left: 0;
+}
+div#axisX, div#axisY {
+    display: block;
+    background-color: white;
+    padding: 2px 8px;
+}   
 div#axisX {
     /*margin-left: 24px;*/
     /*background-color: white;*/
     /*padding: 5px;*/
-position: fixed;
-bottom: 0;
-left:0;
-float: left;
 }
 div#axisY {
-bottom: 0;
-right:0;
-position: fixed;
-float: left;
+    margin-top: 0.5em;
     /*-moz-transform: rotate(-90deg);*/
     /*background-color: white;*/
     /*padding: 5px;*/
