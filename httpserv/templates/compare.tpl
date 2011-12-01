@@ -80,11 +80,12 @@
         display: inline;
         text-transform: uppercase;
         font-family: notcouriersans, courier, monospace;
+        color: Coral;
     }
     </style>
 %end
 
-%rebase templates/compact extrahead=extrahead, background=background, title='Natural Language ToolKit', oneliner='<h4>Concordances</h4> View in what context a word appears in a text. <br /><h4>Similar Contexts</h4> Finding words sharing the same context in a text. <br /><h4>Collocations</h4> Finding couples in a text.'
+%rebase templates/compact extrahead=extrahead, background=background, title='Natural Language ToolKit Experiments', oneliner='<h4>Concordances</h4> View in what context a word appears in a text. <h4>Similar Contexts</h4> Finding words sharing the same context in a text. <h4>Collocations</h4> Finding couples in a text. By Nicolas Malevé, Gijs de Heij and Alexandre Leray.'
 
 <div id="controls">
     <select id="file_list">Loading texts...</select>

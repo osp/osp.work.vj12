@@ -129,10 +129,12 @@ h1 {
     font-size: 5em;
     line-height: 1em;
 }
+h2 {
+    margin-top: 1em;
+}
 h2, h3 {
     font-family: notcouriersans, courier, monospace;
     font-size: 1.4em;
-    margin-top: 1em;
     text-transform: uppercase;
 }
 

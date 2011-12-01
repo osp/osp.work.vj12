@@ -26,6 +26,9 @@ margin-top: 1em;
             background-color: white;
             float: left;
         }
+        div#container h3 {
+            margin-top: 1em;
+        }
     </style>
 %end
 
